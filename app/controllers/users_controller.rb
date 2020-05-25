@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
+
+  after_action :verify_authorized
+
   def show
-    @user = current_user
-    @authorize user
+    @user = authorize User.find(params[:id])
   end
 
   def edit
-    @user = current_user
-    authorize @user
+    @user = authorize current_user
   end
 
   def update
