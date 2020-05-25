@@ -4,4 +4,5 @@ class Shop < ApplicationRecord
   has_many :events
   has_many :categories, through: :tags
   validates :name, :address, presence: true
+  has_one_attached :photo
 end
