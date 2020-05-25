@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts 'Delete every data'
+User.destroy_all
+Shop.destroy_all
+
+puts 'Creating data'
+
+User.create(
+  first_name: 'bob',
+  last_name: 'marley')
+
+Shop.create(
+  address: '85 rue de la croix nivert, paris',
+  user_id: 1)
+
+puts 'Created'
