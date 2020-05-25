@@ -5,16 +5,11 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def initialize(current_user, model)
-    @current_user = current_user
-    @user = model
-  end
-
   def show?
-    @current_user == @user
+    record == user
   end
 
   def update?
-    record == @user
+    record == user
   end
 end
