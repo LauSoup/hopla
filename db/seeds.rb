@@ -86,9 +86,9 @@ puts "✨✨ Categories created !! ✨✨"
 
   street_nb = random_user["results"][0]["location"]["street"]["number"]
   street = random_user["results"][0]["location"]["street"]["name"]
-  cp = random_user["results"][0]["location"]["postcode"]
+  # cp = random_user["results"][0]["location"]["postcode"]
   city = random_user["results"][0]["location"]["city"]
-  address = "#{street_nb} #{street} #{cp} #{city}"
+  address = "#{street_nb} #{street}, #{city}"
 
   # Finish shop creation
 
@@ -123,24 +123,65 @@ puts "✨✨ Categories created !! ✨✨"
 
   # Add events to the shop
 
-  # puts "Creating 1, 2 or 3 events for this shop 📅"
+  puts "Creating 1, 2 or 3 events for this shop 📅"
   
-  # i = (1..3).to_a.sample
+  i = (1..3).to_a.sample
 
-  # i.times do
-  #   title =
-  #   description = 
-  #   beg_date =
-  #   category = Category.random
-  #   tag = Tag.new
-  #   tag.category_id = category.id
-  #   tag.shop_id = shop.id
-  #   tag.save!
-  # end
+  i.times do
+    title = ["10% de réduction sur tout !", "Vernissage exceptionnel 🎇", "Un thé offert pour toute visite 🍵", "Nouvelle collection dans les rayons", "Réductions jusqu'à 30% pour fin de collection!"].sample
+    description = ["On vous attend nombreux!", "N'oubliez pas votre tot-bag pour limiter les sacs jetables 😉 "].sample
+    beg_date = Faker::Date.between(from: 2.days.ago, to: Date.today)
+    end_date = Faker::Date.between(from: Date.today, to: 20.days.from_now)
+    category = ["Evènement", "Promotion"].sample  
+    active = [true, false].sample
+    event = Event.new(
+      title: title,
+      description: description,
+      beg_date: beg_date,
+      end_date: end_date,
+      category: category,
+      active: active
+    )
+    event.shop_id = shop.id
+    event.save!
+  end
 
-  # puts "#{i} event(s) added 📆"
+  puts "#{i} event(s) added 📆"
 
+  # Create users without shops
 
+  5.times do
+    puts "Creating user without shop 🙋"
+    first_name = Faker::Name.first_name
+    last_name = "No_shop"
+    
+    email = "#{first_name}.#{last_name}@hoplette.com"
+    password = "hoplette"
+    user = User.new(
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      password: password
+    )
+    user.save!
+    p user
+    puts "User #{user.first_name} #{user.last_name} created ! 🙌"
+  end
+
+ # Create random favories on random users
+
+  puts "Putting 20 events as favorites for random users"
+
+  20.times do
+    user = User.random
+    event = Event.random
+    favorite_event = FavoriteEvent.new
+    favorite_event.user_id = user.id
+    favorite_event.event_id = event.id
+    favorite_event.save!
+  end
+
+  puts "Finishing creation of 20 events as favorites 🎆"
 
 end
 # User
@@ -148,4 +189,3 @@ end
 # Shop
 # Event
 # Favories
-
