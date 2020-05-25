@@ -27,6 +27,8 @@ gem 'pundit'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'geocoder'
+gem 'mapbox-gl-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -63,3 +65,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'

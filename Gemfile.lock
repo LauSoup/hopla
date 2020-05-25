@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: f957308276981bb8125e50622f565a7a9e1b4cab
+  branch: master
+  specs:
+    faker (2.11.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -93,6 +101,7 @@ GEM
     ffi (1.12.2)
     font-awesome-sass (5.12.0)
       sassc (>= 1.11)
+    geocoder (1.6.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.2)
@@ -107,6 +116,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mapbox-gl-rails (1.9.1)
+      railties (>= 3.2)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
@@ -241,9 +252,12 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   dotenv-rails
+  faker!
   font-awesome-sass
+  geocoder
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  mapbox-gl-rails
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails
