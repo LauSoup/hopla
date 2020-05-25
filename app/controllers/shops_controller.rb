@@ -1,7 +1,8 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:show]
+  before_action :set_shop, only: [:show, :edit]
 
   def show
+    authorize @shop
   end
 
   def new
@@ -15,7 +16,7 @@ class ShopsController < ApplicationController
     @shop.user = current_user
     authorize @shop
     if @shop.save
-      redirect_to shops_path(:id)
+      redirect_to shop_path(:id)
     else
       render 'new'
     end
@@ -29,7 +30,7 @@ class ShopsController < ApplicationController
   def update
     authorize @shop
     if @shop.update(shop_params)
-      redirect_to shops_path(current_user)
+      redirect_to shop_path(:id)
     else
       render 'edit'
     end
@@ -43,6 +44,6 @@ class ShopsController < ApplicationController
   end
 
   def set_shop
-  @shop = Shop.find(params[:id])
+   @shop = Shop.find(params[:id])
   end
 end
