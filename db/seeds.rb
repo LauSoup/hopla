@@ -14,12 +14,12 @@ require 'open-uri'
 # Destroy current data before creating new ones
 
 puts "💣Erasing all current data...💣"
-User.destroy_all
-Shop.destroy_all
-Event.destroy_all
-Category.destroy_all
 FavoriteEvent.destroy_all
+Event.destroy_all
 Tag.destroy_all
+Category.destroy_all
+Shop.destroy_all
+User.destroy_all
 
 # Create default user for the hopla team
 
@@ -165,8 +165,9 @@ puts "✨✨ Categories created !! ✨✨"
       email: email,
       password: password
     )
-    user.save!
     p user
+    user.save!
+    
     puts "User #{user.first_name} #{user.last_name} created ! 🙌"
   end
 
