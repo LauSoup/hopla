@@ -15,6 +15,4 @@ class PagesController < ApplicationController
     @user = current_user
     @shops = Shop.all.select{|shop| shop.user_id == @user.id}
   end
-
-
 end
