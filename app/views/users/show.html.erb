@@ -1,16 +1,1 @@
-<div class="container">
-  <h3>Please update your profile below 👇</h3>
-</div>
-
-
-<div class="container">
-  <%= simple_form_for(@user) do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :second_name %>
-    <%= f.input :email %>
-    <%= f.input :photo, as: :file %>
-    <br>
-    <br>
-    <%= f.submit %>
-  <% end %>
-</div>
+<h2><%= @user.name %></h2>
