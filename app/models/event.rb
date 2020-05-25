@@ -8,7 +8,7 @@ class Event < ApplicationRecord
     category == "Promotion"
   }
   validates :category, inclusion: { in: %w(Evènement Promotion) }
-  has_one_attached :photo
+  # has_one_attached :photo
   
     def self.random
     @events = Event.all

@@ -133,10 +133,12 @@ puts "✨✨ Categories created !! ✨✨"
     beg_date = Faker::Date.between(from: 2.days.ago, to: Date.today)
     end_date = Faker::Date.between(from: Date.today, to: 20.days.from_now)
     category = ["Evènement", "Promotion"].sample  
+    offer = ["10%", "2 achetés 1 offert", "Un thé offert"].sample  
     active = [true, false].sample
     event = Event.new(
       title: title,
       description: description,
+      offer: offer,
       beg_date: beg_date,
       end_date: end_date,
       category: category,
