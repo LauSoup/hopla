@@ -10,7 +10,11 @@ class ShopPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user=user
+    return record.user == user
+  end
+
+  def show?
+    return true
   end
 
 end
