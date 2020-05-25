@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @authorize user
-    # For now @user.hens but should become @user.hens.select{|hen| hen.availability == true}
   end
 
   def edit
