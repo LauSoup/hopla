@@ -14,10 +14,14 @@ puts 'Creating data'
 
 User.create(
   first_name: 'bob',
-  last_name: 'marley')
+  last_name: 'marley',
+  email: 'bob@marley.com',
+  password: 'password')
 
 Shop.create(
   address: '85 rue de la croix nivert, paris',
+  description: 'coucou les amis',
+  name: 'chez gerald',
   user_id: 1)
 
 puts 'Created'
