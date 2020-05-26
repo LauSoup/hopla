@@ -1,0 +1,12 @@
+<%= simple_form_for [shop, event] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :beg_date %>
+    <%= f.input :end_date %>
+    <%= f.input :category, collection: Event::CATEGORIES %>
+    <%= f.input :offer %>
+    <%= f.input :active %>
+    <br>
+    <br>
+    <%= f.submit %>
+<% end %>
