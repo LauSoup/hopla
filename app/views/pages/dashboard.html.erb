@@ -41,7 +41,29 @@
     <div class="tab-pane" id="his-events">
       <ul>
         <% @events.each do |event| %>
-        <li><%= event.shop.name %> - <%= event.title %>: <%= event.description %> - <%= link_to "Modifier événement", edit_shop_event_path(event.id, event.shop_id)  %></li>
+        <div class="event-card">
+    <div class="event-image">
+      <img src="https://source.unsplash.com/featured/?product" alt="">
+      <p class="offer-tag"><%= event.offer %></p>
+    </div>
+    <div class="event-detail">
+      <div class="block-top">
+        <h4> <%= event.title %> </h4>
+        <p> Du <%= event.beg_date.strftime("%d/%m/%Y") %> au <%= event.end_date.strftime("%d/%m/%Y") %></p>
+      </div>
+      <p> <%= event.description %></p>
+      <div class="block-bottom">
+        <div class="block-icon">
+          <a><i class="far fa-heart" style="color: white;"></i></a>
+          <a><i class="fas fa-share-alt" style="color: white;"></i></a>
+          <a><i class="fas fa-pen" style="color: white;"></i></a>
+        </div>
+        <div class="block-button">
+          <%= link_to "QR Code" %>
+        </div>
+      </div>
+    </div>
+  </div>
         <% end %>
       </ul>
 
