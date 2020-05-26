@@ -19,7 +19,7 @@
       <h3>My shops:</h3>
       <ul>
         <% @shops.each do |shop| %>
-        <li><%= shop.name %> situated in <%= shop.address %></li>
+        <li><%= shop.name %> situated in <%= shop.address %> - <%= link_to "New event", "#" %></li>
         <% end %>
       </ul>
       <%= link_to "new shop", new_shop_path %>
