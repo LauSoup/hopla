@@ -6,13 +6,13 @@
 
 .shop-card img {
   height: 150px;
-  width: max-content;
+  width: 100%;
   object-fit: cover;
   border-radius: 10px;
 
 }
 
-.shop-card .shop-detail h1 {
+.shop-card .shop-detail h3 {
   color: white;
   font-style: bold;
   text-align: left;
@@ -32,4 +32,8 @@
   background-color: #326273;
   width: 96px;
   margin: 10px 10px;
+}
+
+.shop-card {
+  margin-right: 10px;
 }
