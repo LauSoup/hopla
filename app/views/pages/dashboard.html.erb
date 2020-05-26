@@ -19,7 +19,6 @@
 
     <!-- SHOPS TAB -->
     <div class="tab-pane active" id="his-shops">
-      <h3><%= tab_shop %>:</h3>
       <% @shops.each do |shop| %>
 
       <%= link_to shop_path(shop) do %>
@@ -43,7 +42,6 @@
     <!-- EVENTS TAB -->
 
     <div class="tab-pane" id="his-events">
-      <h3><%= tab_event %></h3>
       <ul>
         <% @events.each do |event| %>
         <li><%= event.shop.name %> - <%= event.title %>: <%= event.description %> - <%= link_to "Modifier événement", edit_shop_event_path(event.id, event.shop_id)  %></li>

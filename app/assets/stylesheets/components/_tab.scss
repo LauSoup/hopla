@@ -1,0 +1,16 @@
+.nav-tabs{
+  background-color:$light-gray;
+  width:100%;
+}
+
+.tab-content{
+  background-color:$light-gray;
+  padding:5px
+}
+
+.nav-tabs > li > a{
+  border: medium none;
+  font-weight: medium;
+  font-size:24px;
+  color: $bluemedium;
+}
