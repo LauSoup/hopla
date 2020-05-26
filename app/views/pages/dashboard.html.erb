@@ -29,6 +29,11 @@
 
     <div class="tab-pane" id="his-events">
       <h3>My events:</h3>
+      <ul>
+        <% @events.each do |event| %>
+        <li><%= event.title %>: <%= event.description %> - <%= link_to "Edit event", "#" %></li>
+        <% end %>
+      </ul>
 
     </div>
   </div>

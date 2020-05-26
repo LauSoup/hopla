@@ -14,6 +14,6 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     @shops = Shop.all.select{|shop| shop.user_id == @user.id}
-    @events = Event.all.select{ |event| event.shop.user_id == @user.id }
+    @events = Event.all.select{ |event| @shops.include?(event.shop) }
   end
 end
