@@ -11,13 +11,28 @@
 <h3>Evènements prévus:</h3>
 <br>
 <% @events.each do |event| %>
-  <h4> <%= event.title %> </h4>
-  <p> Description: <%= event.description %> </p>
-  <p> Category: <%= event.category %> </p>
-  <p> Actif: <%= event.active %> </p>
-  <p> Offre: <%= event.offer %> </p>
-  <p> Dates : <%= event.beg_date %> - <%= event.end_date %> </p>
-  <br>
-  <%= link_to  "Modifier cet évenement",  edit_shop_event_path(@shop, event) %>
+  <div class="event-card">
+    <div class="event-image">
+      <img src="https://source.unsplash.com/featured/?product" alt="">
+      <p class="offer-tag"><%= event.offer %></p>
+    </div>
+    <div class="event-detail">
+      <div class="block-top">
+        <h4> <%= event.title %> </h4>
+        <p> Du <%= event.beg_date.strftime("%d/%m/%Y") %> au <%= event.end_date.strftime("%d/%m/%Y") %></p>
+      </div>
+      <p> <%= event.description %></p>
+      <div class="block-bottom">
+        <div class="block-icon">
+          <a><i class="far fa-heart" style="color: white;"></i></a>
+          <a><i class="fas fa-share-alt" style="color: white;"></i></a>
+          <a><i class="fas fa-pen" style="color: white;"></i></a>
+        </div>
+        <div class="block-button">
+          <%= link_to "QR Code" %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
 
