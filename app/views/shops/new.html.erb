@@ -1,9 +1,9 @@
 
-<div class="container", style="margin-top:30px">
-  <h3>Please create your hen below 👇</h3>
+<div class="container text-center", style="margin-top:30px">
+  <h3>What shop do you want to create today <%= @user.first_name %> ?</h3>
 </div>
 
 
 <div class="container", style="width:400px">
-  <%= render 'form', hen: @hen, user: @user %>
+  <%= render 'form', shop: @shop %>
 </div>
