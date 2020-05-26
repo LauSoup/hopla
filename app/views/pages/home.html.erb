@@ -3,12 +3,10 @@
     <h1>Evènements et bons plans du moment 👇 </h1>
     <a href="#map", class= "btn btn-warning">Hop on y va!</a>
   </div>
-
-
+</div>
 
   <div id="map"
        style="width: 100%; height: 600px;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
