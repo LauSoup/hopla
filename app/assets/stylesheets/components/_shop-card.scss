@@ -1,0 +1,39 @@
+
+.shop-detail {
+  background-color: $orange;
+  width: auto;
+}
+
+.shop-card img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+
+}
+
+.shop-card .shop-detail h3 {
+  color: white;
+  font-style: bold;
+  text-align: left;
+  padding-left: 10px;
+  margin-bottom: 3px;
+  margin-top: 0px;
+}
+
+.shop-card .shop-detail p {
+  color: white;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.shop-card .category-card {
+  border-radius: 8px;
+  background-color: #326273;
+  width: 96px;
+  margin: 10px 10px;
+}
+
+.shop-card {
+  margin-right: 10px;
+}
