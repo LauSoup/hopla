@@ -8,16 +8,15 @@ class PagesController < ApplicationController
         OR shops.description ILIKE :query \ 
         OR shops.address ILIKE :query \
       "
-      
       shops = Shop.where(sql_query, query: "%#{params[:query]}%" )
       @shops = shops.geocoded
     else  
-      @shops = Shop.geocoded
+      @shops = Shop.all.geocoded
     end
     @markers = @shops.map do |shop|
       {
         lat: shop.latitude,
-        lng: shop.longitude
+        lng: shop.longitude,
       }
     end
   end
