@@ -2,13 +2,16 @@
   <h2>Bonjour <%= @user.first_name %> <%= @user.last_name %>!</h2>
   <%= link_to "Profil", user_path(@user) %>
 
+  <% @shops.size > 1 ? tab_shop = "Mes enseignes" : tab_shop = "Mon enseigne" %>
+  <% @events.size > 1 ? tab_event = "Mes offres" : tab_event = "Mon offre" %>
+
 
   <ul class="nav nav-tabs justify-content-center">
     <li class="nav-item">
-      <a class="nav-link active" href="#his-shops" data-toggle="tab" style="text-decoration: none;" id="title-black">Mes enseignes</a>
+      <a class="nav-link active" href="#his-shops" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_shop %></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#his-events" data-toggle="tab" style="text-decoration: none;" id="title-black">Mes offres</a>
+      <a class="nav-link" href="#his-events" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_event %></a>
     </li>
   </ul>
 
@@ -16,7 +19,7 @@
 
     <!-- SHOPS TAB -->
     <div class="tab-pane active" id="his-shops">
-      <h3>Mes enseignes:</h3>
+      <h3><%= tab_shop %>:</h3>
       <% @shops.each do |shop| %>
 
       <%= link_to shop_path(shop) do %>
@@ -40,7 +43,7 @@
     <!-- EVENTS TAB -->
 
     <div class="tab-pane" id="his-events">
-      <h3>Mes offres:</h3>
+      <h3><%= tab_event %></h3>
       <ul>
         <% @events.each do |event| %>
         <li><%= event.shop.name %> - <%= event.title %>: <%= event.description %> - <%= link_to "Modifier événement", edit_shop_event_path(event.id, event.shop_id)  %></li>
