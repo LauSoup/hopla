@@ -1,2 +1,12 @@
-<h2><%= @user.first_name %></h2>
-<h2><%= @user.last_name %></h2>
+<div class="container">
+  <h2>First name: <%= @user.first_name %></h2>
+  <h2>Last name: <%= @user.last_name %></h2>
+  <%= link_to "dashboard", dashboard_path %>
+  <%= link_to "new shop", new_shop_path %>
+  <h3>My shops:</h3>
+  <ul>
+    <% @shops.each do |shop| %>
+    <li><%= shop.name %> situated in <%= shop.address %></li>
+    <% end %>
+  </ul>
+</div>
