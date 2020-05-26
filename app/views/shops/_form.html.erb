@@ -1,9 +1,9 @@
 <%= simple_form_for (shop) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :description %>
-    <%= f.input :active %>
+    <%= f.input :name, label: "Nom" %>
+    <%= f.input :address, label: "Addresse" %>
+    <%= f.input :description, label: "Description" %>
+    <%= f.input :active, label: "Disponible?" %>
     <br>
     <br>
-    <%= f.submit %>
+    <%= f.submit "Valider" %>
 <% end %>
