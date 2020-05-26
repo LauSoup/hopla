@@ -18,21 +18,17 @@
     <!-- SHOPS TAB -->
     <div class="tab-pane active" id="his-shops">
       <% @shops.each do |shop| %>
-
-      <%= link_to shop_path(shop) do %>
-
-      <div class="shop-card">
-        <img src="https://source.unsplash.com/featured/?shop" alt="">
-        <div class="shop-detail">
-          <h3><%= shop.name %></h3>
-          <p><%= shop.address %></p>
-          <div class="category-card">
-            <p>Vêtement</p>
+        <div id="shop-card">
+          <img src="https://source.unsplash.com/featured/?shop" alt="">
+        <%= link_to shop_path(shop) do %>
+          <i class="fas fa-door-open"></i>
+        <% end %>
+          <div class="shop-detail">
+            <h3><%= shop.name %></h3>
+            <p><%= shop.address %></p>
+            <p class="category">Vêtement</p>
           </div>
         </div>
-      </div>
-
-      <% end %>
       <% end %>
       <button class="ripple"><%= link_to new_shop_path do %>
         <p><i class="far fa-plus-square"></i> Ajout Magasin</p>

@@ -5,10 +5,18 @@
   </div>
 
 
+    <%= simple_form_for :search, url:root_path, method: :get do |f| %>
+      <div class="search-form-control form-group no-margin">
+        <input class="form-control string required" type="text" name="query" id="search_query" value="<%= params[:query] %>" placeholder="Trouver une boutique!" />
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i> Rechercher
+        </button>
+      </div>
+    <% end %>
+
 
   <div id="map"
        style="width: 100%; height: 600px;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
