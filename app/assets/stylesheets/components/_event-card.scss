@@ -1,0 +1,92 @@
+.event-card {
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.2);
+}
+
+.event-card .event-image {
+  position: relative;
+}
+
+.event-card .event-image img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.event-card .event-image .offer-tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: $lightgreen;
+  color: white;
+  font-weight: bold;
+}
+
+.event-detail {
+  background-color: $lightgreen;
+  width: auto;
+}
+.event-detail .block-top {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+}
+
+.event-card .event-detail .block-top h4 {
+  color: white;
+  font-style: bold;
+  text-align: left;
+  padding-left: 10px;
+  margin-bottom: 3px;
+  margin-top: 0px;
+}
+
+.event-card .event-detail .block-top p {
+  text-align: right;
+  font-style: thin;
+  padding-right: 10px;
+  margin-bottom: 3px;
+  margin-top: 0px;
+  color: white;
+}
+
+.event-card .event-detail p {
+  color: white;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+
+.event-card .event-detail .block-bottom {
+  margin: 10px 10px;
+  display: flex;
+  justify-content: around;
+  align-items: center;
+  height: 50px;
+}
+
+.event-card .event-detail .block-bottom .block-icon {
+  display: flex;
+    a {
+      text-decoration: none;
+      color: white;
+      margin-right: 10px;
+    }
+}
+
+.event-card .event-detail .block-bottom .block-button {
+  flex-grow: 1;
+  text-align: right;
+  a {
+    text-decoration: none;
+    color: $gray;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px 0px rgba(0,0,0,0.2);
+    padding: 10px 20px;
+  }
+}
+
+
