@@ -31,7 +31,7 @@
       <h3>My events:</h3>
       <ul>
         <% @events.each do |event| %>
-        <li><%= event.title %>: <%= event.description %> - <%= link_to "Edit event", "#" %></li>
+        <li><%= event.shop.name %> - <%= event.title %>: <%= event.description %> - <%= link_to "Edit event", "#" %></li>
         <% end %>
       </ul>
 
