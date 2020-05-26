@@ -3,6 +3,13 @@
 <p>Actif :<%= @shop.active %></p>
 <p>Addresse :<%= @shop.address %></p>
 <p>Description :<%= @shop.description %></p>
+<p>Catégorie(s) : 
+  <ul>
+    <% @shop.categories.each do |category| %>
+      <li><%= category.name %> </li>
+    <% end %>
+  </ul>
+</p>
 
 <%= link_to  "Modifier ce magasin",  edit_shop_path(@shop) %>
 <br>

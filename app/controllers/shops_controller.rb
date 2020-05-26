@@ -16,10 +16,20 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user = current_user
     authorize @shop
+
     if @shop.save
       redirect_to shop_path(@shop)
     else
       render 'new'
+    end
+
+    params[:shop][:category_ids].each do |category|
+      if category != ""
+        tag = Tag.new 
+        tag.category_id = category
+        tag.shop_id = @shop.id
+        tag.save
+      end
     end
   end
 
@@ -30,6 +40,7 @@ class ShopsController < ApplicationController
 
   def update
     authorize @shop
+
     if @shop.update(shop_params)
       redirect_to shop_path(@shop)
     else
