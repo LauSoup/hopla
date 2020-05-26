@@ -55,11 +55,18 @@ puts "✨✨ Categories created !! ✨✨"
 # create 5 users with 1 shop, 1 event by shop
 
 5.times do
-  puts "Creating user 🙋"
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
+
+  # Gathering RANDOMUSER API to create users and shops
+  # Opening and parsing JSON.
+  data_url = "https://randomuser.me/api/?nat=fr"
+  random_user_json = open(data_url).read
+  random_user = JSON.parse(random_user_json)
+
+  puts "🙋 Creating user..."
+  first_name = random_user["results"][0]["name"]["first"]
+  last_name = random_user["results"][0]["name"]["first"]
   
-  email = "#{first_name}.#{last_name}@hoplette.com"
+  email = "#{first_name.downcase}.#{last_name.downcase}@hoplette.com"
   password = "hoplette"
   user = User.new(
     first_name: first_name,
@@ -67,23 +74,19 @@ puts "✨✨ Categories created !! ✨✨"
     email: email,
     password: password
   )
-  user.save!
-  p user
-  puts "User #{user.first_name}  #{user.last_name} created ! 🙌"
+  if user.valid? 
+    user.save!
+    puts "User #{user.first_name} #{user.last_name} created ! 🙌"
+  else
+    puts "User not created due to duplicate data 😢"
+  end
 
   #creating shop
-  puts "Creating shop for this user 🙋"
+  puts "🙋 Creating shop for this user..."
   active = true
   name = Faker::TvShows::Simpsons.location
 
-  # Creating addresses of shops with RANDOMUSER API.
-  # Opening and parsing JSON.
-  data_url = "https://randomuser.me/api/?nat=fr"
-  random_user_json = open(data_url).read
-  random_user = JSON.parse(random_user_json)
-
   # Gathering elements of the address and create the full address
-
   street_nb = random_user["results"][0]["location"]["street"]["number"]
   street = random_user["results"][0]["location"]["street"]["name"]
   # cp = random_user["results"][0]["location"]["postcode"]
@@ -103,11 +106,16 @@ puts "✨✨ Categories created !! ✨✨"
   shop.user_id = user.id
   shop.save!
 
-  puts "Shop #{shop.name} saved 🙌"
+  if shop.valid? 
+    shop.save!
+    puts  "Shop #{shop.name} saved 🙌"
+  else
+    puts "Shop not created due to duplicate data 😢"
+  end
 
   # Add category (tags) to the shop (created a class method random in category)
 
-  puts "Creating 1, 2 or 3 categories (tags) for this shop 🏠"
+  puts "🏠 Creating 1, 2 or 3 categories (tags) for this shop..."
   
   i = (1..3).to_a.sample
 
@@ -123,7 +131,7 @@ puts "✨✨ Categories created !! ✨✨"
 
   # Add events to the shop
 
-  puts "Creating 1, 2 or 3 events for this shop 📅"
+  puts "📅 Creating 1, 2 or 3 events for this shop... "
   
   i = (1..3).to_a.sample
 
@@ -150,45 +158,49 @@ puts "✨✨ Categories created !! ✨✨"
 
   puts "#{i} event(s) added 📆"
 
-  # Create users without shops
-
-  5.times do
-    puts "Creating user without shop 🙋"
-    first_name = Faker::Name.first_name
-    last_name = "No_shop"
-    
-    email = "#{first_name}.#{last_name}@hoplette.com"
-    password = "hoplette"
-    user = User.new(
-      first_name: first_name,
-      last_name: last_name,
-      email: email,
-      password: password
-    )
-    p user
-    user.save!
-    
-    puts "User #{user.first_name} #{user.last_name} created ! 🙌"
-  end
-
- # Create random favories on random users
-
-  puts "Putting 20 events as favorites for random users"
-
-  20.times do
-    user = User.random
-    event = Event.random
-    favorite_event = FavoriteEvent.new
-    favorite_event.user_id = user.id
-    favorite_event.event_id = event.id
-    favorite_event.save!
-  end
-
-  puts "Finishing creation of 20 events as favorites 🎆"
-
 end
-# User
-# Category 
-# Shop
-# Event
-# Favories
+
+# Create users without shops
+
+5.times do
+  puts "🙋 Creating user without shop..."
+
+  # Gathering RANDOMUSER API to create users and shops
+  # Opening and parsing JSON.
+  data_url = "https://randomuser.me/api/?nat=fr"
+  random_user_json = open(data_url).read
+  random_user = JSON.parse(random_user_json)
+
+  first_name = random_user["results"][0]["name"]["first"]
+  last_name = "No_shop"
+  email = "#{first_name.downcase}.#{last_name.downcase}@hoplette.com"
+  password = "hoplette"
+  user = User.new(
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    password: password
+  )
+
+  if user.valid? 
+    user.save!
+    puts "User #{user.first_name} #{user.last_name} created ! 🙌"
+  else
+    puts "User not created due to duplicate data 😢"
+  end
+end
+
+# Create random favories on random users
+
+puts "Putting 20 events as favorites for random users..."
+
+20.times do
+  user = User.random
+  event = Event.random
+  favorite_event = FavoriteEvent.new
+  favorite_event.user_id = user.id
+  favorite_event.event_id = event.id
+  favorite_event.save!
+end
+
+puts "Finishing creation of 20 events as favorites 🎆"
