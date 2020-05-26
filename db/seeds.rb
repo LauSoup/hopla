@@ -65,7 +65,7 @@ puts "✨✨ Categories created !! ✨✨"
   puts "🙋 Creating user..."
   first_name = random_user["results"][0]["name"]["first"]
   last_name = random_user["results"][0]["name"]["last"]
-  
+
   email = "#{first_name.downcase}.#{last_name.downcase}@hoplette.com"
   password = "hoplette"
   user = User.new(
@@ -74,7 +74,7 @@ puts "✨✨ Categories created !! ✨✨"
     email: email,
     password: password
   )
-  if user.valid? 
+  if user.valid?
     user.save!
     puts "User #{user.first_name} #{user.last_name} created ! 🙌"
   else
@@ -87,11 +87,12 @@ puts "✨✨ Categories created !! ✨✨"
   name = Faker::TvShows::Simpsons.location
 
   # Gathering elements of the address and create the full address
-  street_nb = (2..12).to_a.sample
-  street = random_user["results"][0]["location"]["street"]["name"]
-  # cp = random_user["results"][0]["location"]["postcode"]
-  city = random_user["results"][0]["location"]["city"]
-  address = "#{street_nb} #{street}, #{city}"
+  address = ["9 rue bouquière, bordeaux", "22 quai duguay trouin, rennes", "9 rue du chemin vert, paris", "6 rue pizay, lyon", "4 rue des cigognes, strasbourg", "10 rue du guesclin, marseille"].sample
+  # street_nb = (2..12).to_a.sample
+  # street = random_user["results"][0]["location"]["street"]["name"]
+  # # cp = random_user["results"][0]["location"]["postcode"]
+  # city = random_user["results"][0]["location"]["city"]
+  # address = "#{street_nb} #{street}, #{city}"
 
   # Finish shop creation
 
@@ -106,7 +107,7 @@ puts "✨✨ Categories created !! ✨✨"
   shop.user_id = user.id
   shop.save!
 
-  if shop.valid? 
+  if shop.valid?
     shop.save!
     puts  "Shop #{shop.name} saved 🙌"
   else
@@ -116,7 +117,7 @@ puts "✨✨ Categories created !! ✨✨"
   # Add category (tags) to the shop (created a class method random in category)
 
   puts "🏠 Creating 1, 2 or 3 categories (tags) for this shop..."
-  
+
   i = (1..3).to_a.sample
 
   i.times do
@@ -132,7 +133,7 @@ puts "✨✨ Categories created !! ✨✨"
   # Add events to the shop
 
   puts "📅 Creating 1, 2 or 3 events for this shop... "
-  
+
   i = (1..3).to_a.sample
 
   i.times do
@@ -140,8 +141,8 @@ puts "✨✨ Categories created !! ✨✨"
     description = ["On vous attend nombreux!", "N'oubliez pas votre tot-bag pour limiter les sacs jetables 😉 "].sample
     beg_date = Faker::Date.between(from: 2.days.ago, to: Date.today)
     end_date = Faker::Date.between(from: Date.today, to: 20.days.from_now)
-    category = ["Evènement", "Promotion"].sample  
-    offer = ["10%", "2 achetés 1 offert", "Un thé offert"].sample  
+    category = ["Evènement", "Promotion"].sample
+    offer = ["10%", "2 achetés 1 offert", "Un thé offert"].sample
     active = [true, false].sample
     event = Event.new(
       title: title,
@@ -182,7 +183,7 @@ end
     password: password
   )
 
-  if user.valid? 
+  if user.valid?
     user.save!
     puts "User #{user.first_name} #{user.last_name} created ! 🙌"
   else
