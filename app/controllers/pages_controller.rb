@@ -13,6 +13,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
-    @shops = Shop.all.select{|shop| shop.user_id == @user.id}
+    @shops = Shop.where(user: current_user)
+    @events = Event.joins(:shop).where("user_id = ?", @user.id)
   end
 end

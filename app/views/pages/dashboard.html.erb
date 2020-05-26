@@ -1,3 +1,42 @@
 <div class="container">
   <h2>Welcome <%= @user.first_name %> <%= @user.last_name %></h2>
+  <%= link_to "Profile", user_path(@user) %>
+
+
+  <ul class="nav nav-tabs justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" href="#his-shops" data-toggle="tab" style="text-decoration: none;" id="title-black">My shops</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#his-events" data-toggle="tab" style="text-decoration: none;" id="title-black">My events</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+
+    <!-- SHOPS TAB -->
+    <div class="tab-pane active" id="his-shops">
+      <h3>My shops:</h3>
+      <ul>
+        <% @shops.each do |shop| %>
+        <li><%= shop.name %> situated in <%= shop.address %> - <%= link_to "New event", new_shop_event_path(shop.id) %></li>
+        <% end %>
+      </ul>
+      <%= link_to "new shop", new_shop_path %>
+    </div>
+
+    <!-- EVENTS TAB -->
+
+    <div class="tab-pane" id="his-events">
+      <h3>My events:</h3>
+      <ul>
+        <% @events.each do |event| %>
+        <li><%= event.shop.name %> - <%= event.title %>: <%= event.description %> - <%= link_to "Edit event", edit_shop_event_path(event.id, event.shop_id)  %></li>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+  <hr>
+
 </div>
