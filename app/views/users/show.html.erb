@@ -1,17 +1,5 @@
-
-<h2>Bienvenue <%= @user.first_name %> <%= @user.last_name %></h2>
-<h3>Mes shops 👇</h3>
-<div class="shop-card">
-  <img src="https://source.unsplash.com/featured/?shop" alt="">
-  <div class="shop-detail">
-    <h3> Chez Marcel</h3>
-    <p> 12 rue de la croix nivert, 75015 Paris</p>
-      <div class="category-card">
-        <p>Vêtement</p>
-      </div>
-    <%= link_to "dashboard", dashboard_path %>
-  </div>
-  
-
-  
+<div class="container">
+  <h2>Prénom: <%= @user.first_name %></h2>
+  <h2>Nom: <%= @user.last_name %></h2>
+  <%= link_to "Tableau de bord", dashboard_path %>
 </div>
