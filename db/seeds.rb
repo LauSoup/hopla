@@ -87,7 +87,7 @@ puts "✨✨ Categories created !! ✨✨"
   name = Faker::TvShows::Simpsons.location
 
   # Gathering elements of the address and create the full address
-  street_nb = random_user["results"][0]["location"]["street"]["number"]
+  street_nb = (2..12).to_a.sample
   street = random_user["results"][0]["location"]["street"]["name"]
   # cp = random_user["results"][0]["location"]["postcode"]
   city = random_user["results"][0]["location"]["city"]
