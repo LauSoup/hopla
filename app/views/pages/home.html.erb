@@ -5,6 +5,14 @@
   </div>
 
 
+  <%= form_tag root_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Trouver une boutique"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 
   <div id="map"
        style="width: 100%; height: 600px;"

@@ -2,7 +2,18 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    @shops = Shop.geocoded
+    if params[:query].present?
+      sql_query = " \
+        shops.name ILIKE :query \
+        OR shops.description ILIKE :query \ 
+        OR shops.address ILIKE :query \
+      "
+      
+      shops = Shop.where(sql_query, query: "%#{params[:query]}%" )
+      @shops = shops.geocoded
+    else  
+      @shops = Shop.geocoded
+    end
     @markers = @shops.map do |shop|
       {
         lat: shop.latitude,
