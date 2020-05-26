@@ -1,3 +1,23 @@
 <h2><%= @shop.name %></h2>
 
-<%= link_to  "New event", new_shop_event_path(@shop) %>
+<p>Actif :<%= @shop.active %></p>
+<p>Addresse :<%= @shop.address %></p>
+<p>Description :<%= @shop.description %></p>
+
+<%= link_to  "Modifier ce magasin",  edit_shop_path(@shop) %>
+<br>
+<%= link_to  "Nouvel évenement", new_shop_event_path(@shop) %>
+<br>
+<h3>Evènements prévus:</h3>
+<br>
+<% @events.each do |event| %>
+  <h4> <%= event.title %> </h4>
+  <p> Description: <%= event.description %> </p>
+  <p> Category: <%= event.category %> </p>
+  <p> Actif: <%= event.active %> </p>
+  <p> Offre: <%= event.offer %> </p>
+  <p> Dates : <%= event.beg_date %> - <%= event.end_date %> </p>
+  <br>
+  <%= link_to  "Modifier cet évenement",  edit_shop_event_path(@shop, event) %>
+<% end %>
+

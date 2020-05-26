@@ -3,6 +3,7 @@ class ShopsController < ApplicationController
 
   def show
     authorize @shop
+    @events = @shop.events
   end
 
   def new
