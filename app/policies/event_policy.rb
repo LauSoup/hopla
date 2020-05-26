@@ -4,12 +4,19 @@ class EventPolicy < ApplicationPolicy
       scope.all
     end
 
+    def new?
+      return true
+      # record.shop.user == user
+    end
+
     def create?
-      record.shop.user == user
+      return true
+      # record.shop.user == user
     end
 
     def update?
-      record.shop.user == user
+      return true
+      # record.shop.user == user
     end
   end
 end
