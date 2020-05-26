@@ -2,6 +2,7 @@
     <%= f.input :name, label: "Nom" %>
     <%= f.input :address, label: "Addresse" %>
     <%= f.input :description, label: "Description" %>
+    <%= f.association :categories, as: :check_boxes, label: "Catégorie(s)" %>
     <%= f.input :active, label: "Disponible?" %>
     <br>
     <br>
