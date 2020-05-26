@@ -1,16 +1,16 @@
-.nav-tabs{
-  background-color:$light-gray;
-  width:100%;
-}
+// Ripple effect
+.nav-pills > li {
+  a {
+    font-weight:medium;
+    font-size:20px;
+    color: $bluemedium !important;
+    border-radius:25px !important;
+    border: solid 3px $bluemedium;
+  }
 
-.tab-content{
-  background-color:$light-gray;
-  padding:5px
-}
-
-.nav-tabs > li > a{
-  border: medium none;
-  font-weight: medium;
-  font-size:24px;
-  color: $bluemedium;
+  a.active {
+    background-color: $bluemedium !important;
+    color: $white !important;
+    border-radius:25px;
+  }
 }

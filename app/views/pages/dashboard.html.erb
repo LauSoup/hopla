@@ -1,13 +1,10 @@
-<div class="container">
-  <div class="dashboard-header">
-    <h2><i class="fas fa-home"></i> Tableau de bord</h2>
-  </div>
+<div class="container text-center">
 
   <% @shops.size > 1 ? tab_shop = "Mes enseignes" : tab_shop = "Mon enseigne" %>
   <% @events.size > 1 ? tab_event = "Mes offres" : tab_event = "Mon offre" %>
 
 
-  <ul class="nav nav-tabs justify-content-center">
+  <ul class="nav nav-pills justify-content-around my-3">
     <li class="nav-item">
       <a class="nav-link active" href="#his-shops" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_shop %></a>
     </li>
@@ -37,7 +34,10 @@
 
       <% end %>
       <% end %>
-      <%= link_to "Nouveau magasin", new_shop_path %>
+      <button class="ripple"><%= link_to new_shop_path do %>
+        <p><i class="far fa-plus-square"></i> Ajout Magasin</p>
+        <% end %>
+      </button>
     </div>
 
     <!-- EVENTS TAB -->
