@@ -64,7 +64,7 @@ puts "✨✨ Categories created !! ✨✨"
 
   puts "🙋 Creating user..."
   first_name = random_user["results"][0]["name"]["first"]
-  last_name = random_user["results"][0]["name"]["first"]
+  last_name = random_user["results"][0]["name"]["last"]
   
   email = "#{first_name.downcase}.#{last_name.downcase}@hoplette.com"
   password = "hoplette"
