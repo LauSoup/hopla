@@ -3,7 +3,10 @@
 <p>Actif :<%= @shop.active %></p>
 <p>Addresse :<%= @shop.address %></p>
 <p>Description :<%= @shop.description %></p>
-<%= cl_image_tag @shop.photo.key, height: 300, width: 400, crop: :fill %>
+
+<% @shop.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 <p>Catégorie(s) :
   <ul>
     <% @shop.categories.each do |category| %>
