@@ -1,24 +1,3 @@
-/* Ripple effect */
-.ripple {
-  background-position: center;
-  transition: background 0.8s;
-  text-decoration:none;
-}
-.ripple:hover {
-  background-color: $bluemedium;
-  filter: brightness(60%);
-  color:white;
-  text-decoration:none;
-
-}
-.ripple:active {
-  background-color: $bluemedium;
-  filter: brightness(80%);
-  background-size: 100%;
-  transition: background 0s;
-  text-decoration:none;
-}
-
 /* Button style */
 .button-dashboard {
   font-weight:medium;
@@ -34,14 +13,6 @@
   outline: none;
 }
 
-a span {
-  position:absolute;
-  background:$orange;
-  transform: translate(-50%, -50%);
-  pointer-events:none;
-  border-radius:50%;
-  animation: animate 1s linear infinite;
-}
 
 @keyframes animate {
   0%{
