@@ -5,7 +5,7 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <% @shop.photos.each_with_index do |photo, index| %>
-    <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" ></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" class=<%= index == 0 ? "active" : "" %> ></li>
     <% end %>
   </ol>
   <div class="carousel-inner">
@@ -25,7 +25,6 @@
   </a>
 </div>
 
-
 <p>Catégorie(s) :
   <ul>
     <% @shop.categories.each do |category| %>
@@ -40,13 +39,32 @@
 <br>
 <h3>Evènements prévus:</h3>
 <br>
+
 <% @events.each do |event| %>
   <div class="event-card">
     <div class="event-image">
-      <!-- <img src="https://source.unsplash.com/featured/?product" alt=""> -->
-      <% event.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <% event.photos.each_with_index do |photo, index| %>
+          <li data-target="#carouselExampleControls" data-slide-to="<%= index %>" class=<%= index == 0 ? "active" : "" %> ></li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner">
+        <% event.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= index == 0 ? "active" : "" %>">
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
+          </div>
+        <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Précédent</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Suivant</span>
+        </a>
+      </div>
       <p class="offer-tag"><%= event.offer %></p>
     </div>
     <div class="event-detail">
