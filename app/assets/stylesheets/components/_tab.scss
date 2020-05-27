@@ -1,0 +1,16 @@
+// Ripple effect
+.nav-pills > li {
+  a {
+    font-weight:medium;
+    font-size:20px;
+    color: $bluemedium !important;
+    border-radius:25px !important;
+    border: solid 3px $bluemedium;
+  }
+
+  a.active {
+    background-color: $bluemedium !important;
+    color: $white !important;
+    border-radius:25px;
+  }
+}

@@ -24,7 +24,6 @@
     <span class="sr-only">Suivant</span>
   </a>
 </div>
-
 <p>Catégorie(s) :
   <ul>
     <% @shop.categories.each do |category| %>
@@ -69,10 +68,15 @@
     </div>
     <div class="event-detail">
       <div class="block-top">
-        <h4> <%= event.title %> </h4>
-        <p> Du <%= event.beg_date.strftime("%d/%m/%Y") %> au <%= event.end_date.strftime("%d/%m/%Y") %></p>
+        <h5> <%= event.title %> </h5>
+        <div class="block-date">
+          <i class="fas fa-calendar-alt" style="color: white;"></i>
+          <p> Du <%= event.beg_date.strftime("%d/%m") %></p>
+          <p> Au <%= event.end_date.strftime("%d/%m") %></p>
+        </div>
       </div>
-      <p> <%= event.description %></p>
+      <h6> <%= event.description %></h6>
+      <hr>
       <div class="block-bottom">
         <div class="block-icon">
           <a><i class="far fa-heart" style="color: white;"></i></a>
