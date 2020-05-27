@@ -6,6 +6,7 @@
     <%= f.input :category, as: :radio_buttons, label: "Catégorie", collection: Event::CATEGORIES %>
     <%= f.input :offer, label: "Offre" %>
     <%= f.input :active,label: "Disponible ?" %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <br>
     <br>
     <%= f.submit "Valider" %>

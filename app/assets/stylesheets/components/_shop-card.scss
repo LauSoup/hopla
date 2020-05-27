@@ -32,7 +32,7 @@
 
 #shop-card .shop-detail .category {
   border-radius: 8px;
-  background-color: #326273;
+  background-color: $bluemedium;
   width: 96px;
   margin-left: 10px;
 }
@@ -41,12 +41,13 @@
   margin-right: 5px 5px;
   border-radius: 20px;
   position: relative;
-  box-shadow: 0px 10px 30px rgba(0,0,0,0.2)
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+  margin-bottom:30px;
 }
 
 #shop-card .fas {
   position: absolute;
-  top: 10px;
+  bottom: 10px;
   right: 10px;
-  color: $orange;
+  color: white;
 }

@@ -55,7 +55,7 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:user_id, :description, :name, :address, :active)
+    params.require(:shop).permit(:user_id, :description, :name, :address, :active, photos: [])
   end
 
   def set_shop
@@ -65,7 +65,7 @@ class ShopsController < ApplicationController
   def create_tags
     params[:shop][:category_ids].each do |category|
       if category != ""
-        tag = Tag.new 
+        tag = Tag.new
         tag.category_id = category
         tag.shop_id = @shop.id
         tag.save

@@ -1,0 +1,113 @@
+.event-card {
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.2);
+}
+
+.event-card .event-image {
+  position: relative;
+}
+
+.event-card .event-image img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.event-card .event-image .offer-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: $lightgreen;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 10px;
+}
+
+.event-detail {
+  background-color: $lightgreen;
+  width: auto;
+}
+.event-detail .block-top {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  padding: 10px;
+}
+
+.event-card .event-detail .block-top h5 {
+  font-size: 20px;
+  color: white;
+  font-style: bold;
+  text-align: left;
+  margin-right: 5px;
+}
+
+.block-date {
+  width: 100px;
+  text-align: center;
+}
+
+.event-card .event-detail .block-top .block-date p {
+  font-size: 12px;
+  font-style: thin;
+  color: white;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.event-card .event-detail h6 {
+  color: white;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+hr {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  color: white;
+}
+
+.event-card .event-detail .block-bottom {
+  margin: 10px 10px;
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  height: 50px;
+}
+
+.event-card .event-detail .block-bottom .block-icon {
+  display: flex;
+  margin-right: 5px;
+    a {
+      text-decoration: none;
+      color: white;
+      margin-right: 10px;
+    }
+}
+
+.event-card .event-detail .block-bottom .block-button {
+  flex-grow: 1;
+  text-align: right;
+  width: 100px;
+  a {
+    text-decoration: none;
+    color: $lightgreen;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+    padding: 10px 15px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+
