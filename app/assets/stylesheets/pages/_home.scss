@@ -1,7 +1,11 @@
 // Specific CSS for your home-page
+
+// remove * from search input label
+#search-form-home abbr[title] {
+  display: none
+}
+
 .dashboard-header {
   display: flex;
   justify-content: center;
 }
-
-
