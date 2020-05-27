@@ -25,7 +25,9 @@
   <div class="event-card">
     <div class="event-image">
       <!-- <img src="https://source.unsplash.com/featured/?product" alt=""> -->
-      <%= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
+      <% event.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
       <p class="offer-tag"><%= event.offer %></p>
     </div>
     <div class="event-detail">
