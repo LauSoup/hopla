@@ -20,7 +20,7 @@
       <% @shops.each do |shop| %>
         <div id="shop-card">
           <% if shop.photos.count == 0 %>
-            <img src="https://source.unsplash.com/featured/?shop" alt="">
+            <img src="https://source.unsplash.com/featured/?shop" alt="commerce de quartier">
           <% else %>
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -45,9 +45,9 @@
             </a>
             </div>
           <% end %>
-        <%= link_to shop_path(shop) do %>
-          <i class="fas fa-door-open"></i>
-        <% end %>
+          <%= link_to shop_path(shop) do %>
+            <i class="fas fa-door-open"></i>
+          <% end %>
           <div class="shop-detail">
             <h3><%= shop.name %></h3>
             <p><%= shop.address %></p>
