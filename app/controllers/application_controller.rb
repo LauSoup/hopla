@@ -22,6 +22,10 @@ class ApplicationController < ActionController::Base
   end
   # end
 
+  def after_sign_out_path_for(resource)
+    root_path #your path
+  end
+
   private
 
   def user_not_authorized

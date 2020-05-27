@@ -2,7 +2,9 @@ const rippleButtons = () => {
   const buttons = document.querySelectorAll(".ripple");
   buttons.forEach(btn => {
     btn.addEventListener('click', ripple);
-},
+  })
+};
+
 
 function ripple(event) {
   const el = event.currentTarget;
@@ -14,10 +16,8 @@ function ripple(event) {
   el.appendChild(rippleEl);
 
   const max = Math.max(el.offsetWidth, el.offsetHeight);
-  rippleEl.style.width = rippleEl.style.height = max + 'px':
-  rippleEl.classList.add('ripple')
-}
+  rippleEl.style.width = rippleEl.style.height = max + 'px';
+  rippleEl.classList.add('ripple');
+};
 
-
-
-export { rippleButtons };
+export { rippleButtons } 
