@@ -1,0 +1,29 @@
+#show-shop-title {
+  color: $bluemedium;
+  font-weight: bold;
+  justify-content:center;
+  margin-bottom: 15px;
+}
+
+#shop-address {
+  font-weight:bold;
+}
+
+.show-page-margin{
+  margin-top: 20px;
+}
+
+.shop-tags {
+  display: flex;
+  justify-content: center;
+}
+
+.shop-tag {
+  background-color: $bluemedium;
+  color: $white;
+  border-radius: 8px;
+  font-size: 16px;
+  margin: 15px 12px;
+  padding: 4px 8px;
+  font-weight:bold;
+}
