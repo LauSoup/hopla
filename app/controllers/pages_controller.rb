@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    if params[:search].present? 
+    if params[:search].present?
       if params[:search][:categories] == ""
         shops = Shop.search_by_name_and_address(params[:search][:query])
         @shops = shops.geocoded
@@ -14,13 +14,15 @@ class PagesController < ApplicationController
         shops = shops_categ.search_by_name_and_address(params[:search][:query])
         @shops = shops.geocoded
       end
-    else  
+    else
       @shops = Shop.all.geocoded
     end
     @markers = @shops.map do |shop|
       {
         lat: shop.latitude,
         lng: shop.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { shop: shop }),
+        image_url: helpers.asset_url('mid-blue-logo.png')
       }
     end
   end
