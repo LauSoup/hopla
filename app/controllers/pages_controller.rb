@@ -2,13 +2,13 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    if params[:query].present?
+    if params[:search][:query].present?
       sql_query = " \
         shops.name ILIKE :query \
         OR shops.description ILIKE :query \ 
         OR shops.address ILIKE :query \
       "
-      shops = Shop.where(sql_query, query: "%#{params[:query]}%" )
+      shops = Shop.where(sql_query, query: "%#{params[:search][:query]}%" )
       @shops = shops.geocoded
     else  
       @shops = Shop.all.geocoded
