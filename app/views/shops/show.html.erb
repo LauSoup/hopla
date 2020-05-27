@@ -1,22 +1,25 @@
-<h2><%= @shop.name %></h2>
+<div class="container text-center show-page-margin">
+  <h2 id="show-shop-title"><i class="fas fa-store"></i> <%= @shop.name %></h2>
 
-<p>Actif :<%= @shop.active %></p>
-<p>Addresse :<%= @shop.address %></p>
-<p>Description :<%= @shop.description %></p>
-<p>Catégorie(s) : 
-  <ul>
-    <% @shop.categories.each do |category| %>
-      <li><%= category.name %> </li>
-    <% end %>
-  </ul>
-</p>
+  <p>Actif :<%= @shop.active %></p>
+  <p id="shop-address"><i class="fas fa-map-marker-alt"></i> <%= @shop.address %></p>
+  <p><i class="fas fa-book"></i> <%= @shop.description %></p>
+  <p>Catégorie(s) :
+    <ul>
+      <% @shop.categories.each do |category| %>
+        <li><%= category.name %> </li>
+      <% end %>
+    </ul>
+  </p>
 
-<%= link_to  "Modifier ce magasin",  edit_shop_path(@shop) %>
-<br>
-<%= link_to  "Nouvel évenement", new_shop_event_path(@shop) %>
-<br>
-<h3>Evènements prévus:</h3>
-<br>
+  <%= link_to  "Modifier ce magasin",  edit_shop_path(@shop) %>
+  <br>
+  <%= link_to  "Nouvel évenement", new_shop_event_path(@shop) %>
+  <br>
+  <h3>Evènements prévus:</h3>
+  <br>
+</div>
+
 <% @events.each do |event| %>
   <div class="event-card">
     <div class="event-image">
@@ -42,4 +45,5 @@
     </div>
   </div>
 <% end %>
+
 
