@@ -9,9 +9,11 @@
       <div class="form-group no-margin" id= "search-form-home">
         <%= f.input :query, label: "", id: "search_query", placeholder: "Trouver une boutique!" %>
         <%= f.input :categories, label: "Filtrer sur une catégorie", id: "search_filter", collection: Category.all %>
+        <%= f.submit "Chercher" %>
       </div>
     <% end %>
-
+  </div>
+  
   <div id="map"
        style="width: 100%; height: 600px;"
        data-markers="<%= @markers.to_json %>"
