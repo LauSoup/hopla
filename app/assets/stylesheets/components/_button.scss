@@ -23,13 +23,13 @@
 .button-dashboard {
   font-weight:medium;
   border: none;
-  border-radius: 25px;
+  border-radius: 50%;
   padding: 14px 18px;
   font-size: 20px;
   text-transform: uppercase;
   cursor: pointer;
-  color: white;
-  background-color: $bluemedium;
+  color: $bluemedium;
+  border: solid $bluemedium 3px;
   box-shadow: 0 0 4px #999;
   outline: none;
 }
