@@ -3,7 +3,7 @@
     <%= f.input :description, label: "Description" %>
     <%= f.input :beg_date, label: "Date et heure de début" %>
     <%= f.input :end_date, label: "Date et heure de fin" %>
-    <%= f.input :category, as: :radio_buttons, label: "Catégorie", collection: Event::CATEGORIES %>
+    <%= f.input :category, label: "Catégorie", collection: Event::CATEGORIES %>
     <%= f.input :offer, label: "Offre" %>
     <%= f.input :active,label: "Disponible ?" %>
     <br>
