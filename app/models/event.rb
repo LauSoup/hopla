@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   belongs_to :shop
   has_many :favorites_events
   has_many :users, through: :favorites_events
+  has_one_attached :photo
 
   CATEGORIES = ["Evènement", "Promotion"]
   validates :title, :beg_date, :end_date, :category, presence: true
@@ -10,7 +11,7 @@ class Event < ApplicationRecord
   }
   validates :category, inclusion: { in: CATEGORIES }
   # has_one_attached :photo
-  
+
   def self.random
     @events = Event.all
     @events.sample

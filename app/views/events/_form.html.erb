@@ -6,6 +6,7 @@
     <%= f.input :category, label: "Catégorie", collection: Event::CATEGORIES %>
     <%= f.input :offer, label: "Offre" %>
     <%= f.input :active,label: "Disponible ?" %>
+    <%= f.input :photo, as: :file %>
     <br>
     <br>
     <%= f.submit "Valider" %>

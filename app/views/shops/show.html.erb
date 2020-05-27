@@ -3,7 +3,8 @@
 <p>Actif :<%= @shop.active %></p>
 <p>Addresse :<%= @shop.address %></p>
 <p>Description :<%= @shop.description %></p>
-<p>Catégorie(s) : 
+<%= cl_image_tag @shop.photo.key, height: 300, width: 400, crop: :fill %>
+<p>Catégorie(s) :
   <ul>
     <% @shop.categories.each do |category| %>
       <li><%= category.name %> </li>
@@ -20,7 +21,8 @@
 <% @events.each do |event| %>
   <div class="event-card">
     <div class="event-image">
-      <img src="https://source.unsplash.com/featured/?product" alt="">
+      <!-- <img src="https://source.unsplash.com/featured/?product" alt=""> -->
+      <%= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
       <p class="offer-tag"><%= event.offer %></p>
     </div>
     <div class="event-detail">

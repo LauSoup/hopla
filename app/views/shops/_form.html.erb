@@ -4,6 +4,7 @@
     <%= f.input :description, label: "Description" %>
     <%= f.association :categories, as: :check_boxes, label: "Catégorie(s)" %>
     <%= f.input :active, label: "Disponible?" %>
+    <%= f.input :photo, as: :file %>
     <br>
     <br>
     <%= f.submit "Valider" %>
