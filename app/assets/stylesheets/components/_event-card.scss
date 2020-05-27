@@ -16,11 +16,13 @@
 
 .event-card .event-image .offer-tag {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  left: 10px;
   background-color: $lightgreen;
   color: white;
   font-weight: bold;
+  padding: 5px 10px;
+  font-size: 10px;
 }
 
 .event-detail {
@@ -31,44 +33,56 @@
   display: flex;
   justify-content: between;
   align-items: center;
+  padding: 10px;
 }
 
-.event-card .event-detail .block-top h4 {
+.event-card .event-detail .block-top h5 {
+  font-size: 20px;
   color: white;
   font-style: bold;
   text-align: left;
-  padding-left: 10px;
-  margin-bottom: 3px;
-  margin-top: 0px;
+  margin-right: 5px;
 }
 
-.event-card .event-detail .block-top p {
-  text-align: right;
+.block-date {
+  width: 100px;
+  text-align: center;
+}
+
+.event-card .event-detail .block-top .block-date p {
+  font-size: 12px;
   font-style: thin;
-  padding-right: 10px;
-  margin-bottom: 3px;
-  margin-top: 0px;
   color: white;
+  text-align: center;
+  margin-bottom: 0;
 }
 
-.event-card .event-detail p {
+.event-card .event-detail h6 {
   color: white;
   text-align: left;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 10px;
+  font-size: 12px;
+}
+
+hr {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  color: white;
 }
 
 .event-card .event-detail .block-bottom {
   margin: 10px 10px;
   display: flex;
-  justify-content: around;
+  justify-content: between;
   align-items: center;
   height: 50px;
 }
 
 .event-card .event-detail .block-bottom .block-icon {
   display: flex;
+  margin-right: 5px;
     a {
       text-decoration: none;
       color: white;
@@ -79,14 +93,21 @@
 .event-card .event-detail .block-bottom .block-button {
   flex-grow: 1;
   text-align: right;
+  width: 100px;
   a {
     text-decoration: none;
-    color: $gray;
+    color: $lightgreen;
     background-color: white;
     border-radius: 4px;
-    box-shadow: 0px 2px 1px 0px rgba(0,0,0,0.2);
-    padding: 10px 20px;
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+    padding: 10px 15px;
+    font-size: 12px;
+    font-weight: bold;
   }
+}
+
+a:hover {
+  opacity: 0.7;
 }
 
 

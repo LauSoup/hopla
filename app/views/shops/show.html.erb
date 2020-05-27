@@ -42,35 +42,35 @@
         <i class="fas fa-plus"></i>
       <% end %>
       <% @events.each do |event| %>
-        <div class="event-card">
-          <div class="event-image">
-            <img src="https://source.unsplash.com/featured/?product" alt="">
-            <p class="offer-tag"><%= event.offer %></p>
-          </div>
-          <div class="event-detail">
-            <div class="block-top">
-              <h4> <%= event.title %> </h4>
-              <p> Du <%= event.beg_date.strftime("%d/%m/%Y") %> au <%= event.end_date.strftime("%d/%m/%Y") %></p>
-            </div>
-            <p> <%= event.description %></p>
-            <div class="block-bottom">
-              <div class="block-icon">
-                <a><i class="far fa-heart" style="color: white;"></i></a>
-                <a><i class="fas fa-share-alt" style="color: white;"></i></a>
-                <a><i class="fas fa-pen" style="color: white;"></i></a>
-              </div>
-              <div class="block-button">
-                <%= link_to "QR Code" %>
-              </div>
+      <div class="event-card">
+        <div class="event-image">
+          <img src="https://source.unsplash.com/featured/?product" alt="">
+          <p class="offer-tag"><%= event.offer %></p>
+        </div>
+        <div class="event-detail">
+          <div class="block-top">
+            <h5> <%= event.title %> </h5>
+            <div class="block-date">
+              <i class="fas fa-calendar-alt" style="color: white;"></i>
+              <p> Du <%= event.beg_date.strftime("%d/%m") %></p>
+              <p> Au <%= event.end_date.strftime("%d/%m") %></p>
             </div>
           </div>
+          <h6> <%= event.description %></h6>
+          <hr>
+          <div class="block-bottom">
+            <div class="block-icon">
+              <a><i class="far fa-heart" style="color: white;"></i></a>
+              <a><i class="fas fa-share-alt" style="color: white;"></i></a>
+              <a><i class="fas fa-pen" style="color: white;"></i></a>
+            </div>
+            <div class="block-button">
+              <%= link_to "QR Code" %>
+            </div>
+          </div>
+        </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-
-
-
-
-
