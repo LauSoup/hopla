@@ -4,19 +4,19 @@
     <a href="#map", class= "btn btn-warning">Hop on y va!</a>
   </div>
 
-  <div class="container">
-    <%= simple_form_for :search, url:root_path, method: :get do |f| %>
-      <div class="form-group no-margin" id= "search-form-home">
-        <%= f.input :query, label: "", id: "search_query", placeholder: "Trouver une boutique!" %>
-        <%= f.input :categories, label: "Filtrer sur une catégorie", id: "search_filter", collection: Category.all %>
-        <%= f.submit "Chercher" %>
-      </div>
-    <% end %>
-  </div>
+  <div data-controller= "ajax-form" >
 
-  <div id="map"
-       style="width: 100%; height: 600px;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="container">
+      <%= simple_form_for :search, url:root_path, html: { data: { action: "ajax:success->ajax-form#onPostSuccess" } } , remote: true, method: :get do |f| %>
+        <div class="form-group no-margin" id= "search-form-home">
+          <%= f.input :query, label: "", id: "search_query", placeholder: "Trouver une boutique!" %>
+          <%= f.input :categories, label: "Filtrer sur une catégorie", id: "search_filter", collection: Category.all %>
+          <%= f.submit "Chercher" %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= render "shops/map", markers: @markers %>
+
   </div>
 </div>
