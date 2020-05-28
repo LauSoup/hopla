@@ -1,3 +1,8 @@
+.links-container {
+    display: flex;
+    justify-content: space-around;
+}
+
 h2.profile-picture-text{
   font-size:150px;
 }
@@ -15,10 +20,5 @@ h2.profile-picture-text{
 
   .info-container {
     margin-bottom: 100px;
-  }
-
-  .links-container {
-    display:flex;
-    justify-content: space-between;
   }
 }
