@@ -1,39 +1,34 @@
 <div class="home">
-  <div class="home-view" id="research">
-    <div class="research-container">
+  <div data-controller= "ajax-form" >
 
-
-      <div id="search-button">
-        <%= link_to "#map", :class => "button-dashboard-tres text-padding" do %>
-          <i class="fas fa-search"></i> Search
-        <% end %>
-      </div>
-
-      <div>
-        <button class="button-dropdown" id="refine-button"><i class="fas fa-chevron-down"></i> Refine</button>
-      </div>
-
-      <div data-controller= "ajax-form" >
-        <div class="tab-pane" id="search">
-
-          <div class="container">
-            <%= simple_form_for :search, url:root_path, html: { data: { action: "ajax:success->ajax-form#onPostSuccess" } } , remote: true, method: :get do |f| %>
-              <div class="form-group no-margin d-none" id= "search-form-home">
-                <%= f.input :query, label: "", id: "search_query", placeholder: "Trouver une boutique!" %>
-                <%= f.input :categories, label: "Filtrer sur une catégorie", id: "search_filter", collection: Category.all %>
-                <%= f.submit "Hopla!" %>
-              </div>
-            <% end %>
-          </div>
+        <div id="search-button">
+          <%= link_to "#map", :class => "button-dashboard-tres text-padding" do %>
+            <i class="fas fa-search"></i> Search
+          <% end %>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="back">
-    <%= link_to "#navbar", :class =>"button-dashboard-bis text-padding" do %>
-      <i class="fas fa-chevron-up"></i>New Research
-    <% end %>
-  </div>
 
-  <%= render "shops/map", markers: @markers %>
+        <div>
+          <button class="button-dropdown" id="refine-button"><i class="fas fa-chevron-down"></i> Refine</button>
+        </div>
+
+          <div class="tab-pane" id="search">
+            <div class="container">
+              <div class="form-group no-margin d-none" id= "search-form-home">
+                <%= simple_form_for :search, url:root_path, html: { data: { action: "ajax:success->ajax-form#onPostSuccess" } } , remote: true, method: :get do |f| %>
+                  <%= f.input :query, label: "", id: "search_query", placeholder: "Trouver une boutique!" %>
+                  <%= f.input :categories, label: "Filtrer sur une catégorie", id: "search_filter", collection: Category.all %>
+                  <%= f.submit "Hopla!" %>
+                <% end %>
+              </div>
+          </div>
+    </div>
+    
+    <div class="back">
+      <%= link_to "#navbar", :class =>"button-dashboard-bis text-padding" do %>
+        <i class="fas fa-chevron-up"></i>New Research
+      <% end %>
+    </div>
+
+    <%= render "shops/map", markers: @markers %>
+  </div>
 </div>
