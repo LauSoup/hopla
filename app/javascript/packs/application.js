@@ -39,3 +39,5 @@ document.addEventListener('turbolinks:load', () => {
   // rippleButtons();
   flatpickr(".datepicker");
 });
+
+import "controllers"
