@@ -28,7 +28,8 @@ require("channels")
 import "bootstrap";
 import "../plugins/flatpickr";
 import { initMapbox } from '../plugins/init_mapbox';
-import { dropdownForm } from "../effects/dropdown_form"
+import { dropdownForm } from "../effects/dropdown_form";
+
 // import { rippleButtons } from '../effects/ripple_buttons';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -43,3 +44,4 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 import "controllers"
+
