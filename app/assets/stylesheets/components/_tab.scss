@@ -2,15 +2,16 @@
 .nav-pills > li {
   a {
     font-weight:medium;
-    font-size:20px;
+    font-size:15px;
     color: $bluemedium !important;
     border-radius:25px !important;
-    border: solid 3px $bluemedium;
+    border: solid 2px $bluemedium;
   }
 
   a.active {
     background-color: $bluemedium !important;
     color: $white !important;
     border-radius:25px;
+    font-weight:bold;
   }
 }

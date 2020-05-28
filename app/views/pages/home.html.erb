@@ -1,21 +1,59 @@
 <div class="home">
-  <div class="home-view">
+  <!-- To be deleted -->
+  <!-- <div class="home-view">
     <h1>Evènements et bons plans du moment 👇 </h1>
     <a href="#map", class= "btn btn-warning">Hop on y va!</a>
+  </div> -->
+
+  <div class="container home-view" id="research">
+
+    <ul class="nav nav-pills justify-content-around">
+      <li class="nav-item">
+        <a class="nav-link" href="#search" data-toggle="tab" style="text-decoration: none;" id="title-black">Search</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#all" data-toggle="tab" style="text-decoration: none;" id="title-black">Suggestions</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#categories" data-toggle="tab" style="text-decoration: none;" id="title-black">Category</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="all">
+        <%= link_to "#map", :class => "btn btn-warning" do%>
+          Hopla!
+        <% end %>
+      </div>
+
+      <div class="tab-pane" id="search">
+        <%= simple_form_for :search, url:root_path, method: :get do |f| %>
+          <div class="form-group no-margin" id= "search-form-home">
+            <%= f.input :query, label: "", id: "search_query", placeholder: "Trouver une boutique!" %>
+            <%= f.submit "Hopla!" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="tab-pane" id="categories">
+        <%= simple_form_for :search, url:root_path, method: :get do |f| %>
+          <div class="form-group no-margin" id= "search-form-home">
+            <%= f.input :categories, label: "Filtrer sur une catégorie", id: "search_filter", collection: Category.all %>
+            <%= f.submit "Hopla!" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <div class="container">
-    <%= simple_form_for :search, url:root_path, method: :get do |f| %>
-      <div class="form-group no-margin" id= "search-form-home">
-        <%= f.input :query, label: "", id: "search_query", placeholder: "Trouver une boutique!" %>
-        <%= f.input :categories, label: "Filtrer sur une catégorie", id: "search_filter", collection: Category.all %>
-        <%= f.submit "Chercher" %>
-      </div>
+  <div class="back">
+    <%= link_to "#navbar", :class =>"button-dashboard-bis text-padding" do %>
+      <i class="fas fa-chevron-up"></i>New Research
     <% end %>
   </div>
 
   <div id="map"
-       style="width: 100%; height: 600px;"
+       style="width: 100%; height: 670px;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>

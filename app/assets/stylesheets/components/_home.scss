@@ -3,33 +3,32 @@
   min-height: calc(100% - 70px - 60px);
   width: 100%;
   text-align: center;
-  background-color: #3A506B;
+  background-color: $orange;
   opacity: 0.8;
   padding: 0;
   margin: 0;
 }
 
-.home h1 {
-    color: black;
-    text-shadow: 0px 2px 2px 0px rgba(0,0,0,0);
-    font-size: 40px;
-    margin-bottom: 50px;
-    margin-top: 0px;
-    padding-top: 200px;
-  }
+.back a {
+  font-weight:bold;
+  padding:15px;
+  border-radius:22px 22px 0px 0px;
+
+}
 
 .notice {
   display: none;
 }
 
 .home a {
-  text-decoration: none;
-  width: 140px;
-  border-radius: 5px;
-  color: black;
-  height: 40px;
+  font-size:15px;
 }
 
-.home .home-view {
-  height: 650px;
+.home-view {
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+
+#map {
+  margin-top: 10px;
 }
