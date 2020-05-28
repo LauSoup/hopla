@@ -1,9 +1,9 @@
 /* Button style */
 .button-dashboard {
+  // blue border; white background and blue logo
   font-weight:medium;
   border: none;
   border-radius: 50%;
-  padding: 14px 18px;
   font-size: 20px;
   text-transform: uppercase;
   cursor: pointer;
@@ -13,6 +13,45 @@
   outline: none;
 }
 
+.button-dashboard-bis {
+  //  blue background and white logo
+  font-weight:medium;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: $bluemedium;
+  color: white;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+
+.button-dashboard-bis:hover, .button-dashboard:hover{
+  opacity: 0.8;
+}
+
+// Buttons padding depending on the inner logo:
+
+.home-padding {
+  padding: 15px 18px;
+}
+
+.pen-padding {
+  padding: 14px 18px;
+}
+
+.plus-padding {
+  padding: 14px 21px;
+}
+
+// Button positions:
+
+.add-button-dashboard {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
 
 @keyframes animate {
   0%{
