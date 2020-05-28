@@ -38,6 +38,16 @@
   outline: none;
 }
 
+.button-dropdown {
+  font-weight:medium;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: $orange;
+  outline: none;
+  background-color: $bluemedium;
+}
+
 .button-dashboard-bis:hover, .button-dashboard:hover{
   opacity: 0.8;
 }
