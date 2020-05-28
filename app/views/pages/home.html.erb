@@ -4,7 +4,7 @@
     <a href="#map", class= "btn btn-warning">Hop on y va!</a>
   </div>
 
-  <div class="container"> 
+  <div class="container">
     <%= simple_form_for :search, url:root_path, method: :get do |f| %>
       <div class="form-group no-margin" id= "search-form-home">
         <%= f.input :query, label: "", id: "search_query", placeholder: "Trouver une boutique!" %>
