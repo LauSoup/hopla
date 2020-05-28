@@ -6,9 +6,21 @@ const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/mapbox/streets-v11',
+
   });
 };
+
+const addControl = (map) => {
+  map.addControl(
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    })
+)};
+
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
@@ -40,9 +52,8 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
+    addControl(map);
   }
 };
-
-
 
 export { initMapbox };
