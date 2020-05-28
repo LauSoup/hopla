@@ -31,6 +31,6 @@ class PagesController < ApplicationController
     @user = current_user
     @shops = Shop.where(user: current_user)
     @events = Event.joins(:shop).where("user_id = ?", @user.id)
-    @favorite_events = FavoriteEvent.where(user: current_user)
+    @favorite_events = FavoriteEvent.where("user_id = ?", @user.id)
   end
 end
