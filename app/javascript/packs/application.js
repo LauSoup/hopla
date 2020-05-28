@@ -26,7 +26,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-
+import "../plugins/flatpickr";
 import { initMapbox } from '../plugins/init_mapbox';
 // import { rippleButtons } from '../effects/ripple_buttons';
 // Internal imports, e.g:
@@ -37,6 +37,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   // rippleButtons();
+  flatpickr(".datepicker");
 });
 
 import "controllers"
