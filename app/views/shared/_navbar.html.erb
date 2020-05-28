@@ -4,9 +4,9 @@
   <% end %>
 
   <% if user_signed_in? %>
-   <div class="dropup">
+   <div class="dropup-navbar">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon dropbtn"></span>
+      <span class="navbar-toggler-icon dropbtn-navbar"></span>
     </button>
           <div class="dropup-content">
             <%= link_to "Mon profil", user_path(current_user), class: "dropdown-item" %>
@@ -15,7 +15,7 @@
           </div>
       <% else %>
         <p class="nav-item">
-          <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Se connecter", new_user_session_path, class: "nav-link", id: "deco" %>
         </p>
       <% end %>
     </ul>

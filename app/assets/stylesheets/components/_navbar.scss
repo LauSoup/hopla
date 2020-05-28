@@ -11,17 +11,19 @@
   width: 40px;
 }
 
-.nav-link {
+#deco {
   color: grey;
-  padding-top: 5px
 }
 
-.nav-link:hover {
+.nav-item {
+  margin: 0;
+}
+
+#deco:hover {
   color: $bluemedium;
 }
  /* Dropup Button */
- .dropbtn {
-  background-color: #3498DB;
+ .dropbtn-navbar {
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -29,7 +31,7 @@
 }
 
 /* The container <div> - needed to position the dropup content */
-.dropup {
+.dropup-navbar {
   position: relative;
   display: inline-block;
 }
@@ -57,11 +59,11 @@
 .dropup-content a:hover {background-color: #ddd}
 
 /* Show the dropup menu on hover */
-.dropup:hover .dropup-content {
+.dropup-navbar:hover .dropup-content {
   display: block;
 }
 
 /* Change the background color of the dropup button when the dropup content is shown */
-.dropup:hover .dropbtn {
+.dropup:hover .dropbtn-navbar {
   background-color: #2980B9;
 } 
