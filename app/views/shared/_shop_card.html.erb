@@ -6,7 +6,7 @@
       <div id="carousel <%= shop.id %>" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <% shop.photos.each_with_index do |photo, index| %>
-            <li data-target="#carousel <%= shop.id %>" data-slide-to="<%= index %>" class=<%= index == 0 ? "active" : "" %> ></li>
+            <li data-target="#carousel <%= shop.id %>" data-slide-to="<%= index %>" class="<%= index == 0 ? "active" : "" %>"></li>
           <% end %>
         </ol>
         <div class="carousel-inner">
@@ -35,7 +35,4 @@
       <p class="category">Vêtement</p>
     </div>
   </div>
-<% end %>
-<%= link_to new_shop_path, :class => "button-dashboard enable-ripple" do %>
-  <i class="fas fa-plus"></i>
 <% end %>
