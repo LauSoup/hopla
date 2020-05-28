@@ -1,13 +1,15 @@
-<%= simple_form_for [shop, event] do |f| %>
-    <%= f.input :title, label: "Titre" %>
-    <%= f.input :description, label: "Description" %>
-    <%= f.input :beg_date, label: "Date et heure de début" %>
-    <%= f.input :end_date, label: "Date et heure de fin" %>
-    <%= f.input :category, as: :radio_buttons, label: "Catégorie", collection: Event::CATEGORIES %>
-    <%= f.input :offer, label: "Offre" %>
-    <%= f.input :active,label: "Disponible ?" %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <br>
-    <br>
-    <%= f.submit "Valider" %>
-<% end %>
+<div class="container">
+  <div class="form-wrapper" style="width: 300px; margin: 0 auto;">
+    <%= simple_form_for [shop, event] do |f| %>
+      <%= f.input :title, label: "Titre" %>
+      <%= f.input :description, label: "Description" %>
+      <%= f.input :beg_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :category, as: :radio_buttons, label: "Catégorie", collection: Event::CATEGORIES %>
+      <%= f.input :offer, label: "Offre" %>
+      <%= f.input :active,label: "Disponible ?" %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit "Valider" %>
+    <% end %>
+  </div>
+</div>
