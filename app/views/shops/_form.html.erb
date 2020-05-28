@@ -4,8 +4,6 @@
     <%= f.input :description, label: "Description" %>
     <%= f.association :categories, as: :check_boxes, label: "Catégorie(s)" %>
     <%= f.input :active, label: "Disponible?" %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <br>
-    <br>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter image' %>
     <%= f.submit "Valider" %>
 <% end %>
