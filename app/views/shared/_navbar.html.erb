@@ -14,9 +14,9 @@
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
       <% else %>
-        <li class="nav-item">
+        <p class="nav-item">
           <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
-        </li>
+        </p>
       <% end %>
     </ul>
   </div>

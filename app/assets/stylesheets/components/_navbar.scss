@@ -11,6 +11,14 @@
   width: 40px;
 }
 
+.nav-link {
+  color: grey;
+  padding-top: 5px
+}
+
+.nav-link:hover {
+  color: $bluemedium;
+}
  /* Dropup Button */
  .dropbtn {
   background-color: #3498DB;
