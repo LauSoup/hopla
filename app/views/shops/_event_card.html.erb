@@ -33,8 +33,13 @@
               </div>
               <div class="block-date">
                 <i class="fas fa-calendar-alt" style="color: white;"></i>
-                <p> Du <%= event.beg_date.strftime("%d/%m") %></p>
-                <p> Au <%= event.end_date.strftime("%d/%m") %></p>
+                  <% if event.beg_date.strftime("%d/%m") == event.end_date.strftime("%d/%m") %>
+                    <p> Le <%= event.beg_date.strftime("%d") %> <%= event.beg_date.strftime("%B") %></p>
+                    <p> de <%= event.beg_date.strftime("%H:%M") %> à <%= event.end_date.strftime("%H:%M") %></p>
+                  <% else %>
+                    <p> Du <%= event.beg_date.strftime("%d/%m") %></p>
+                    <p> Au <%= event.end_date.strftime("%d/%m") %></p>
+                  <% end %>
               </div>
             </div>
             <div class="block-bottom">
