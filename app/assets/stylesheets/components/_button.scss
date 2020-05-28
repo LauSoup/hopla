@@ -27,6 +27,20 @@
   outline: none;
 }
 
+.button-dashboard-tres {
+  //  orange background and blue logo
+  font-weight:medium;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: $orange;
+  color: $bluemedium;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+
 .button-dashboard-bis:hover, .button-dashboard:hover{
   opacity: 0.8;
 }

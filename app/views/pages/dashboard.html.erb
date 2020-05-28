@@ -1,7 +1,8 @@
 <div class="container text-center">
 
-  <% @shops.size > 1 ? tab_shop = "Mes enseignes" : tab_shop = "Mon enseigne" %>
-  <% @events.size > 1 ? tab_event = "Mes offres" : tab_event = "Mon offre" %>
+  <% @shops.size > 1 ? tab_shop = "Enseignes" : tab_shop = "Enseigne" %>
+  <% @events.size > 1 ? tab_event = "Offres" : tab_event = "Offre" %>
+  <% @favorite_events.size > 1 ? tab_fav = "Favoris" : tab_fav = "Favori" %>
 
 
   <ul class="nav nav-pills justify-content-around my-3">
@@ -10,6 +11,9 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#his-events" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_event %></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#his-favorites" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_fav %></a>
     </li>
   </ul>
 
@@ -26,7 +30,18 @@
     <!-- EVENTS TAB -->
 
     <div class="tab-pane" id="his-events">
-      <%= render 'shared/event_card', events: @events %>
+      <%= render 'shared/event_card', qr: @qr, events: @events %>
+    </div>
+
+    <!-- FAVS tab -->
+    <div class="tab-pane" id="his-favorites">
+      <% @favorite_events.each do |event| %>
+
+      <!-- TO BE FILLED BETWEEN HERE -->
+      <p>event.name</p>
+      <!-- AND HERE -->
+
+      <% end %>
     </div>
   </div>
 
