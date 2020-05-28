@@ -1,0 +1,38 @@
+<% shops.each do |shop| %>
+  <div id="shop-card">
+    <% if shop.photos.count == 0 %>
+      <img src="https://source.unsplash.com/featured/?shop" alt="commerce de quartier">
+    <% else %>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <% shop.photos.each_with_index do |photo, index| %>
+            <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" class=<%= index == 0 ? "active" : "" %> ></li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner">
+          <% shop.photos.each_with_index do |photo, index| %>
+            <div class="carousel-item <%= index == 0 ? "active" : "" %>">
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
+            </div>
+          <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Précédent</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Suivant</span>
+        </a>
+      </div>
+    <% end %>
+    <%= link_to shop_path(shop) do %>
+      <i class="fas fa-door-open"></i>
+    <% end %>
+    <div class="shop-detail">
+      <h3><%= shop.name %></h3>
+      <p><%= shop.address %></p>
+      <p class="category">Vêtement</p>
+    </div>
+  </div>
+<% end %>
