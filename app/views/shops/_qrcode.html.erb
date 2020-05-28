@@ -1,0 +1,57 @@
+<div class="modal fade" id="qrcode" tabindex="-1" role="dialog" aria-labelledby="qrcodeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="qrcodeModalLabel">QR Code à présenter au commerçant</h5>
+      </div>
+      <div class="modal-body">
+        <div class="qr">
+          <% svg = qr.as_svg(
+              offset: 0,
+              color: '000',
+              shape_rendering: 'crispEdges',
+              module_size: 6,
+              standalone: true
+          ) %>
+          <%= svg.html_safe %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dialog id="qrcode-dialog">
+
+</dialog>
+

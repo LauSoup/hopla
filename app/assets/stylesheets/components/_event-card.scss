@@ -96,7 +96,7 @@ hr {
 .event-card .event-detail .block-bottom .block-button {
   flex: 0 0 100px;
   text-align: center;
-  a {
+  button {
     text-decoration: none;
     color: $lightgreen;
     background-color: white;
@@ -108,7 +108,7 @@ hr {
   }
 }
 
-a:hover {
+button:hover {
   opacity: 0.7;
 }
 

@@ -1,9 +1,12 @@
+require 'rqrcode'
+
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:show, :edit, :update]
 
   def show
     authorize @shop
     @events = @shop.events
+    @qr = RQRCode::QRCode.new('dixpourcent')
   end
 
   def new
