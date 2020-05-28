@@ -10,7 +10,7 @@
 }
 
 .event-card .event-image img {
-  height: 150px;
+  height: 200px;
   width: 100%;
   object-fit: cover;
   border-radius: 5px 5px 0px 0px;
@@ -20,7 +20,7 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: $lightgreen;
+  background-color: $bluemedium;
   color: white;
   font-weight: bold;
   padding: 5px 10px;
@@ -28,7 +28,7 @@
 }
 
 .event-detail {
-  background-color: $lightgreen;
+  background-color: $bluemedium;
   width: auto;
   border-radius: 0px 0px 5px 5px;
 }
@@ -36,15 +36,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
 }
 
-.event-card .event-detail .block-top h5 {
-  font-size: 20px;
+.block-left {
   color: white;
-  font-style: bold;
   text-align: left;
-  margin-right: 5px;
+  padding-right: 10px;
+}
+
+.event-card .event-detail .block-top .block-left h5 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.event-card .event-detail .block-top .block-left h6 {
+  font-size: 12px;
 }
 
 .block-date {
@@ -58,21 +65,7 @@
   color: white;
   text-align: center;
   margin-bottom: 0;
-}
-
-.event-card .event-detail h6 {
-  color: white;
-  text-align: left;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-top: 10px;
-  font-size: 12px;
-}
-
-hr {
-  margin-top: 3px;
-  margin-bottom: 3px;
-  color: white;
+  margin-top: 0;
 }
 
 .event-card .event-detail .block-bottom {
@@ -98,13 +91,14 @@ hr {
   text-align: center;
   button {
     text-decoration: none;
-    color: $lightgreen;
+    color: $bluemedium;
     background-color: white;
     border-radius: 4px;
     box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
-    padding: 10px 15px;
+    padding: 5px 10px;
     font-size: 12px;
     font-weight: bold;
+    border: none;
   }
 }
 

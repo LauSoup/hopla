@@ -81,15 +81,16 @@
           </div>
           <div class="event-detail">
             <div class="block-top">
-              <h5> <%= event.title %> </h5>
+              <div class="block-left">
+                <h5> <%= event.title %> </h5>
+                <h6> <%= event.description %></h6>
+              </div>
               <div class="block-date">
                 <i class="fas fa-calendar-alt" style="color: white;"></i>
                 <p> Du <%= event.beg_date.strftime("%d/%m") %></p>
                 <p> Au <%= event.end_date.strftime("%d/%m") %></p>
               </div>
             </div>
-            <h6> <%= event.description %></h6>
-            <hr>
             <div class="block-bottom">
               <div class="block-icon">
                 <a><i class="far fa-heart" style="color: white;"></i></a>
