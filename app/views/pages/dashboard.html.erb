@@ -2,7 +2,7 @@
 
   <% @shops.size > 1 ? tab_shop = "Enseignes" : tab_shop = "Enseigne" %>
   <% @events.size > 1 ? tab_event = "Offres" : tab_event = "Offre" %>
-  <% @favorite_events.size > 1 ? tab_event = "Favoris" : tab_event = "Favori" %>
+  <% @favorite_events.size > 1 ? tab_fav = "Favoris" : tab_fav = "Favori" %>
 
 
   <ul class="nav nav-pills justify-content-around my-3">
@@ -13,7 +13,7 @@
       <a class="nav-link" href="#his-events" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_event %></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#his-favorites" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_event %></a>
+      <a class="nav-link" href="#his-favorites" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_fav %></a>
     </li>
   </ul>
 
@@ -102,7 +102,7 @@
       <p>event.name</p>
       <!-- AND HERE -->
 
-      <%= end %>
+      <% end %>
     </div>
   </div>
 
