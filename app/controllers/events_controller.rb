@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @shop = Shop.find(params[:shop_id])
+    @user = current_user
     @event.shop_id = @shop.id
     authorize @event
     if @event.save
@@ -29,7 +30,10 @@ class EventsController < ApplicationController
 
   def update
     authorize @event
+    @user = current_user
+  
     @shop = Shop.find(params[:shop_id])
+
     if @event.update(event_params)
       redirect_to shop_path(@shop)
     else
