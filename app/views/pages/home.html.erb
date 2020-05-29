@@ -19,7 +19,7 @@
         <button class="button-dropdown" id="refine-button"><i class="fas fa-chevron-down"></i> Filtrer</button>
       </div>
 
-        <div class="tab-pane" id="search">
+        <div class="filter-section" id="search">
           <div class="container">
             <div class="form-group no-margin d-none" id= "search-form-home">
               <%= simple_form_for :search, url:root_path, html: { data: { action: "ajax:success->ajax-form#onPostSuccess" } } , remote: true, method: :get do |f| %>
