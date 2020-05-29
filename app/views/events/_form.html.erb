@@ -1,13 +1,37 @@
 <div class="container">
-    <%= simple_form_for [shop, event] do |f| %>
-      <%= f.input :title, label: "Titre" %>
-      <%= f.input :description, label: "Description" %>
-      <%= f.input :beg_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :category, as: :radio_buttons, label: "Catégorie", collection: Event::CATEGORIES %>
-      <%= f.input :offer, label: "Offre" %>
-      <%= f.input :active,label: "Disponible ?" %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter image' %>
-      <%= f.submit "Valider" %>
-    <% end %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="form-login">
+        <%= simple_form_for [shop, event] do |f| %>
+          <%= f.input :title, label: "Titre" %>
+          <%= f.input :description, label: "Description" %>
+          <%= f.input :beg_date, as: :string, label: "Date de début", input_html: {class: "datepicker"} %>
+          <%= f.input :end_date, as: :string,  label: "Date de fin", input_html: {class: "datepicker"} %>
+           <div class="category-choices">
+              <legend class="col-form-label pt-0">Catégorie 
+                <abbr title="required">*</abbr>
+              </legend>
+              <input type="hidden" name="event[category]" value="">
+            <div class="category-choice">
+                <input type="checkbox" value="Promotion" name="event[category]" id="event_category_promotion">
+                <label  for="event_category_promotion">Promotion
+                  <i class="fa fa-check"></i>
+                </label>
+              </div>
+              <div class="category-choice">
+                <input type="checkbox" value="Evènement" name="event[category]" id="event_category_evènement">
+                <label for="event_category_evènement">Evènement
+                  <i class="fa fa-check"></i>
+                </label>
+              </div>
+          </div>
+          <%= f.input :offer, label: "Offre", placeholder: "ex: 2 achétés 1 offert" %>
+          <%= f.input :active,label: "Disponible ?" %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter image' %>
+          <%= f.submit "Valider" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+

@@ -20,3 +20,37 @@
     color: $bluemedium;
   }
 }
+
+// Checkboxes design
+.category-choices {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.category-choice {
+  background: $bluemedium;
+  padding: 10px;
+  border-radius: 5px;
+  opacity: .4;
+  flex: 0 0 30%;
+  text-align: center;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+  background: $bluemedium;
+  color: white;
+  opacity: 1;
+  }
+  label {
+    margin: 0;
+  }
+}
+
+#event_category_promotion, #event_category_evènement{
+  display: none;
+}
+

@@ -29,17 +29,23 @@ import "bootstrap";
 import "../plugins/flatpickr";
 import { initMapbox } from '../plugins/init_mapbox';
 import { dropdownForm } from "../effects/dropdown_form";
+import { formActive } from "../components/category_choices"
 // import { rippleButtons } from '../effects/ripple_buttons';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
-  dropdownForm();
+  formActive();
   // rippleButtons();
   flatpickr(".datepicker");
+  dropdownForm();
+
+
 });
 
 import "controllers"
