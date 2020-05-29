@@ -36,8 +36,19 @@
 #search-button{
   margin-bottom:20px;
   font-size:15px;
+  padding-top:30px;
+}
+#search-button {
+  padding-top: 0px;
 }
 
-.research-container, .typed-container, .map-container {
+.typed-container{
   height: 33vh;
+}
+
+.lead {
+  padding-top:20vh;
+  color:white;
+  font-weight:bold;
+  font-size:25px;
 }
