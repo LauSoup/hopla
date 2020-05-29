@@ -2,8 +2,8 @@
     <%= simple_form_for [shop, event] do |f| %>
       <%= f.input :title, label: "Titre" %>
       <%= f.input :description, label: "Description" %>
-      <%= f.input :beg_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :beg_date, as: :string, required: false, input_html: {class: "datepicker"}, label: "Début de l'offre" %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"}, label: "Fin de l'offre" %>
       <%= f.input :category, as: :radio_buttons, label: "Catégorie", collection: Event::CATEGORIES %>
       <%= f.input :offer, label: "Offre" %>
       <%= f.input :active,label: "Disponible ?" %>
