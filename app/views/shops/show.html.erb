@@ -1,7 +1,11 @@
 <div class="container text-center show-page-margin" >
   <h2 id="show-shop-title"><i class="fas fa-store"></i> <%= @shop.name %></h2>
   <!-- Change tab name to plural if multiple offers. -->
-  <% @events.size > 1 ? tab_event = "Mes offres" : tab_event = "Mon offre" %>
+  <% if @shop.user_id == current_user.id %>
+    <% @events.size > 1 ? tab_event = "Mes offres" : tab_event = "Mon offre" %>
+  <% else %>
+    <% @events.size > 1 ? tab_event = "Offres" : tab_event = "Offre" %>
+  <% end %>
   <ul class="nav nav-pills justify-content-around my-3">
     <li class="nav-item">
       <a class="nav-link active" href="#info" data-toggle="tab" style="text-decoration: none;" id="title-black">Information</a>
