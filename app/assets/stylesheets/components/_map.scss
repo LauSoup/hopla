@@ -3,6 +3,29 @@
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
   font-family: 'Open Sans', sans-serif;
+}
+
+#show-shop-title2 {
+  color: $bluemedium;
+  font-weight: bold;
+  justify-content:center;
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+#promos {
+  color: $orange;
+}
+
+.offers-in-progress {
+  justify-content: center;
+}
+
+.offers-in-progress p {
+  margin-bottom: 0px;
+}
+
+.adress-pop-up p {
+  margin-bottom: 3px;
 }
