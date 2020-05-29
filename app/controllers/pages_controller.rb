@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     if params[:search].present?
       if params[:search][:query] != "" && params[:search][:categories] == ""
         shops = Shop.search_by_name_and_address(params[:search][:query])
-        @shops = shops.geocoded        
+        @shops = shops.geocoded
       elsif params[:search][:query] == "" && params[:search][:categories] != ""
         shops = Shop.search_by_category(params[:search][:categories])
         @shops = shops.geocoded
@@ -20,12 +20,21 @@ class PagesController < ApplicationController
       @shops = Shop.all.geocoded
     end
     @markers = @shops.map do |shop|
+      if shop.events.count == 0
       {
         lat: shop.latitude,
         lng: shop.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { shop: shop }),
         image_url: helpers.asset_url('mid-blue-logo.png')
       }
+      else
+      {
+        lat: shop.latitude,
+        lng: shop.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { shop: shop }),
+        image_url: helpers.asset_url('orange-logo.png')
+      }
+      end
     end
     render partial: 'shops/map', locals: { markers: @markers } if params[:search].present?
   end

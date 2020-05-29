@@ -31,13 +31,29 @@
 
 #map {
   margin-top: 10px;
+  height:90vh;
 }
 
 #search-button{
   margin-bottom:20px;
   font-size:15px;
+  padding-top:30px;
+}
+#search-button {
+  padding-top: 0px;
 }
 
-.research-container {
-  height: 95vh;
+.typed-container{
+  height: 33vh;
+}
+
+.filter-section {
+  margin-bottom:75px;
+}
+
+.lead {
+  padding-top:20vh;
+  color:white;
+  font-weight:bold;
+  font-size:25px;
 }
