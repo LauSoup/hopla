@@ -15,4 +15,8 @@ var options = {
   cursorChar: '|',
 };
 
-var typed = new Typed('.typed-element', options);
+const typedMethod = () => {
+  var typed = new Typed('.typed-element', options);
+};  
+
+export { typedMethod }
