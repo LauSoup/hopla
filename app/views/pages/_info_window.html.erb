@@ -1,3 +1,17 @@
-<h2><%= shop.name %></h2>
-<p><%= shop.address %></p>
+
+<h3 id="show-shop-title2", style=><i class="fas fa-store"></i> <%= shop.name %></h3>
+<div class="adress-pop-up">
+  <p><i class="fas fa-map-marker-alt"></i> <%= shop.address %></p>
+</div>
+<div class="offers-in-progress">
+  <% total = shop.events.count %>
+  <% if total > 0 %>
+    <p style="margin-left: 0px">Offres en cours : </p><% total.times do %>
+      <i class="fas fa-gifts" id="promos"></i>
+    <% end %>
+  <% else %>
+    <p>Patience... les offres arrivent</p>
+<% end %>
+</div>
+
 <h6><%= link_to "Voir ce commerce", shop_path(shop.id) %></h6>
