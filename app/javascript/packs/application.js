@@ -30,7 +30,8 @@ import "bootstrap";
 import { flatpickMethod } from "../plugins/flatpickr";
 import { initMapbox } from '../plugins/init_mapbox';
 import { dropdownForm } from "../effects/dropdown_form";
-import { formActive } from "../components/category_choices"
+import { formActive } from "../components/category_choices";
+import { typedMethod } from "../effects/typed_effect";
 // import { rippleButtons } from '../effects/ripple_buttons';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -43,6 +44,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   flatpickMethod();
   formActive();
+  typedMethod();
   // rippleButtons();
 
   dropdownForm();
