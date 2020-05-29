@@ -26,7 +26,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import "../plugins/flatpickr";
+import { flatpickMethod } from "../plugins/flatpickr";
 import { initMapbox } from '../plugins/init_mapbox';
 import { dropdownForm } from "../effects/dropdown_form";
 import { formActive } from "../components/category_choices"
@@ -40,13 +40,11 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
+  flatpickMethod();
   formActive();
   // rippleButtons();
-  flatpickr(".datepicker");
+
   dropdownForm();
-
-
 });
 
 import "controllers"
-

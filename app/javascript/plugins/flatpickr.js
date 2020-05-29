@@ -1,5 +1,9 @@
 import flatpickr from "flatpickr";
 
-flatpickr(".datepicker", {
-  disableMobile: "true",
-});
+const flatpickMethod = () => {
+  flatpickr(".datepicker", {
+    disableMobile: "true",
+  });
+};
+
+export { flatpickMethod }
