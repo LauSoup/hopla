@@ -32,7 +32,11 @@
     <div class="shop-detail">
       <h3><%= shop.name %></h3>
       <p><%= shop.address %></p>
-      <p class="category">Vêtement</p>
+      <div class="block-category">
+        <% shop.tags.each do |t| %>
+          <p class="category"><%= t.category.name %></p>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>

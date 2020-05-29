@@ -30,7 +30,13 @@
   margin-bottom: 3px;
 }
 
-#shop-card .shop-detail .category {
+#shop-card .shop-detail .block-category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#shop-card .shop-detail .block-category .category {
   border-radius: 8px;
   background-color: $bluemedium;
   width: 96px;
