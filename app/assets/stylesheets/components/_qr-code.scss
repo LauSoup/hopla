@@ -1,0 +1,19 @@
+.modal-content {
+  background-color: white;
+  color: $bluemedium;
+}
+
+.modal-content h5 {
+    font-weight: bold;
+}
+
+.modal-content .btn {
+  background-color: $bluemedium;
+  color: white;
+  opacity: 0.8;
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.2);
+}
+
+.modal-content .btn:hover {
+  opacity: 1;
+}
