@@ -16,7 +16,11 @@ var options = {
 };
 
 const typedMethod = () => {
-  var typed = new Typed('.typed-element', options);
-};  
+  const refineButton = document.querySelector(".typed-element");
+  console.log(refineButton)
+  if (refineButton) {
+    var typed = new Typed('.typed-element', options);
+  };
+};
 
 export { typedMethod }
