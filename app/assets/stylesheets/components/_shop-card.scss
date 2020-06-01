@@ -1,4 +1,3 @@
-
 .shop-detail {
   background-color: $orange;
   width: auto;
@@ -10,6 +9,7 @@
   width: 100%;
   object-fit: cover;
   border-radius: 5px 5px 0px 0px;
+  position: relative;
 }
 
 #shop-card .shop-detail h3 {
@@ -55,7 +55,16 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
-  color: white;
+  color: $bluemedium;
+}
+
+.no-result p {
+  color: grey;
+}
+
+.no-result {
+  justify-content: center;
+  margin-top: 50%;
 }
 
 .no-result p {

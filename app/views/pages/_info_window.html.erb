@@ -1,17 +1,52 @@
-
-<h3 id="show-shop-title2", style=><i class="fas fa-store"></i> <%= shop.name %></h3>
-<div class="adress-pop-up">
-  <p><i class="fas fa-map-marker-alt"></i> <%= shop.address %></p>
-</div>
-<div class="offers-in-progress">
-  <% total = shop.events.count %>
-  <% if total > 0 %>
-    <p style="margin-left: 0px">Offres en cours : </p><% total.times do %>
-      <i class="fas fa-gifts" id="promos"></i>
-    <% end %>
+<div id="shop-card">
+  <div class="offers-in-progress">
+    <% total = shop.events.count %>
+    <% if total == 1 %>
+      <%= shop.events.count %> offre
+    <% elsif total > 0 %>
+      <%= shop.events.count %> offres
+    <% else %>
+      <p>0 offre </p>
+  <% end %>
+  </div>
+  <% if shop.photos.count == 0 %>
+    <img src="https://source.unsplash.com/featured/?shop" alt="commerce de quartier">
   <% else %>
-    <p>Patience... les offres arrivent</p>
-<% end %>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <% shop.photos.each_with_index do |photo, index| %>
+          <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" class=<%= index == 0 ? "active" : "" %> ></li>
+        <% end %>
+      </ol>
+      <div class="carousel-inner">
+        <% shop.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= index == 0 ? "active" : "" %>">
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
+          </div>
+        <% end %>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Précédent</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Suivant</span>
+      </a>
+    </div>
+  <% end %>
+  <%= link_to shop_path(shop) do %>
+    <i class="fas fa-door-open"></i>
+  <% end %>
+  <div class="shop-detail">
+    <h3><%= shop.name %></h3>
+    <p><%= shop.address %></p>
+    <div class="block-category">
+      <% shop.tags.each do |t| %>
+        <p class="category"><%= t.category.name %></p>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<h6><%= link_to "Voir ce commerce", shop_path(shop.id) %></h6>
+
