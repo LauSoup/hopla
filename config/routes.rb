@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :events, only:[:show]
 
   get 'dashboard', to: 'pages#dashboard'
+  get 'dashboard/events', to: 'pages#events'
 end
