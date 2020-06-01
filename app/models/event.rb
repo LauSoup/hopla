@@ -17,4 +17,12 @@ class Event < ApplicationRecord
     @events.sample
   end
 
+  def generate_qr_code
+    if qr_code.nil?
+      RQRCode::QRCode.new("default")
+    else
+      RQRCode::QRCode.new(qr_code)
+    end
+  end
+
 end

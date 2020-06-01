@@ -51,15 +51,10 @@
           <% end %>
         </div>
         <div class="block-button">
-          <% if event.qr_code.blank? %>
-            <% qr= RQRCode::QRCode.new("default") %>
-          <% else %>
-            <% qr= RQRCode::QRCode.new(event.qr_code) %>
-          <% end %>
           <button type="button" data-toggle="modal" data-target="#qrcode">
             QR Code
           </button>
-          <%= render 'qrcode', qr: qr %>
+          <%= render 'qrcode', qr: event.generate_qr_code %>
         </div>
       </div>
     </div>
