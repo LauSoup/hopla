@@ -1,4 +1,3 @@
-<% if @shop.exists? == true || @events.count > 0 %>
   <% events.each do |event| %>
     <div class="event-card">
       <div class="event-image">
@@ -73,9 +72,4 @@
       </div>
     </div>
   <% end %>
-<% else %>
-  <div class="no-result">
-    <p>Aucune offre pour le moment</p>
-  </div>
-<% end %>
 
