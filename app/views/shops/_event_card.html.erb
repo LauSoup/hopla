@@ -1,30 +1,34 @@
-<% if @shops.exists? == true || @events.count > 0 %>
+<% if @shop.valid? == true || @events.count > 0 %>
   <% events.each do |event| %>
     <div class="event-card">
       <div class="event-image">
-        <div id="carousel<%= event.id %>" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <% event.photos.each_with_index do |photo, index| %>
-              <li data-target="#carousel<%= event.id %>" data-slide-to="<%= index %>" class="<%= index == 0 ? "active" : "" %>" ></li>
-            <% end %>
-          </ol>
-          <div class="carousel-inner">
-            <% event.photos.each_with_index do |photo, index| %>
-              <div class="carousel-item <%= index == 0 ? "active" : "" %>">
-                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
-              </div>
-            <% end %>
+        <% if event.photos.count == 0 %>
+          <img src="https://torrentcorp.com/wp-content/uploads/Generic-profile-pic.gif" alt="">
+        <% else %>
+          <div id="carousel<%= event.id %>" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <% event.photos.each_with_index do |photo, index| %>
+                <li data-target="#carousel<%= event.id %>" data-slide-to="<%= index %>" class="<%= index == 0 ? "active" : "" %>" ></li>
+              <% end %>
+            </ol>
+            <div class="carousel-inner">
+              <% event.photos.each_with_index do |photo, index| %>
+                <div class="carousel-item <%= index == 0 ? "active" : "" %>">
+                  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
+                </div>
+              <% end %>
+            </div>
+            <a class="carousel-control-prev" href="#carousel<%= event.id %>" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Précédent</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel<%= event.id %>" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Suivant</span>
+            </a>
           </div>
-          <a class="carousel-control-prev" href="#carousel<%= event.id %>" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Précédent</span>
-          </a>
-          <a class="carousel-control-next" href="#carousel<%= event.id %>" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Suivant</span>
-          </a>
-        </div>
-        <p class="offer-tag"><%= event.offer %></p>
+          <p class="offer-tag"><%= event.offer %></p>
+        <% end %>
       </div>
       <div class="event-detail">
         <div class="block-top">

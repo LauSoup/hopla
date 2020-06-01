@@ -1,9 +1,24 @@
 .mapboxgl-popup {
-  max-width: 200px;
+  width: 100% !important;
+  max-width: 100% !important;
+  position: fixed !important;
+  top: unset !important;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  transform: none !important;
 }
 
 .mapboxgl-popup-content {
   font-family: 'Open Sans', sans-serif;
+}
+
+.mapboxgl-popup-close-button {
+  display: none !important;
+}
+
+.mapboxgl-popup-tip {
+  display: none !important;
 }
 
 #show-shop-title2 {
@@ -15,11 +30,13 @@
 }
 
 #promos {
-  color: $orange;
+  color: white;
 }
 
 .offers-in-progress {
-  justify-content: center;
+  position: relative;
+  top: 5px;
+  right: 5px;
 }
 
 .offers-in-progress p {
@@ -29,3 +46,11 @@
 .adress-pop-up p {
   margin-bottom: 3px;
 }
+
+.offers-in-progress {
+    color: yellow;
+    position: absolute !important;
+    top: 5px;
+    right: 5px;
+    background-color: yellow;
+  }
