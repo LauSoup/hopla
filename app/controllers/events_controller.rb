@@ -33,7 +33,6 @@ class EventsController < ApplicationController
     @user = current_user
   
     @shop = Shop.find(params[:shop_id])
-
     if @event.update(event_params)
       redirect_to shop_path(@shop)
     else
