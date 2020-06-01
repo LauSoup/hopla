@@ -51,7 +51,6 @@
 }
 
 .button-submit-home {
-  float:right;
   background-color:white;
   color:$bluemedium;
   border:none;
@@ -59,6 +58,7 @@
   border-radius: 17px;
   font-size:bold;
   margin-bottom: 15px;
+  font-weight:bold;
 }
 .button-submit-home:hover{
   box-shadow: 0 0 4px #999;
