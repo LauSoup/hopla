@@ -11,7 +11,7 @@
     "flatpickr": "^4.6.3",
     "jquery": "^3.5.1",
     "mapbox-gl": "^1.10.1",
-    "places.js": "^1.18.2",
+    "places.js": "^1.19.0",
     "popper.js": "^1.16.1",
     "stimulus": "^1.1.1",
     "turbolinks": "^5.2.0",

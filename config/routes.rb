@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :shops, only:[:new, :create, :update, :edit, :show] do
     resources :events, only:[:new, :create, :edit, :update]
   end
-  
+
+  resources :events, only:[:show]
+
   get 'dashboard', to: 'pages#dashboard'
 end

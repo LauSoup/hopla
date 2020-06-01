@@ -54,13 +54,26 @@
             <% if event.shop.user_id == current_user.id %>
               <%= link_to '<i class="fas fa-pen" style="color: white;"></i>'.html_safe , edit_shop_event_path(edit.id) %>
             <% end %>
-          </div>
-          <div class="block-button">
-            <button type="button" data-toggle="modal" data-target="#qrcode">
-              QR Code
-            </button>
-            <%= render 'qrcode', qr: qr %>
-          </div>
+        </div>
+      </div>
+      <div class="block-bottom">
+        <div class="block-icon">
+          <a><i class="far fa-heart" style="color: white;"></i></a>
+          <a><i class="fas fa-share-alt" style="color: white;"></i></a>
+          <% if event.shop.user_id == current_user.id %>
+            <%= link_to '<i class="fas fa-pen" style="color: white;"></i>'.html_safe , edit_shop_event_path(event.shop_id, event.id) %>
+          <% end %>
+        </div>
+        <div class="block-button">
+          <% if event.qr_code.blank? %>
+            <% qr= RQRCode::QRCode.new("default") %>
+          <% else %>
+            <% qr= RQRCode::QRCode.new(event.qr_code) %>
+          <% end %>
+          <button type="button" data-toggle="modal" data-target="#qrcode">
+            QR Code
+          </button>
+          <%= render 'qrcode', qr: qr %>
         </div>
       </div>
     </div>
