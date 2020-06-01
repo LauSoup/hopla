@@ -51,7 +51,25 @@
   }
 }
 
-#event_category_promotion, #event_category_evènement{
-  display: none;
+// #event_category_promotion, #event_category_evènement{
+//   display: none;
+// }
+
+// Home form
+
+#search-form-home label {
+  display:none;
 }
 
+
+.blue-rounded-input-shape,
+.blue-rounded-input-shape:focus{
+  background-color:$deepblue;
+  color:white;
+  border:none;
+  border-radius:18px;
+}
+
+.blue-rounded-input-shape::placeholder {
+  color:white;
+}

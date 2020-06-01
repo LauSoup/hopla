@@ -38,6 +38,8 @@
   outline: none;
 }
 
+
+
 .button-dropdown {
   font-weight:medium;
   border: none;
@@ -47,6 +49,20 @@
   outline: none;
   background-color: Transparent;
 }
+
+.button-submit-home {
+  background-color:white;
+  color:$bluemedium;
+  border:none;
+  padding: 5px 20px;
+  border-radius: 17px;
+  font-size:bold;
+}
+.button-submit-home:hover{
+  box-shadow: 0 0 4px #999;
+  opacity:0.7;
+}
+
 
 .button-dashboard-bis:hover, .button-dashboard:hover{
   opacity: 0.8;
@@ -89,6 +105,10 @@
   position: relative;
   top: 90vh;
   left: 33vw;
+
+}
+
+.display-on-top, #up-button-home {
   z-index: 1000;
 }
 
@@ -110,9 +130,6 @@
   border: solid white 3px;
 }
 
-#refine-button {
-
-}
 
 /* End of ripple effect. */
 

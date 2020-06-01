@@ -6,9 +6,7 @@
   opacity: 0.8;
   padding: 0;
   margin: 0;
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(shop.png);
-  background-position: center;
-  background-size: cover;
+  background-color:$bluemedium;
 }
 
 .back a {
@@ -38,26 +36,20 @@
   height:90vh;
 }
 
-#search-button{
-  margin-bottom:20px;
-  font-size:15px;
-  padding-top:30px;
-}
-#search-button {
-  padding-top: 0px;
-}
-
 .typed-container{
-  height: 33vh;
+  text-align:left;
 }
 
-.filter-section {
-  margin-bottom:75px;
+.typed-container {
+  padding:20px;
 }
 
 .lead {
-  padding-top:20vh;
   color:white;
   font-weight:bold;
-  font-size:25px;
+  font-size:23px;
+}
+
+.lead-text {
+  color:white;
 }
