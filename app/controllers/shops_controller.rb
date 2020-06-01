@@ -5,7 +5,7 @@ class ShopsController < ApplicationController
 
   def show
     authorize @shop
-    @events = @shop.events
+    @events = @shop.events.sort {|a,b| a.end_date <=> b.end_date}
     @qr = RQRCode::QRCode.new('dixpourcent')
   end
 
