@@ -45,7 +45,7 @@
   cursor: pointer;
   color: white;
   outline: none;
-  background-color: $bluemedium;
+  background-color: Transparent;
 }
 
 .button-dashboard-bis:hover, .button-dashboard:hover{
@@ -53,7 +53,7 @@
 }
 
 // Buttons padding depending on the inner logo:
-.home-padding, .pen-padding, .plus-padding {
+.chevron-padding, .home-padding, .pen-padding, .plus-padding {
   border-radius: 50%;
 }
 
@@ -67,6 +67,10 @@
 
 .plus-padding {
   padding: 14px 21px;
+}
+
+.chevron-padding {
+  padding: 17px 21px;
 }
 
 .text-padding {
