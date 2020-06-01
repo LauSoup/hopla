@@ -45,9 +45,21 @@ puts "✨✨ Hoplette created !! ✨✨"
 puts "⏲ Initializing categories... ⏲"
 
 
-categories = ["Divertissement", "Electronique", "Santé", "Vêtements", "Jeux", "Fleuriste", "Garage", "Caviste", "Maroquinerie", "Quincaillerie"]
+categories = [
+  divertissement = { name: "Divertissement", icon: "fas fa-theater-masks" },
+  electronique = { name: "Electronique", icon: "fas fa-tv" },
+  sante = { name: "Santé", icon: "fas fa-clinic-medical" },
+  vetements = { name: "Vêtements", icon: "fas fa-tshirt" },
+  jeux = { name: "Jeux", icon: "fas fa-gamepad" },
+  fleuriste = { name: "Fleuriste", icon: "fas fa-leaf" },
+  garage = { name: "Garage", icon: "fas fa-car" },
+  caviste = { name: "Caviste", icon: "fas fa-wine-bottle" },
+  maroquinerie = { name: "Maroquinerie", icon: "fas fa-briefcase" },
+  quincaillerie = { name: "Quincaillerie", icon: "fas fa-tools" },
+  epicerie = { name: "Epicerie", icon: "fas fa-mortar-pestle" },
+  ]
 categories.each do |category|
-  Category.create(name: category)
+  Category.create(name: category[:name], icon: category[:icon])
 end
 p Category.all
 puts "✨✨ Categories created !! ✨✨"
@@ -81,84 +93,86 @@ puts "✨✨ Categories created !! ✨✨"
     puts "User not created due to duplicate data 😢"
   end
 
+
   #creating shop
-  puts "🙋 Creating shop for this user..."
-  active = true
-  name = Faker::TvShows::Simpsons.location
+  if user.valid?
+    puts "🙋 Creating shop for this user..."
+    active = true
+    name = Faker::TvShows::Simpsons.location
 
-  # Gathering elements of the address and create the full address
-  address = ["9 rue bouquière, bordeaux", "22 quai duguay trouin, rennes", "9 rue du chemin vert, paris", "6 rue pizay, lyon", "4 rue des cigognes, strasbourg", "10 rue du guesclin, marseille"].sample
-  # street_nb = (2..12).to_a.sample
-  # street = random_user["results"][0]["location"]["street"]["name"]
-  # # cp = random_user["results"][0]["location"]["postcode"]
-  # city = random_user["results"][0]["location"]["city"]
-  # address = "#{street_nb} #{street}, #{city}"
+    # Gathering elements of the address and create the full address
+    address = ["9 rue bouquière, bordeaux", "22 quai duguay trouin, rennes", "9 rue du chemin vert, paris", "6 rue pizay, lyon", "4 rue des cigognes, strasbourg", "10 rue du guesclin, marseille"].sample
+    # street_nb = (2..12).to_a.sample
+    # street = random_user["results"][0]["location"]["street"]["name"]
+    # # cp = random_user["results"][0]["location"]["postcode"]
+    # city = random_user["results"][0]["location"]["city"]
+    # address = "#{street_nb} #{street}, #{city}"
 
-  # Finish shop creation
+    # Finish shop creation
 
-  description = Faker::ChuckNorris.fact
+    description = Faker::ChuckNorris.fact
 
-  shop = Shop.new(
-    active: active,
-    name: name,
-    address: address,
-    description: description
-  )
-  shop.user_id = user.id
-  shop.save!
-
-  if shop.valid?
-    shop.save!
-    puts  "Shop #{shop.name} saved 🙌"
-  else
-    puts "Shop not created due to duplicate data 😢"
-  end
-
-  # Add category (tags) to the shop (created a class method random in category)
-
-  puts "🏠 Creating 1, 2 or 3 categories (tags) for this shop..."
-
-  i = (1..3).to_a.sample
-
-  i.times do
-    category = Category.random
-    tag = Tag.new
-    tag.category_id = category.id
-    tag.shop_id = shop.id
-    tag.save!
-  end
-
-  puts "#{i} tag(s) added ⛄"
-
-  # Add events to the shop
-
-  puts "📅 Creating 1, 2 or 3 events for this shop... "
-
-  i = (1..3).to_a.sample
-
-  i.times do
-    title = ["10% de réduction sur tout !", "Vernissage exceptionnel 🎇", "Un thé offert pour toute visite 🍵", "Nouvelle collection dans les rayons", "Réductions jusqu'à 30% pour fin de collection!"].sample
-    description = ["On vous attend nombreux!", "N'oubliez pas votre tot-bag pour limiter les sacs jetables 😉 "].sample
-    beg_date = Faker::Date.between(from: 2.days.ago, to: Date.today)
-    end_date = Faker::Date.between(from: Date.today, to: 20.days.from_now)
-    category = ["Evènement", "Promotion"].sample
-    offer = ["10%", "2 achetés 1 offert", "Un thé offert"].sample
-    active = [true, false].sample
-    event = Event.new(
-      title: title,
-      description: description,
-      offer: offer,
-      beg_date: beg_date,
-      end_date: end_date,
-      category: category,
-      active: active
+    shop = Shop.new(
+      active: active,
+      name: name,
+      address: address,
+      description: description
     )
-    event.shop_id = shop.id
-    event.save!
+    shop.user_id = user.id
+    shop.save!
+
+    if shop.valid?
+      shop.save!
+      puts  "Shop #{shop.name} saved 🙌"
+    else
+      puts "Shop not created due to duplicate data 😢"
+    end
+
+    # Add category (tags) to the shop (created a class method random in category)
+
+    puts "🏠 Creating 1, 2 or 3 categories (tags) for this shop..."
+
+    i = (1..3).to_a.sample
+
+    i.times do
+      category = Category.random
+      tag = Tag.new
+      tag.category_id = category.id
+      tag.shop_id = shop.id
+      tag.save!
+    end
+
+    puts "#{i} tag(s) added ⛄"
+
+    # Add events to the shop
+
+    puts "📅 Creating 1, 2 or 3 events for this shop... "
+
+    i = (1..3).to_a.sample
+
+    i.times do
+      title = ["10% de réduction sur tout !", "Vernissage exceptionnel 🎇", "Un thé offert pour toute visite 🍵", "Nouvelle collection dans les rayons", "Réductions jusqu'à 30% pour fin de collection!"].sample
+      description = ["On vous attend nombreux!", "N'oubliez pas votre tot-bag pour limiter les sacs jetables 😉 "].sample
+      beg_date = Faker::Date.between(from: 2.days.ago, to: Date.today)
+      end_date = Faker::Date.between(from: Date.today, to: 20.days.from_now)
+      category = ["Evènement", "Promotion"].sample
+      offer = ["10%", "2 achetés 1 offert", "Un thé offert"].sample
+      active = [true, false].sample
+      event = Event.new(
+        title: title,
+        description: description,
+        offer: offer,
+        beg_date: beg_date,
+        end_date: end_date,
+        category: category,
+        active: active
+      )
+      event.shop_id = shop.id
+      event.save!
+    end
+
+    puts "#{i} event(s) added 📆"
   end
-
-  puts "#{i} event(s) added 📆"
-
 end
 
 # Create users without shops

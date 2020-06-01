@@ -13,7 +13,7 @@
                   <div class="category-choice">
                     <input class="checkbox-categ" type="checkbox" value="<%= category.id %>" name="shop[category_ids][]" id="shop_category_ids_<%= category.id %>">
                     <label class="form-check-label collection_check_boxes" for="shop_category_ids_<%= category.id %>">
-                      <i class="fa fa-check"></i> <br>
+                      <i class="<%= category.icon %>"></i> <br>
                       <%= category.name %>
                     </label>
                   </div>
