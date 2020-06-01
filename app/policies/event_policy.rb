@@ -10,17 +10,17 @@ class EventPolicy < ApplicationPolicy
   end
 
   def new?
-    return true
-    # record.shop.user == user
+    # return true
+    record.shop.user == user
   end
 
   def create?
-    return true
-    # record.shop.user == user
+    # return true
+    record.shop.user == user
   end
 
   def update?
-    return true
-    # record.shop.user == user
+    # return true
+    record.shop.user == user
   end
 end
