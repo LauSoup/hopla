@@ -44,7 +44,6 @@ class PagesController < ApplicationController
     @shops = Shop.where(user: current_user)
     @events = Event.joins(:shop).where("user_id = ?", @user.id).sort {|a,b| a.end_date <=> b.end_date}
     @favorite_events = FavoriteEvent.where("user_id = ?", @user.id)
-    @qr = RQRCode::QRCode.new('dixpourcent')
     @page_marker="dashboard"
   end
 end
