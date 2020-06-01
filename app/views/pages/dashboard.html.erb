@@ -36,7 +36,7 @@
     </div>
 
     <!-- EVENTS TAB -->
-    
+
       <div class="tab-pane" id="his-events">
       <% if @shops != "" && @events.count > 0 %>
         <%= render 'shared/event_card', events: @events %>
@@ -44,6 +44,9 @@
         <div class="no-result">
           <p>Aucune offre pour le moment, cliquez sur le "+" pour créer votre première offre!</p>
         </div>
+      <% end %>
+      <%= link_to new_shop_event_path(@shops.ids), :class => "button-dashboard-tres plus-padding add-button-dashboard " do %>
+        <i class="fas fa-plus"></i>
       <% end %>
     </div>
 
