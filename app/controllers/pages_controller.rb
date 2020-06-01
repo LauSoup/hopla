@@ -46,4 +46,12 @@ class PagesController < ApplicationController
     @favorite_events = FavoriteEvent.where("user_id = ?", @user.id)
     @page_marker="dashboard"
   end
+
+  def events
+    @user = current_user
+    @shops = Shop.where(user: current_user)
+    @events = Event.joins(:shop).where("user_id = ?", @user.id).sort {|a,b| a.end_date <=> b.end_date}
+    @favorite_events = FavoriteEvent.where("user_id = ?", @user.id)
+    @page_marker="events"
+  end
 end
