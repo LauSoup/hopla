@@ -1,19 +1,16 @@
 .home {
   margin-top:50px;
-  min-height: calc(100% - 70px - 60px);
+  height:90vh;
   width: 100%;
   text-align: center;
-  background-color: $bluemedium;
   opacity: 0.8;
   padding: 0;
   margin: 0;
+  background-color:$bluemedium;
 }
 
 .back a {
   font-weight:bold;
-  padding:15px;
-  border-radius:22px 22px 0px 0px;
-
 }
 
 .notice {
@@ -29,31 +26,29 @@
   padding-bottom: 250px;
 }
 
-#map {
-  margin-top: 10px;
-  height:90vh;
-}
-
-#search-button{
-  margin-bottom:20px;
-  font-size:15px;
-  padding-top:30px;
-}
-#search-button {
-  padding-top: 0px;
-}
-
 .typed-container{
-  height: 33vh;
+  text-align:left;
+  padding:20px;
 }
 
-.filter-section {
-  margin-bottom:75px;
+.research-container {
+  margin-bottom: 5px;
+  height:100%;
 }
+
 
 .lead {
-  padding-top:20vh;
   color:white;
   font-weight:bold;
-  font-size:25px;
+  font-size:23px;
 }
+
+.lead-text {
+  color:white;
+}
+
+.ajax-form-search {
+  height:100%;
+}
+
+

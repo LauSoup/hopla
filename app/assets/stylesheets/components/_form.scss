@@ -55,6 +55,9 @@
     pointer-events: none;
   }
 }
+// #event_category_promotion, #event_category_evènement{
+//   display: none;
+// }
 
 .checkbox-categ, #event_photos, #shop_photos {
   display: none;
@@ -71,3 +74,16 @@
 .text-center {
   text-align: center;
 }
+
+.blue-rounded-input-shape,
+.blue-rounded-input-shape:focus{
+  background-color:$deepblue;
+  color:white;
+  border:none;
+  border-radius:18px;
+}
+
+.blue-rounded-input-shape::placeholder {
+  color:white;
+}
+

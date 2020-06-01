@@ -1,4 +1,4 @@
-<% if @shop.valid? == true || @events.count > 0 %>
+<% if @shop.exists? == true || @events.count > 0 %>
   <% events.each do |event| %>
     <div class="event-card">
       <div class="event-image">
