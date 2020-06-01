@@ -45,7 +45,7 @@ puts "✨✨ Hoplette created !! ✨✨"
 puts "⏲ Initializing categories... ⏲"
 
 
-categories = ["Loisirs & Divertissement", "Multimédia & Electronique", "Santé & Pharmacie", "Vêtements", "Jeux", "Fleuriste", "Garage", "Caviste", "Maroquinerie", "Quincaillerie"]
+categories = ["Divertissement", "Electronique", "Santé", "Vêtements", "Jeux", "Fleuriste", "Garage", "Caviste", "Maroquinerie", "Quincaillerie"]
 categories.each do |category|
   Category.create(name: category)
 end

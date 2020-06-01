@@ -36,6 +36,8 @@
   opacity: .4;
   flex: 0 0 30%;
   text-align: center;
+  height: 70px;
+  width: 140px;
   &:hover {
     opacity: 1;
     cursor: pointer;
@@ -55,3 +57,14 @@
   display: none;
 }
 
+.checkbox-categ {
+  display: none;
+}
+
+// categories on shop form design
+
+#categories-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}

@@ -6,7 +6,19 @@
               <%= f.input :name, label: "Nom" %>
               <%= f.input :address, label: "Addresse" %>
               <%= f.input :description, label: "Description" %>
-              <%= f.association :categories, as: :check_boxes, label: "Catégorie(s)" %>
+              <legend class="col-form-label pt-0">Catégorie(s)</legend>
+              <input type="hidden" name="shop[category_ids][]" value="">
+              <div class="category-choices" id="categories-container">
+                <% Category.all.each do |category| %>
+                  <div class="category-choice">
+                    <input class="checkbox-categ" type="checkbox" value="<%= category.id %>" name="shop[category_ids][]" id="shop_category_ids_<%= category.id %>">
+                    <label class="form-check-label collection_check_boxes" for="shop_category_ids_<%= category.id %>">
+                      <i class="fa fa-check"></i> <br>
+                      <%= category.name %>
+                    </label>
+                  </div>
+                <% end %>
+              </div>
               <%= f.input :active, label: "Disponible?" %>
               <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter image' %>
               <%= f.submit "Valider" %>
