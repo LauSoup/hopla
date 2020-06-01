@@ -1,6 +1,6 @@
 .home {
   margin-top:50px;
-  min-height: calc(100% - 70px - 60px);
+  height:90vh;
   width: 100%;
   text-align: center;
   opacity: 0.8;
@@ -26,27 +26,16 @@
   padding-bottom: 250px;
 }
 
-#map-up-container{
-  height:100vh;
-  width:100%;
-}
-
-#map {
-  margin-top: 10px;
-  height:90vh;
-}
-
 .typed-container{
   text-align:left;
+  padding:20px;
 }
 
 .research-container {
   margin-bottom: 5px;
+  height:100%;
 }
 
-.typed-container {
-  padding:20px;
-}
 
 .lead {
   color:white;
@@ -57,3 +46,9 @@
 .lead-text {
   color:white;
 }
+
+.ajax-form-search {
+  height:100%;
+}
+
+
