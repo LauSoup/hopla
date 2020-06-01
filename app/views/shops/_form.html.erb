@@ -25,7 +25,7 @@
               </div>
               <%= f.input :active, wrapper: :custom_boolean_switch, label: "Actif?" %>
               <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter image' %>
-              <%= f.submit "Valider" %>
+              <%= f.submit "Valider", class: 'all-screen-button' %>
           <% end %>
      </div>
     </div>
