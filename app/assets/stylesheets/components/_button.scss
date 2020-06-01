@@ -85,6 +85,13 @@
   right: 50px;
 }
 
+#up-button-home {
+  position: relative;
+  top: 90vh;
+  left: 33vw;
+  z-index: 1000;
+}
+
 @keyframes animate {
   0%{
     width:0px;
