@@ -1,4 +1,4 @@
-<% if @shops.exists? == true || @events.count > 0 %>
+<% if @shop.exists? == true || @events.count > 0 %>
   <% events.each do |event| %>
     <div class="event-card">
       <div class="event-image">
@@ -27,46 +27,41 @@
               <span class="sr-only">Suivant</span>
             </a>
           </div>
+          <p class="offer-tag"><%= event.offer %></p>
         <% end %>
-        <p class="offer-tag"><%= event.offer %></p>
-        </div>
-        <div class="event-detail">
-          <div class="block-top">
-            <div class="block-left">
-              <h5> <%= event.title %> </h5>
-              <h6> <%= event.description %></h6>
-            </div>
-            <div class="block-date">
-              <i class="fas fa-calendar-alt" style="color: white;"></i>
-                <% if event.beg_date.strftime("%d/%m") == event.end_date.strftime("%d/%m") %>
-                  <p> Le <%= event.beg_date.strftime("%d") %> <%= event.beg_date.strftime("%B") %></p>
-                  <p> de <%= event.beg_date.strftime("%H:%M") %> à <%= event.end_date.strftime("%H:%M") %></p>
-                <% else %>
-                  <p> Du <%= event.beg_date.strftime("%d/%m") %></p>
-                  <p> Au <%= event.end_date.strftime("%d/%m") %></p>
-                <% end %>
-            </div>
+      </div>
+      <div class="event-detail">
+        <div class="block-top">
+          <div class="block-left">
+            <h5> <%= event.title %> </h5>
+            <h6> <%= event.description %></h6>
           </div>
+          <div class="block-date">
+            <i class="fas fa-calendar-alt" style="color: white;"></i>
+              <% if event.beg_date.strftime("%d/%m") == event.end_date.strftime("%d/%m") %>
+                <p> Le <%= event.beg_date.strftime("%d") %> <%= event.beg_date.strftime("%B") %></p>
+                <p> de <%= event.beg_date.strftime("%H:%M") %> à <%= event.end_date.strftime("%H:%M") %></p>
+              <% else %>
+                <p> Du <%= event.beg_date.strftime("%d/%m") %></p>
+                <p> Au <%= event.end_date.strftime("%d/%m") %></p>
+              <% end %>
+          </div>
+        </div>
         <div class="block-bottom">
           <div class="block-icon">
             <a><i class="far fa-heart" style="color: white;"></i></a>
             <a><i class="fas fa-share-alt" style="color: white;"></i></a>
-            <%= link_to '<i class="fas fa-pen" style="color: white;"></i>'.html_safe , edit_shop_event_path(id: event.id, shop_id: event.shop_id) %>
-          </div>
-          <div class="block-button">
-            <button type="button" data-toggle="modal" data-target="#qrcode">
-              QR Code
-            </button>
-            <% @page_marker == "show" ? path = "qrcode" : path = "shops/qrcode" %>
-            <%= render "#{path}", qr: qr %>
-          </div>
+            <% if event.shop.user_id == current_user.id %>
+              <%= link_to '<i class="fas fa-pen" style="color: white;"></i>'.html_safe , edit_shop_event_path(edit.id) %>
+            <% end %>
         </div>
+      </div>
       <div class="block-bottom">
         <div class="block-icon">
           <a><i class="far fa-heart" style="color: white;"></i></a>
           <a><i class="fas fa-share-alt" style="color: white;"></i></a>
           <% if event.shop.user_id == current_user.id %>
-            <%= link_to '<i class="fas fa-pen" style="color: white;"></i>'.html_safe , edit_shop_event_path(id: event.id, shop_id: event.shop_id) %>
+            <%= link_to '<i class="fas fa-pen" style="color: white;"></i>'.html_safe , edit_shop_event_path(event.shop_id, event.id) %>
           <% end %>
         </div>
         <div class="block-button">
@@ -88,3 +83,4 @@
     <p>Aucune offre pour le moment</p>
   </div>
 <% end %>
+
