@@ -56,7 +56,8 @@
       <%= link_to new_shop_event_path(@shop), :class => "button-dashboard-tres plus-padding add-button-dashboard " do %>
         <i class="fas fa-plus"></i>
       <% end %>
-      <%= render 'shared/event_card', qr: @qr, events: @events  %>
+      <% @events.sort {|a,b| b.end_date <=> a.end_date} %>
+      <%= render 'event_card', qr: @qr, events: @events  %>
     </div>
   </div>
 </div>
