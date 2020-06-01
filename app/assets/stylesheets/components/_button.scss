@@ -51,12 +51,14 @@
 }
 
 .button-submit-home {
+  float:right;
   background-color:white;
   color:$bluemedium;
   border:none;
   padding: 5px 20px;
   border-radius: 17px;
   font-size:bold;
+  margin-bottom: 15px;
 }
 .button-submit-home:hover{
   box-shadow: 0 0 4px #999;
