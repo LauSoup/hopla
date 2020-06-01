@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Bonjour, <%= @event.shop.name %></h1>
+  <% if @event.end_date < Time.now %>
+    <p>Voici l'offre que votre client souhaite utiliser: </p>
+    <p><%= @event.offer %> - <%= @event.title %></p>
+    <% else %>
+    <p>Cette offre a expiré</p>
+  <% end %>
+  <p class="question">Utiliser cette promotion ?</p>
+  <div class="action">
+    <%= link_to "Annuler", shop_path(@event.shop_id) %>
+    <%= link_to "Confirmer", dashboard_path %>
+  </div>
+</div>

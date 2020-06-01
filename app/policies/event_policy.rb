@@ -5,6 +5,10 @@ class EventPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    return true
+  end
+
   def new?
     return true
     # record.shop.user == user
