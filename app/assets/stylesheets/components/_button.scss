@@ -38,6 +38,8 @@
   outline: none;
 }
 
+
+
 .button-dropdown {
   font-weight:medium;
   border: none;
@@ -45,15 +47,31 @@
   cursor: pointer;
   color: white;
   outline: none;
-  background-color: $bluemedium;
+  background-color: Transparent;
 }
+
+.button-submit-home {
+  float:right;
+  background-color:white;
+  color:$bluemedium;
+  border:none;
+  padding: 5px 20px;
+  border-radius: 17px;
+  font-size:bold;
+  margin-bottom: 15px;
+}
+.button-submit-home:hover{
+  box-shadow: 0 0 4px #999;
+  opacity:0.7;
+}
+
 
 .button-dashboard-bis:hover, .button-dashboard:hover{
   opacity: 0.8;
 }
 
 // Buttons padding depending on the inner logo:
-.home-padding, .pen-padding, .plus-padding {
+.chevron-padding, .home-padding, .pen-padding, .plus-padding {
   border-radius: 50%;
 }
 
@@ -69,6 +87,10 @@
   padding: 14px 21px;
 }
 
+.chevron-padding {
+  padding: 17px 21px;
+}
+
 .text-padding {
   padding: 15px;
 }
@@ -79,6 +101,17 @@
   position: fixed;
   bottom: 50px;
   right: 50px;
+}
+
+#up-button-home {
+  position: relative;
+  top: 90vh;
+  left: 33vw;
+
+}
+
+.display-on-top, #up-button-home {
+  z-index: 1000;
 }
 
 @keyframes animate {
@@ -118,6 +151,7 @@
 .all-screen-button:hover {
   opacity: 0.8;
 }
+
 
 .return-button {
   text-align: center;

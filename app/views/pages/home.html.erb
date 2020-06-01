@@ -4,42 +4,24 @@
     <p class="lead">
       Trouve <span class='typed-element'></span>
     </p>
+    <p class="lead-text">Hopla vous trouve les bons plans et promotions autour de chez vous</p>
   </div>
 
   <!-- 1/3 vh container for research -->
   <div class="research-container">
-    <div data-controller= "ajax-form" >
-      <div id="search-button">
-        <%= link_to "#map", :class => "button-dashboard text-padding", :id => "search-button-home" do %>
-          <i class="fas fa-search"></i> Voir tout
-        <% end %>
-      </div>
-
-      <div>
-        <button class="button-dropdown" id="refine-button"><i class="fas fa-chevron-down"></i> Filtrer</button>
-      </div>
-
-        <div class="filter-section" id="search">
-          <div class="container">
-            <div class="form-group no-margin d-none" id= "search-form-home">
-              <%= simple_form_for :search, url:root_path, html: { data: { action: "ajax:success->ajax-form#onPostSuccess" } } , remote: true, method: :get do |f| %>
-                <%= f.input :query, label: "", id: "search_query", placeholder: "Trouver une boutique!" %>
-                <%= f.input :categories, label: "Filtrer sur une catégorie", id: "search_filter", collection: Category.all %>
-                <%= f.submit "Hopla!" %>
-              <% end %>
-            </div>
+    <div data-controller= "ajax-form" class="ajax-form-search" >
+      <div class="filter-section" id="search">
+        <div class="container">
+          <div class=" no-margin home-form" id= "search-form-home">
+            <%= simple_form_for :search, url:root_path, html: { data: { action: "ajax:success->ajax-form#onPostSuccess" } } , remote: true, method: :get do |f| %>
+              <%= f.input :query, label: false, id: "search_query", placeholder: "Trouver une boutique!", input_html: { class: 'blue-rounded-input-shape' } %>
+              <%= f.input :categories, placeholder: "Filtrer sur une catégorie", id: "search_filter", input_html: { class: 'blue-rounded-input-shape' }, collection: Category.all %>
+              <%= f.submit "Hopla!", :class => 'button-submit-home' %>
+            <% end %>
           </div>
         </div>
-
-
-      <div class="back">
-        <%= link_to "#navbar", :class =>"button-dashboard-bis text-padding" do %>
-          <i class="fas fa-chevron-up"></i> Nouvelle Recherche
-        <% end %>
       </div>
-
       <%= render "shops/map", markers: @markers %>
-
     </div>
   </div>
 </div>
