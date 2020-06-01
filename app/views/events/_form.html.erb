@@ -7,19 +7,19 @@
           <%= f.input :description, label: "Description" %>
           <%= f.input :beg_date, as: :string, label: "Début de l'offre", input_html: {class: "datepicker"} %>
           <%= f.input :end_date, as: :string,  label: "Fin de l'offre", input_html: {class: "datepicker"} %>
-          <div class="category-choices">
+          <div class="category-choices event_category">
             <legend class="col-form-label pt-0">Catégorie 
               <abbr title="required">*</abbr>
             </legend>
             <input type="hidden" name="event[category]" value="">
             <div class="category-choice">
-              <input type="checkbox" value="Promotion" name="event[category]" id="event_category_promotion">
+              <input class="checkbox-categ" type="checkbox" value="Promotion" name="event[category]" id="event_category_promotion">
               <label  for="event_category_promotion">Promotion
                 <i class="fa fa-check"></i>
               </label>
             </div>
             <div class="category-choice">
-              <input type="checkbox" value="Evènement" name="event[category]" id="event_category_evènement">
+              <input class="checkbox-categ" type="checkbox" value="Evènement" name="event[category]" id="event_category_evènement">
               <label for="event_category_evènement">Evènement
                 <i class="fa fa-check"></i>
               </label>
