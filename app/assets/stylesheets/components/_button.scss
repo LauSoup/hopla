@@ -139,17 +139,19 @@
 
 .all-screen-button {
   width: 100%;
-  background-color: $bluemedium;
+  background-color: $deepgreen;
   color: white;
   border-radius: 5px;
   padding: 15px;
   border:none;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 
 .all-screen-button:hover {
   opacity: 0.8;
+  cursor: pointer;
 }
 
 
