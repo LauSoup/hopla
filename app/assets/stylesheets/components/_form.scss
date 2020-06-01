@@ -21,6 +21,10 @@
   }
 }
 
+.custom-control-label {
+  color: black;
+}
+
 // Checkboxes design
 .category-choices {
   display: flex;
@@ -52,10 +56,6 @@
     margin: 0;
     pointer-events: none;
   }
-}
-
-#event_category_promotion, #event_category_evènement{
-  display: none;
 }
 
 .checkbox-categ {

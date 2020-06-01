@@ -12,14 +12,20 @@
               <abbr title="required">*</abbr>
             </legend>
             <input type="hidden" name="event[category]" value="">
-            <div class="category-choice">
-              <input class="checkbox-categ" type="checkbox" value="Promotion" name="event[category]" id="event_category_promotion">
+            <div class="category-choice <%= "active" if event.category == "Promotion" %> ">
+              <input class="checkbox-categ" type="checkbox" value="Promotion" 
+                name="event[category]" id="event_category_promotion"
+                <%= "checked=checked" if event.category == "Promotion" %>
+              >
               <label  for="event_category_promotion">Promotion
                 <i class="fa fa-check"></i>
               </label>
             </div>
-            <div class="category-choice">
-              <input class="checkbox-categ" type="checkbox" value="Evènement" name="event[category]" id="event_category_evènement">
+            <div class="category-choice <%= "active" if event.category == "Evènement" %> ">
+              <input class="checkbox-categ" type="checkbox" value="Evènement" 
+                name="event[category]" id="event_category_evènement"
+                <%= "checked=checked" if event.category == "Evènement" %>
+              >
               <label for="event_category_evènement">Evènement
                 <i class="fa fa-check"></i>
               </label>
