@@ -6,10 +6,10 @@
 }
 
 #shop-card img {
-  height: 150px;
+  height: 200px;
   width: 100%;
   object-fit: cover;
-  border-radius: 6px 6px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
 }
 
 #shop-card .shop-detail h3 {
@@ -56,4 +56,13 @@
   bottom: 10px;
   right: 10px;
   color: white;
+}
+
+.no-result p {
+  color: grey;
+}
+
+.no-result {
+  justify-content: center;
+  margin-top: 50%;
 }

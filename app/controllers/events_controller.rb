@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:edit, :update]
+  before_action :set_event, only: [:show, :edit, :update]
+
+  def show
+    authorize @event
+  end
 
   def new
     @event = Event.new
@@ -16,6 +20,8 @@ class EventsController < ApplicationController
     @event.shop_id = @shop.id
     authorize @event
     if @event.save
+      @event.qr_code = event_path(:id)
+      @event.save
       redirect_to shop_path(@shop)
     else
       render 'new'
@@ -31,9 +37,8 @@ class EventsController < ApplicationController
   def update
     authorize @event
     @user = current_user
-  
-    @shop = Shop.find(params[:shop_id])
 
+    @shop = Shop.find(params[:shop_id])
     if @event.update(event_params)
       redirect_to shop_path(@shop)
     else
@@ -45,7 +50,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:shop_id, :description, :title, :beg_date, :end_date, :offer, :category, :qr_code, :active, photos: [])
+    params.require(:event).permit(:shop_id, :description, :title, :beg_date, :end_date, :offer, :category, :active, photos: [])
   end
 
   def set_event

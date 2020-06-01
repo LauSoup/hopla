@@ -21,6 +21,8 @@
   }
 }
 
+
+
 // Checkboxes design
 .category-choices {
   display: flex;
@@ -33,9 +35,12 @@
   background: $bluemedium;
   padding: 10px;
   border-radius: 5px;
-  opacity: .4;
+  opacity: .6;
   flex: 0 0 30%;
   text-align: center;
+  height: 70px;
+  width: 140px;
+  color: white;
   &:hover {
     opacity: 1;
     cursor: pointer;
@@ -50,10 +55,22 @@
     pointer-events: none;
   }
 }
-
 // #event_category_promotion, #event_category_evènement{
 //   display: none;
 // }
+
+.checkbox-categ {
+  display: none;
+}
+
+// categories on shop form design
+
+#categories-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
 
 // Home form
 
@@ -73,3 +90,4 @@
 .blue-rounded-input-shape::placeholder {
   color:white;
 }
+

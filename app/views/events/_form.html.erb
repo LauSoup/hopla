@@ -12,21 +12,27 @@
               <abbr title="required">*</abbr>
             </legend>
             <input type="hidden" name="event[category]" value="">
-            <div class="category-choice">
-              <input class="checkbox-categ" type="checkbox" value="Promotion" name="event[category]" id="event_category_promotion">
+            <div class="category-choice <%= "active" if event.category == "Promotion" %> ">
+              <input class="checkbox-categ" type="checkbox" value="Promotion" 
+                name="event[category]" id="event_category_promotion"
+                <%= "checked=checked" if event.category == "Promotion" %>
+              >
               <label  for="event_category_promotion">Promotion
                 <i class="fa fa-check"></i>
               </label>
             </div>
-            <div class="category-choice">
-              <input class="checkbox-categ" type="checkbox" value="Evènement" name="event[category]" id="event_category_evènement">
+            <div class="category-choice <%= "active" if event.category == "Evènement" %> ">
+              <input class="checkbox-categ" type="checkbox" value="Evènement" 
+                name="event[category]" id="event_category_evènement"
+                <%= "checked=checked" if event.category == "Evènement" %>
+              >
               <label for="event_category_evènement">Evènement
                 <i class="fa fa-check"></i>
               </label>
             </div>
           </div> 
           <%= f.input :offer, label: "Offre", placeholder: "ex: 2 achétés 1 offert" %>
-          <%= f.input :active,label: "Disponible ?" %>
+          <%= f.input :active, wrapper: :custom_boolean_switch, label: "Disponible ?" %>
           <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter image' %>
           <%= f.submit "Valider" %>
         <% end %>
