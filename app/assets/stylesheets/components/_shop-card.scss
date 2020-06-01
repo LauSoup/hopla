@@ -55,7 +55,7 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
-  color: $bluemedium;
+  color: white;
 }
 
 .no-result p {
@@ -74,4 +74,8 @@
 .no-result {
   justify-content: center;
   margin-top: 50%;
+}
+
+#shop-card a {
+  text-decoration: none;
 }

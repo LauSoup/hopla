@@ -59,7 +59,7 @@
 //   display: none;
 // }
 
-.checkbox-categ {
+.checkbox-categ, #event_photos, #shop_photos {
   display: none;
 }
 
@@ -71,13 +71,9 @@
   grid-gap: 16px;
 }
 
-
-// Home form
-
-#search-form-home label {
-  display:none;
+.text-center {
+  text-align: center;
 }
-
 
 .blue-rounded-input-shape,
 .blue-rounded-input-shape:focus{

@@ -35,18 +35,16 @@
       </a>
     </div>
   <% end %>
+      <i class="fas fa-door-open"></i>
   <%= link_to shop_path(shop) do %>
-    <i class="fas fa-door-open"></i>
-  <% end %>
-  <div class="shop-detail">
-    <h3><%= shop.name %></h3>
-    <p><%= shop.address %></p>
-    <div class="block-category">
-      <% shop.tags.each do |t| %>
-        <p class="category"><%= t.category.name %></p>
-      <% end %>
+    <div class="shop-detail">
+      <h3><%= shop.name %></h3>
+      <p><%= shop.address %></p>
+      <div class="block-category">
+        <% shop.tags.each do |t| %>
+          <p class="category"><%= t.category.name %></p>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
-
-
