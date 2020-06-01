@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Bonjour, <%= @event.shop.name %></h1>
-  <% if @event.end_date < Time.now %>
+  <% if @event.end_date < Time.now && @event.beg_date >= Time.now %>
     <p>Voici l'offre que votre client souhaite utiliser: </p>
     <p><%= @event.offer %> - <%= @event.title %></p>
     <% else %>
