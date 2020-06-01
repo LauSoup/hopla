@@ -15,7 +15,9 @@ class ShopPolicy < ApplicationPolicy
   end
 
   def show?
-    return true
+    if record.active || record.user == user
+      return true
+    end
   end
 
 end

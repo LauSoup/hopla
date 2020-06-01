@@ -1,49 +1,56 @@
 <% if @shops.exists? %>
   <% shops.each do |shop| %>
-    <div id="shop-card">
-      <% if shop.photos.count == 0 %>
-        <img src="https://torrentcorp.com/wp-content/uploads/Generic-profile-pic.gif" alt="aucune photo">
-      <% else %>
-        <div id="carousel<%= shop.id %>" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <% shop.photos.each_with_index do |photo, index| %>
-              <li data-target="#carousel<%= shop.id %>" data-slide-to="<%= index %>" class="<%= index == 0 ? "active" : "" %>" ></li>
-            <% end %>
-          </ol>
-          <div class="carousel-inner">
-            <% shop.photos.each_with_index do |photo, index| %>
-              <div class="carousel-item <%= index == 0 ? "active" : "" %>">
-                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
+    <% shop.active ? filter = "without-filter" : filter = "grey-filter" %>
+      <div class="<%= filter %>">
+        <div id="shop-card">
+          <% if shop.photos.count == 0 %>
+            <img src="https://torrentcorp.com/wp-content/uploads/Generic-profile-pic.gif" alt="aucune photo">
+          <% else %>
+            <div id="carousel<%= shop.id %>" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <% shop.photos.each_with_index do |photo, index| %>
+                  <li data-target="#carousel<%= shop.id %>" data-slide-to="<%= index %>" class="<%= index == 0 ? "active" : "" %>" ></li>
+                <% end %>
+              </ol>
+              <div class="carousel-inner">
+                <% shop.photos.each_with_index do |photo, index| %>
+                  <div class="carousel-item <%= index == 0 ? "active" : "" %>">
+                    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
-          </div>
-          <a class="carousel-control-prev" href="#carousel<%= shop.id %>" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Précédent</span>
-          </a>
-          <a class="carousel-control-next" href="#carousel<%= shop.id %>" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Suivant</span>
-          </a>
-        </div>
-      <% end %>
-      <%= link_to shop_path(shop) do %>
-        <i class="fas fa-door-open"></i>
-      <% end %>
-      <div class="shop-detail">
-        <h3><%= shop.name %></h3>
-        <p><%= shop.address %></p>
-        <div class="block-category">
-          <% shop.tags.each do |t| %>
-            <p class="category"><%= t.category.name %></p>
+              <a class="carousel-control-prev" href="#carousel<%= shop.id %>" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Précédent</span>
+              </a>
+              <a class="carousel-control-next" href="#carousel<%= shop.id %>" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Suivant</span>
+              </a>
+            </div>
           <% end %>
+          <% if shop.active %>
+            <%= link_to shop_path(shop) do %>
+              <i class="fas fa-door-open"></i>
+            <% end %>
+          <% else %>
+              <i class="fas fa-lock"></i>
+          <% end %>
+            <div class="shop-detail">
+              <h3><%= shop.name %></h3>
+              <p><%= shop.address %></p>
+              <div class="block-category">
+                <% shop.tags.each do |t| %>
+                  <p class="category"><%= t.category.name %></p>
+                <% end %>
+              </div>
+            </div>
         </div>
       </div>
-    </div>
-  <% end %>
-  <%= link_to new_shop_path, :class => "button-dashboard-bis add-button-dashboard plus-padding" do %>
-    <i class="fas fa-plus"></i>
-  <% end %>
+    <% end %>
+    <%= link_to new_shop_path, :class => "button-dashboard-bis add-button-dashboard plus-padding" do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
 <% else %>
   <div class="no-result">
     <p>Aucun résultat 😔</p>

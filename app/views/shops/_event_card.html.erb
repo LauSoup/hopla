@@ -46,21 +46,12 @@
               <% end %>
           </div>
         </div>
-        <div class="block-bottom">
-          <div class="block-icon">
-            <a><i class="far fa-heart" style="color: white;"></i></a>
-            <a><i class="fas fa-share-alt" style="color: white;"></i></a>
-            <% if event.shop.user_id == current_user.id %>
-              <%= link_to '<i class="fas fa-pen" style="color: white;"></i>'.html_safe , edit_shop_event_path(event.shop_id, event.id) %>
-            <% end %>
-        </div>
-      </div>
       <div class="block-bottom">
         <div class="block-icon">
           <a><i class="far fa-heart" style="color: white;"></i></a>
           <a><i class="fas fa-share-alt" style="color: white;"></i></a>
           <% if event.shop.user_id == current_user.id %>
-            <%= link_to '<i class="fas fa-pen" style="color: white;"></i>'.html_safe , edit_shop_event_path(event.shop_id, event.id) %>
+            <%= link_to '<i class="fas fa-pen" style="color: white;"></i>'.html_safe , edit_shop_event_path(id: event.id, shop_id: event.shop_id) %>
           <% end %>
         </div>
         <div class="block-button">
