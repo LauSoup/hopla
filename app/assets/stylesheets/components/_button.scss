@@ -99,9 +99,6 @@
   border: solid white 3px;
 }
 
-#refine-button {
-
-}
 
 /* End of ripple effect. */
 
@@ -113,9 +110,15 @@
   color: white;
   border-radius: 5px;
   padding: 15px;
+  border:none;
+  margin-bottom: 10px;
 }
 
 
 .all-screen-button:hover {
   opacity: 0.8;
+}
+
+.return-button {
+  text-align: center;
 }
