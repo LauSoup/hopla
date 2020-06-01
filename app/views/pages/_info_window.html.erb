@@ -1,12 +1,12 @@
 <div id="shop-card">
   <div class="offers-in-progress">
     <% total = shop.events.count %>
-    <% if total > 0 %>
-      <p>Offres en cours : </p><%= total.times do %>
-        <i class="fas fa-gifts" id="promos"></i>
-      <% end %>
+    <% if total == 1 %>
+      <%= shop.events.count %> offre
+    <% elsif total > 0 %>
+      <%= shop.events.count %> offres
     <% else %>
-      <p>Patience... les offres arrivent</p>
+      <p>0 offre </p>
   <% end %>
   </div>
   <% if shop.photos.count == 0 %>

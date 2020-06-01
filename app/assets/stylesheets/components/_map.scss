@@ -48,9 +48,19 @@
 }
 
 .offers-in-progress {
-    color: yellow;
+    color: $bluemedium;
+    font-weight: bold;
+    font-size: 10px;
     position: absolute !important;
     top: 5px;
     right: 5px;
-    background-color: yellow;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid $bluemedium;
+    z-index: 1;
+    height: 45px;
+    width: 45px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
