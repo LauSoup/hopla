@@ -40,7 +40,7 @@ import { scrollAnime } from "../effects/scrolled_appear";
 // import { rippleButtons } from '../effects/ripple_buttons';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
+import { initSelect2 } from '../plugins/select2';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -55,6 +55,8 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   multipleForm();
   scrollAnime();
+  initSelect2();
+
   // dropdownForm();
 });
 
