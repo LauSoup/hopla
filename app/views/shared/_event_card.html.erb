@@ -26,6 +26,7 @@
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Suivant</span>
                 </a>
+
               </div>
             <% end %>
             <p class="offer-tag"><%= event.offer %></p>
@@ -51,7 +52,9 @@
               <div class="block-icon">
                 <a><i class="far fa-heart" style="color: white;"></i></a>
                 <a><i class="fas fa-share-alt" style="color: white;"></i></a>
+                <% if policy(event).update? %>
                 <%= link_to '<i class="fas fa-pen" style="color: white;"></i>'.html_safe , edit_shop_event_path(id: event.id, shop_id: event.shop_id) %>
+                <% end %>
               </div>
               <div class="block-button">
                 <button type="button" data-toggle="modal" data-target="#qrcode">
