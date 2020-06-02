@@ -6,12 +6,12 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    return true
-    # record == user
+    # return true
+    record == user
   end
 
   def update?
-    return true
-    # record == user
+    # return true
+    record == user
   end
 end
