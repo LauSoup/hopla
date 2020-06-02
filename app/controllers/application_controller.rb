@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
     root_path #your path
   end
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   private
 
   def user_not_authorized
