@@ -36,10 +36,11 @@ import { typedMethod } from "../effects/typed_effect";
 import { scrollNewResearch } from "../effects/scroll_new_research";
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { multipleForm } from "../effects/multiple_forms";
+import { scrollAnime } from "../effects/scrolled_appear";
 // import { rippleButtons } from '../effects/ripple_buttons';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
+import { initSelect2 } from '../plugins/select2';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -53,6 +54,9 @@ document.addEventListener('turbolinks:load', () => {
   scrollNewResearch();
   initAutocomplete();
   multipleForm();
+  scrollAnime();
+  initSelect2();
+
   // dropdownForm();
 });
 
