@@ -1,6 +1,6 @@
   <% events.each do |event| %>
       <div class=<%= event.active ? "without-filter" : "grey-filter" %>>
-        <div class="event-card">
+        <div class="event-card" data-aos="fade-up">
           <div class="event-image">
             <% if event.photos.count == 0 %>
               <img src="https://torrentcorp.com/wp-content/uploads/Generic-profile-pic.gif" alt="">
