@@ -1,7 +1,7 @@
 <% if @shops.exists? %>
   <% shops.each do |shop| %>
     <% shop.active ? filter = "without-filter" : filter = "grey-filter" %>
-      <div class="<%= filter %>">
+      <div class="<%= filter %>" data-aos="fade-up">
         <div id="shop-card">
           <% if shop.photos.count == 0 %>
             <img src="https://torrentcorp.com/wp-content/uploads/Generic-profile-pic.gif" alt="aucune photo">
