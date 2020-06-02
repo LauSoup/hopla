@@ -35,6 +35,7 @@ import { formActive } from "../components/category_choices";
 import { typedMethod } from "../effects/typed_effect";
 import { scrollNewResearch } from "../effects/scroll_new_research";
 import { initAutocomplete } from "../plugins/init_autocomplete";
+import { multipleForm } from "../effects/multiple_forms";
 // import { rippleButtons } from '../effects/ripple_buttons';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -51,6 +52,7 @@ document.addEventListener('turbolinks:load', () => {
   // rippleButtons();
   scrollNewResearch();
   initAutocomplete();
+  multipleForm();
   // dropdownForm();
 });
 
