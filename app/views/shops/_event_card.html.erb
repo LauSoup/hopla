@@ -48,10 +48,20 @@
         </div>
       <div class="block-bottom">
         <div class="block-icon">
-          <a><i class="far fa-heart" style="color: white;"></i></a>
+          <% if current_user.favorite_events.events.include?(event) %>
+            <%= link_to favorite_event_path(event_id: event.id), method: :delete do %>
+              <i class="far fa-heart" style="color: white;"></i>
+            <% end %>
+          <% else %>
+            <%= link_to event_favorite_events_path(event_id: event.id), method: :post do %>
+              <i class="fas fa-heart" style="color: white;"></i>
+            <% end %>
+          <% end %>
           <a><i class="fas fa-share-alt" style="color: white;"></i></a>
           <% if event.shop.user_id == current_user.id %>
-            <%= link_to '<i class="fas fa-pen" style="color: white;"></i>'.html_safe , edit_shop_event_path(id: event.id, shop_id: event.shop_id) %>
+            <%= link_to edit_shop_event_path(id: event.id, shop_id: event.shop_id) do %>
+              <i class="fas fa-pen" style="color: white;"></i>
+            <% end %>
           <% end %>
         </div>
         <div class="block-button">

@@ -3,5 +3,13 @@ class FavoriteEventPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+
+    def create?
+      return true
+    end
+
+    def destroy?
+      return true
+    end
   end
 end
