@@ -57,7 +57,7 @@
   }
 }
 
-.checkbox-categ, #event_photos, #shop_photos {
+.checkbox-categ {
   display: none;
 }
 
@@ -94,9 +94,6 @@
   .step1, .step2, .step3{
     height: 100vh;
   }
-  .step2 {
-
-  }
 }
 
 .title-steps {
@@ -123,7 +120,7 @@
   }
   #container-step3 {
     margin-top: 10px;
-    height: 200px;
+    height: 230px;
   }
   h2 {
     font-size: 25px;

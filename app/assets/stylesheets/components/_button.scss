@@ -157,4 +157,12 @@
 
 .return-button {
   text-align: center;
+  color: #326273;
+}
+
+.return-button:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+  cursor: pointer;
+
 }
