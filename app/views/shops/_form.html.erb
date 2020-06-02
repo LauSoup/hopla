@@ -1,36 +1,48 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-      <div class="form-login">
-        <%= simple_form_for (shop) do |f| %>
-            <%= f.input :name, label: "Nom" %>
-            <%= f.input :address, label: "Addresse" %>
-            <%= f.input :description, label: "Description" %>
-            <legend class="col-form-label pt-0">Catégorie(s)</legend>
-            <input type="hidden" name="shop[category_ids][]" value="">
-            <div class="category-choices" id="categories-container">
-              <% Category.all.each do |category| %> 
-                <div class="category-choice <%= "active" if shop.categories.include?(category) %> ">
-                  <input class="checkbox-categ" type="checkbox" 
-                    value="<%= category.id %>" 
-                    name="shop[category_ids][]" id="shop_category_ids_<%= category.id %>"
-                    <%= "checked=checked" if shop.categories.include?(category) %>
-                  >
-                  <label class="form-check-label collection_check_boxes" for="shop_category_ids_<%= category.id %>">
-                    <i class="<%= category.icon %>"></i> <br>
-                    <%= category.name %>
-                  </label>
-                </div>
-              <% end %>
-            </div>
-            <%= f.input :active, wrapper: :custom_boolean_switch, label: "Actif?" %>
-            <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter image' %>
-            <%= f.submit "Valider", class: 'all-screen-button' %>
-        <% end %>
+<%= simple_form_for (shop) do |f| %>
+  <div class="form-shop">
+    <div class="step1">
+      <div class="container-white" id="container-step1">
+        <%= f.input :name, label: "Nom" %>
+        <%= f.input :address, label: "Addresse" %>
+        <%= f.input :description, label: "Description" %>
+        <p id='step1-button' class= 'all-screen-button text-center'>Continuer</p>
         <div class="container text-center">
           <%= link_to  "Retour", dashboard_path, class: 'return-button' %>
         </div>
       </div>
     </div>
+  <div class="step2">
+    <div class="container-white" id="container-step2">
+      <input type="hidden" name="shop[category_ids][]" value="">
+      <div class="category-choices" id="categories-container">
+        <% Category.all.each do |category| %> 
+          <div class="category-choice <%= "active" if shop.categories.include?(category) %> ">
+            <input class="checkbox-categ" type="checkbox" 
+              value="<%= category.id %>" 
+              name="shop[category_ids][]" id="shop_category_ids_<%= category.id %>"
+              <%= "checked=checked" if shop.categories.include?(category) %>
+            >
+            <label class="form-check-label collection_check_boxes" for="shop_category_ids_<%= category.id %>">
+              <i class="<%= category.icon %>"></i> <br>
+              <%= category.name %>
+            </label>
+          </div>
+        <% end %>
+      </div>
+      <p id='step2-button' class= 'all-screen-button text-center'>Continuer</p>
+      <div class="container text-center">
+        <p class= 'return-button' id= 'button-return-step2'>Retour</p>
+      </div>      
+    </div>  
+  </div>
+  <div class="step3">
+    <div class="container-white" id="container-step3">
+        <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter une ou plusieurs image(s)' %>
+        <%= f.input :active, wrapper: :custom_boolean_switch, label: "Activer la boutique" %>
+        <%= f.submit "Valider", class: 'all-screen-button' %>
+      <% end %>
+      <div class="container text-center">
+        <p class= 'return-button' id= 'button-return-step3'>Retour</p>
+      </div>
   </div>
 </div>
