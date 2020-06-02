@@ -1,7 +1,7 @@
 import Typed from 'typed.js';
 
 var options = {
-  strings: ['des bons plans...', 'des petits prix...', 'tous les commerces...', 'une bijouterie...',
+  strings: ['des bons plans...', 'des petits prix...', 'un commerce...', 'une bijouterie...',
   'un fleuriste...', 'une quincaillerie...',
   'une galerie d\'art...', 'une boulangerie...', 'un café...', 'un salon de beauté...', 'une épicerie...'],
   typeSpeed: 80,
