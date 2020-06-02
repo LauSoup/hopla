@@ -12,7 +12,7 @@
           </ol>
           <div class="carousel-inner">
             <% event.photos.each_with_index do |photo, index| %>
-              <div> class="carousel-item <%= index == 0 ? "active" : "" %>">
+              <div class="carousel-item <%= index == 0 ? "active" : "" %>">
                 <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
               </div>
             <% end %>
