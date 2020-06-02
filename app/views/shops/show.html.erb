@@ -44,7 +44,6 @@
           <p class="shop-tag"><%= category.name %></p>
         <% end %>
       </div>
-      <p>Actif :<%= @shop.active %></p>
       <p id="shop-address"><i class="fas fa-map-marker-alt"></i> <%= @shop.address %></p>
       <p><i class="fas fa-book"></i> <%= @shop.description %></p>
       <% if policy(@shop).update? %>
