@@ -65,9 +65,15 @@
             <% end %>
           </div>
           <div class="block-button">
-            <button type="button" data-toggle="modal" data-target="#qrcode">
-              QR Code
-            </button>
+            <% if event.active == false %>
+              <button type="button" disabled data-toggle="modal" data-target="#qrcode">
+                QR Code
+              </button>
+            <% else %>
+              <button type="button" data-toggle="modal" data-target="#qrcode">
+                QR Code
+              </button>
+            <% end %>
             <% @page_marker == "show" ? path = "qrcode" : path = "shops/qrcode" %>
             <%= render "#{path}", qr: event.generate_qr_code %>
           </div>

@@ -52,21 +52,23 @@
 
     <!-- FAVS tab -->
     <div class="tab-pane" id="his-favorites">
-      <p>Vos promotions en cours</p>
-      <% @favevents = [] %>
-      <% @favorite_events.each do |favevent| %>
-        <% @favevents << favevent.event if favevent.event.active == true %>
-      <% end %>
-      <% @favevents.sort {|a,b| b.end_date <=> a.end_date} %>
-      <%= render 'shared/event_card', events: @favevents %>
+      <% if @favorite_events.length > 0 %>
+        <% @favevents = [] %>
+        <% @favorite_events.each do |favevent| %>
+          <% @favevents << favevent.event if favevent.event.active == true %>
+        <% end %>
+        <% @favevents.sort {|a,b| b.end_date <=> a.end_date} %>
+        <%= render 'shared/event_card', events: @favevents %>
 
-      <p>Vos promotions passées</p>
-      <% @favevents = [] %>
-      <% @favorite_events.each do |favevent| %>
-        <% @favevents << favevent.event if favevent.event.active == false %>
+        <% @favevents = [] %>
+        <% @favorite_events.each do |favevent| %>
+          <% @favevents << favevent.event if favevent.event.active == false %>
+        <% end %>
+        <% @favevents.sort {|a,b| b.end_date <=> a.end_date} %>
+        <%= render 'shared/event_card', events: @favevents %>
+      <% else %>
+        <p>Aucun favori enregistré pour le moment! </p>
       <% end %>
-      <% @favevents.sort {|a,b| b.end_date <=> a.end_date} %>
-      <%= render 'shared/event_card', events: @favevents %>
     </div>
   </div>
 
