@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resources :events, only:[:new, :create, :edit, :update]
   end
 
-  resources :events, only:[:show]
+  resources :events, only:[:show] do
+    resources :favorite_events, only:[:create]
+  end
+
+  resources :favorite_events, only:[:destroy]
 
   get 'dashboard', to: 'pages#dashboard'
   get 'dashboard/events', to: 'pages#events'
