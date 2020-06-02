@@ -8,7 +8,9 @@ class FavoriteEventsController < ApplicationController
     authorize @favorite_event
     @favorite_event.save
     flash[:alert] = "Ajouté aux favoris"
-    redirect_to shop_path(@event.shop)
+    redirect_to shop_path(@event.shop, tab:"offers") 
+    #tab: add an argument in the url - can be read in ruby
+    #anchor: add # in the url - can be read only in JS
   end
 
   def destroy
@@ -18,6 +20,6 @@ class FavoriteEventsController < ApplicationController
     @favorite_event.destroy
     flash[:alert] = "Le favori a été supprimé"
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to shop_path(@shop)
+    redirect_to shop_path(@shop, tab:"offers")
   end
 end
