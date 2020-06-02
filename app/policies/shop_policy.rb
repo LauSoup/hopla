@@ -6,12 +6,12 @@ class ShopPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    true
   end
 
   def update?
-    return true
-    # return record.user == user
+    # return true
+    record.user_id == user.id
   end
 
   def show?
