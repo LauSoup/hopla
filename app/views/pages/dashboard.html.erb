@@ -52,15 +52,21 @@
 
     <!-- FAVS tab -->
     <div class="tab-pane" id="his-favorites">
-      <h2>Vos promotions en cours</h2>
+      <p>Vos promotions en cours</p>
       <% @favevents = [] %>
       <% @favorite_events.each do |favevent| %>
-        <% @favevents << favevent.event if favevent.event.active == true && favevent.event.end_date < Time.now %>
+        <% @favevents << favevent.event if favevent.event.active == true %>
       <% end %>
       <% @favevents.sort {|a,b| b.end_date <=> a.end_date} %>
       <%= render 'shared/event_card', events: @favevents %>
 
-      <h2>Vos promotions passées</h2>
+      <p>Vos promotions passées</p>
+      <% @favevents = [] %>
+      <% @favorite_events.each do |favevent| %>
+        <% @favevents << favevent.event if favevent.event.active == false %>
+      <% end %>
+      <% @favevents.sort {|a,b| b.end_date <=> a.end_date} %>
+      <%= render 'shared/event_card', events: @favevents %>
     </div>
   </div>
 
