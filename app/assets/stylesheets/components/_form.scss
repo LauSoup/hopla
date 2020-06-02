@@ -56,9 +56,6 @@
     pointer-events: none;
   }
 }
-// #event_category_promotion, #event_category_evènement{
-//   display: none;
-// }
 
 .checkbox-categ, #event_photos, #shop_photos {
   display: none;
@@ -69,7 +66,8 @@
 #categories-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 10px;
+  margin-top: 0px;
 }
 
 .text-center {
@@ -90,10 +88,56 @@
 
 // multisteps forms:
 
-.form-steps-create {
-  height: 100vh;
+.form-steps-create {  
+  height: 90vh;
   overflow: hidden;
-  .step1 {
+  .step1, .step2, .step3{
     height: 100vh;
+  }
+  .step2 {
+
+  }
+}
+
+.title-steps {
+  margin-bottom: 0;
+  font-size: 25px;
+}
+
+// form shop
+
+.form-shop {
+  margin-top: 10px;
+  .container-white {
+    padding: 10px 20px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+  #container-step1 {
+    height: 400px;
+  }
+  #container-step2 {
+    height: 600px;
+  }
+  #container-step3 {
+    margin-top: 10px;
+    height: 200px;
+  }
+  h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .btn {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: $bluemedium ;
+    color: white;
+  }
+  a {
+    color: $bluemedium;
   }
 }
