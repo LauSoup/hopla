@@ -42,14 +42,10 @@
   height: 70px;
   width: 140px;
   color: white;
-  &:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
   &.active {
-  background: $bluemedium;
-  color: white;
-  opacity: 1;
+    background: $bluemedium;
+    color: white;
+    opacity: 1;
   }
   label {
     margin: 0;
