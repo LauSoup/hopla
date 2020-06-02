@@ -54,8 +54,8 @@
   <!-- End of INFO TAB & Beginning of Events Tab -->
 
     <div class="tab-pane" id="offers">
-      <%= link_to new_shop_event_path(@shop), :class => "button-dashboard-tres plus-padding add-button-dashboard " do %>
-        <i class="fas fa-plus"></i>
+      <% if policy(@shop).update? %>
+      <%= link_to new_shop_event_path(@shop), :class => "button-dashboard-tres plus-padding add-button-dashboard " do %><i class="fas fa-plus"></i><% end %>
       <% end %>
       <% @events.sort {|a,b| b.end_date <=> a.end_date} %>
       <% if @events.count > 0 %>
