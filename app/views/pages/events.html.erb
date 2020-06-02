@@ -1,6 +1,13 @@
-<h1>Merci de sélectionner le commerce proposant l'offre ? </h1>
+<h1>Bonjour </h1>
 
 <% @shops.each do |shop| %>
-<%= shop.name %>
+  <%= simple_form_for (shop) do |f| %>
+    <%= f.input :name, label: "Merci de sélectionner le commerce proposant l'offre:", input_html: { class: 'select2' }, collection: @shops %>
+    <%= f.input :name, label: "Nom" %>
+    <%= f.input :address, label: "Adresse" %>
+    <%= f.input :description, label: "Description" %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter une ou plusieurs image(s)' %>
+    <%= f.input :active, wrapper: :custom_boolean_switch, label: "Mettre en ligne ?" %>
+    <%= f.submit "Valider", class: 'all-screen-button' %>
+  <% end %>
 <% end %>
-
