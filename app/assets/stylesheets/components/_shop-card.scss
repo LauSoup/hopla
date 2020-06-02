@@ -4,6 +4,14 @@
   border-radius: 0px 0px 6px 6px;
 }
 
+.grey-filter {
+  opacity: 0.6;
+}
+
+.without-filter {
+  opacity: 1;
+}
+
 #shop-card img {
   height: 200px;
   width: 100%;
@@ -41,6 +49,7 @@
   width: auto;
   padding-right: 10px;
   margin-left: 10px;
+  margin-bottom: 5px;
 }
 
 #shop-card {
