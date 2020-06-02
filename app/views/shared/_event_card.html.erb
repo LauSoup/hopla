@@ -1,5 +1,6 @@
 <% events.each do |event| %>
-  <div  data-aos="fade-up" class=<%= event.active || event.end_date < Time.now ? "without-filter" : "grey-filter" %>>
+  <% event.active == false if event.end_date < Time.now %>
+  <div class=<%= event.active ? "without-filter" : "grey-filter" %>>
     <div class="event-card">
       <div class="event-image">
         <% if event.photos.count == 0 %>
