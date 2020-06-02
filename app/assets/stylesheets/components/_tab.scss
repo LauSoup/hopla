@@ -4,14 +4,13 @@
     font-weight:medium;
     font-size:15px;
     color: $bluemedium !important;
-    border-radius:25px !important;
-    border: solid 2px $bluemedium;
   }
 
   a.active {
-    background-color: $bluemedium !important;
-    color: $white !important;
-    border-radius:25px;
+    color: $bluemedium !important;
+    border-bottom: solid $bluemedium 4px;
     font-weight:bold;
+    background-color: Transparent !important;
+    padding: 0.5rem 0.2rem !important;
   }
 }
