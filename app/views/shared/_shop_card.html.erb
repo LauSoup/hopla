@@ -29,13 +29,11 @@
               </a>
             </div>
           <% end %>
-          <% if shop.active %>
+          <% if shop.active == false %>
+            <i class="fas fa-lock"></i>
+          <% else %>
             <%= link_to shop_path(shop) do %>
               <i class="fas fa-door-open"></i>
-            <% end %>
-          <% else %>
-              <i class="fas fa-lock"></i>
-          <% end %>
             <div class="shop-detail">
               <h3><%= shop.name %></h3>
               <p><%= shop.address %></p>
@@ -45,6 +43,8 @@
                 <% end %>
               </div>
             </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>
