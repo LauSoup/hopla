@@ -50,7 +50,8 @@
         <%= link_to edit_shop_path(@shop), :class => "button-dashboard-bis pen-padding" do %><i class="fas fa-pen"></i><% end %>
       <% end %>
     </div>
-  <!-- End of INFO TAB & Beginning of Events Tab -->
+
+    <!-- End of INFO TAB & Beginning of Events Tab -->
 
     <div class="tab-pane <%= "active" if params[:tab] == "offers" %>" id="offers">
       <% if policy(@shop).update? %>

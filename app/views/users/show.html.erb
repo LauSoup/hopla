@@ -1,8 +1,10 @@
 <div class="container text-center show-user-container">
-  <h2><i class="fas fa-user-alt"></i></h2>
+  <h2><i class="fas fa-user-alt" id="avatar-symbol"></i></h2>
   <div class="info-container">
-    <p><i class="fas fa-info"></i>: <%= @user.first_name %> <%= @user.last_name %></p>
-    <p><i class="fas fa-at"></i>: <%= @user.email %></p>
+    <p><i class="fas fa-info" id="info"></i></p>
+    <p><%= @user.first_name %> <%= @user.last_name %></p>
+    <p><i class="fas fa-at" id="at"></i></p>
+    <p><%= @user.email %></p>
   </div>
   <div class="links-container">
     <div class="link-container">

@@ -22,3 +22,15 @@ h2.profile-picture-text{
     margin-bottom: 100px;
   }
 }
+
+#info, #at, #avatar-symbol {
+  color:$bluemedium;
+}
+
+.fa-info {
+  margin-bottom: -22px;
+}
+
+.info-container p {
+  margin-bottom:unset;
+}
