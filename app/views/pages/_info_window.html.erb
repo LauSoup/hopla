@@ -1,10 +1,10 @@
 <div id="shop-card">
   <div class="offers-in-progress">
-    <% total = shop.events.count %>
+    <% total = shop.events.where(active: true).count %>
     <% if total == 1 %>
-      <%= shop.events.count %> offre
+      <%= total %> offre
     <% elsif total > 0 %>
-      <%= shop.events.count %> offres
+      <%= total %> offres
     <% else %>
       <p>0 offre </p>
   <% end %>
