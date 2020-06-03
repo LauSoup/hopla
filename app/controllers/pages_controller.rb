@@ -20,7 +20,7 @@ class PagesController < ApplicationController
       @shops = Shop.all.where(active: true).geocoded
     end
     @markers = @shops.map do |shop|
-      if shop.events.count == 0
+      if shop.events.where(active: true).count == 0
       {
         lat: shop.latitude,
         lng: shop.longitude,
