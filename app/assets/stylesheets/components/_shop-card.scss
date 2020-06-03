@@ -60,9 +60,9 @@
   margin-bottom:30px;
 }
 
-#shop-card .fas {
+#shop-card .shop-detail .fa-lock {
   position: absolute;
-  bottom: 10px;
+  bottom: 70px;
   right: 10px;
   color: white;
 }
@@ -87,4 +87,8 @@
 
 #shop-card a {
   text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
 }
