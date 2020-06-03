@@ -1,4 +1,4 @@
-const multipleForm = () => {
+const multipleFormShop = () => {
   const step1 = document.querySelector(".step1");
   const step2 = document.querySelector(".step2");
   const step3 = document.querySelector(".step3");
@@ -36,4 +36,25 @@ const multipleForm = () => {
   };
 };
 
-export { multipleForm }
+const multipleFormEvent = () => {
+  const step1Event = document.querySelector(".step1-event");
+  const step2Event = document.querySelector(".step2-event");
+  const button1Event = document.querySelector("#step1-event-button");
+  const returnButtonStep2Event = document.querySelector("#button-return-event-step2");
+
+  if (step1Event) {
+    button1Event.addEventListener("click", (event) => {
+      step1Event.style.transform = "translateY(-100%)";
+      step1Event.style.transition = "transform 0.5s";
+      step2Event.style.transform = "translateY(-100%)";
+      step2Event.style.transition = "transform 0.7s";
+    });
+    returnButtonStep2Event.addEventListener("click", (event) => {
+      step1Event.style.transform = "translateY(0)";
+      step2Event.style.transform = "translateY(0)";
+    });
+  };
+};
+
+export { multipleFormShop }
+export { multipleFormEvent }
