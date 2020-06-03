@@ -14,8 +14,8 @@
       <span class="navbar-toggler-icon dropbtn-navbar"></span>
     </button>
           <div class="dropup-content">
-            <%= link_to "Mon profil", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Mon tableau de bord", dashboard_path, class: "dropdown-item" %>
+            <%= link_to "Profil", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Tableau de bord", dashboard_path, class: "dropdown-item" %>
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
       <% else %>
