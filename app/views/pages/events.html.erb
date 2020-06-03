@@ -6,9 +6,9 @@
         <%= simple_form_for (@shops[0]) do |f| %>
           <%= f.input :name, label: "Merci de nous préciser votre commerce proposant l'offre", input_html: { class: 'select2' }, collection: @shops %>
           <%= f.submit "Valider", class: 'all-screen-button' %>
+          <%= link_to new_shop_event_path(params[:shop][:name]) %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
