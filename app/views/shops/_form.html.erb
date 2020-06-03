@@ -1,7 +1,7 @@
 <%= simple_form_for (shop) do |f| %>
-  <div class="form-shop">
+  <div class="form-shop-event">
     <div class="step1">
-      <div class="container-white" id="container-step1">
+      <div class="container-white" id="container-step1-shop">
         <%= f.input :name, label: "Nom" %>
         <%= f.input :address, label: "Adresse" %>
         <%= f.input :description, label: "Description" %>
@@ -12,7 +12,7 @@
       </div>
     </div>
   <div class="step2">
-    <div class="container-white" id="container-step2">
+    <div class="container-white" id="container-step2-shop">
       <input type="hidden" name="shop[category_ids][]" value="">
       <div class="category-choices" id="categories-container">
         <% Category.all.each do |category| %> 
@@ -36,7 +36,7 @@
     </div>  
   </div>
   <div class="step3">
-    <div class="container-white" id="container-step3">
+    <div class="container-white" id="container-step3-shop">
         <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter une ou plusieurs image(s)' %>
         <%= f.input :active, wrapper: :custom_boolean_switch, label: "Mettre en ligne ?" %>
         <%= f.submit "Valider", class: 'all-screen-button' %>

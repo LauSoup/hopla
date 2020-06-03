@@ -84,10 +84,13 @@
 
 // multisteps forms:
 
-.form-steps-create {  
+.form-steps {  
   height: 90vh;
   overflow: hidden;
   .step1, .step2, .step3{
+    height: 100vh;
+  }
+  .step1-event, .step2-event{
     height: 100vh;
   }
 }
@@ -99,7 +102,7 @@
 
 // form shop
 
-.form-shop {
+.form-shop-event {
   margin-top: 10px;
   .container-white {
     padding: 10px 20px;
@@ -108,15 +111,23 @@
     border-radius: 3px;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   }
-  #container-step1 {
+  #container-step1-shop {
     height: 400px;
   }
-  #container-step2 {
+  #container-step2-shop {
     height: 600px;
   }
-  #container-step3 {
+  #container-step3-shop {
     margin-top: 10px;
-    height: 250px;
+    height: 350px;
+  }
+  #container-step1-event {
+    margin-top: 10px;
+    height: 500px;
+  }
+  #container-step2-event {
+    margin-top: 10px;
+    height: 470px;
   }
   h2 {
     font-size: 25px;

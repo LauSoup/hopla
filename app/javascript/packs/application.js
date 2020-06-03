@@ -35,7 +35,9 @@ import { formActive } from "../components/category_choices";
 import { typedMethod } from "../effects/typed_effect";
 import { scrollNewResearch } from "../effects/scroll_new_research";
 import { initAutocomplete } from "../plugins/init_autocomplete";
-import { multipleForm } from "../effects/multiple_forms";
+import { multipleFormShop } from "../effects/multiple_forms";
+import { multipleFormEvent } from "../effects/multiple_forms";
+
 import { scrollAnime } from "../effects/scrolled_appear";
 // import { rippleButtons } from '../effects/ripple_buttons';
 // Internal imports, e.g:
@@ -53,7 +55,8 @@ document.addEventListener('turbolinks:load', () => {
   // rippleButtons();
   scrollNewResearch();
   initAutocomplete();
-  multipleForm();
+  multipleFormShop();
+  multipleFormEvent();
   scrollAnime();
   initSelect2();
 
