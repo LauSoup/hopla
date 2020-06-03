@@ -18,13 +18,11 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user = current_user
     authorize @shop
-
     if @shop.save
       redirect_to shop_path(@shop)
     else
       render 'new'
     end
-
     # Creation of categories:
     create_tags
   end
@@ -36,16 +34,13 @@ class ShopsController < ApplicationController
 
   def update
     authorize @shop
-
     # Deletion of existing tags for this shop
     tags = Tag.where(shop_id: @shop.id)
     tags.each do |tag|
       tag.destroy
     end
-
     # Creation of updated categories
     create_tags
-
     if @shop.update(shop_params)
       redirect_to shop_path(@shop)
     else

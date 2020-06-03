@@ -1,6 +1,13 @@
-<h1>Merci de sélectionner le commerce proposant l'offre ? </h1>
-
-<% @shops.each do |shop| %>
-<%= shop.name %>
-<% end %>
-
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="form-login">
+        <h1>Bonjour <%= @user.first_name %> <%= @user.last_name %></h1>
+        <%= simple_form_for (@shops[0]) do |f| %>
+          <%= f.input :name, label: "Merci de nous préciser votre commerce proposant l'offre", input_html: { class: 'select2' }, collection: @shops %>
+          <%= f.submit "Valider", class: 'all-screen-button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
