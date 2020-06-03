@@ -33,7 +33,7 @@
 
 .category-choice {
   background: $bluemedium;
-   
+
   padding: 8px;
   border-radius: 5px;
   opacity: .6;
@@ -72,19 +72,33 @@
 
 .blue-rounded-input-shape,
 .blue-rounded-input-shape:focus{
-  background-color:white;
-  color:$deepblue;
-  border:none;
-  border-radius:18px;
+  background-color:white !important;
+  color:$deepblue !important;
+  border:none !important;
+  border-radius:18px !important;
 }
 
 .blue-rounded-input-shape::placeholder {
-  color:$deepblue;
+  color:$deepblue !important;
+}
+
+.select2-container--default .select2-selection--multiple {
+  background-color: white !important;
+  border-radius: 18px !important;
+  cursor: text !important;
+  padding-left: 7px !important;
+  border:none !important;
+}
+
+#search-filter {
+  border-radius: 18px;
+  border: none;
+  padding-left: 8px;
 }
 
 // multisteps forms:
 
-.form-steps {  
+.form-steps {
   height: 90vh;
   overflow: hidden;
   .step1, .step2, .step3{
