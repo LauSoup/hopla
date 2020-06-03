@@ -49,34 +49,51 @@
           </div>
         </div>
         <div class="block-bottom">
-          <div class="block-icon">
-            <% if current_user.favorite_events.where(event_id: event.id) != [] %>
-              <%= link_to favorite_event_path(FavoriteEvent.find_by(event_id: event.id, user_id: current_user)), method: :delete do %>
-                <i class="fas fa-heart" style="color: white;"></i>
+          <% if event.active %>
+            <div class="block-icon">
+              <% if current_user.favorite_events.where(event_id: event.id) != [] %>
+                <%= link_to favorite_event_path(FavoriteEvent.find_by(event_id: event.id, user_id: current_user)), method: :delete do %>
+                  <i class="fas fa-heart" style="color: white;"></i>
+                <% end %>
+              <% else %>
+                <%= link_to event_favorite_events_path(event_id: event.id), method: :post do %>
+                  <i class="far fa-heart" style="color: white;"></i>
+                <% end %>
               <% end %>
-            <% else %>
-              <%= link_to event_favorite_events_path(event_id: event.id), method: :post do %>
-                <i class="far fa-heart" style="color: white;"></i>
+              <a><i class="fas fa-share-alt" style="color: white;"></i></a>
+              <% if policy(event).update? %>
+                <%= link_to edit_shop_event_path(id: event.id, shop_id: event.shop_id) do %>
+                  <i class="fas fa-pen" style="color: white;"></i>
+                <% end %>
               <% end %>
-            <% end %>
-            <a><i class="fas fa-share-alt" style="color: white;"></i></a>
-            <% if policy(event).update? %>
-              <%= link_to '<i class="fas fa-pen" style="color: white;"></i>'.html_safe , edit_shop_event_path(id: event.id, shop_id: event.shop_id) %>
-            <% end %>
-          </div>
-          <div class="block-button">
-            <% if event.active == false %>
-              <button type="button" disabled data-toggle="modal" data-target="#qrcode">
-                QR Code
-              </button>
-            <% else %>
+            </div>
+            <div class="block-button">
               <button type="button" data-toggle="modal" data-target="#qrcode">
                 QR Code
               </button>
-            <% end %>
-            <% @page_marker == "show" ? path = "qrcode" : path = "shops/qrcode" %>
-            <%= render "#{path}", qr: event.generate_qr_code %>
-          </div>
+              <% @page_marker == "show" ? path = "qrcode" : path = "shops/qrcode" %>
+              <%= render "#{path}", qr: event.generate_qr_code %>
+            </div>
+          <% else %>
+            <div class="block-icon">
+              <% if current_user.favorite_events.where(event_id: event.id) != [] %>
+                <a id="disabled"><i class="fas fa-heart" style="color: white;"></i></a>
+              <% else %>
+                <a id="disabled"><i class="far fa-heart" style="color: white;"></i></a>
+              <% end %>
+              <a id="disabled"><i class="fas fa-share-alt" style="color: white;"></i></a>
+              <% if policy(event).update? %>
+                <%= link_to edit_shop_event_path(id: event.id, shop_id: event.shop_id) do %>
+                  <i class="fas fa-pen" style="color: white;"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="block-button">
+              <button type="button" disabled id="disabled" data-toggle="modal" data-target="#qrcode">
+                QR Code
+              </button>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
