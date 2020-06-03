@@ -1,14 +1,24 @@
 <div class="container">
-  <h1>Bonjour, <%= @event.shop.name %></h1>
-  <% if @event.end_date < Time.now && @event.beg_date >= Time.now %>
-    <p>Voici l'offre que votre client souhaite utiliser: </p>
-    <p><%= @event.offer %> - <%= @event.title %></p>
-    <% else %>
-    <p>Cette offre a expiré</p>
-  <% end %>
-  <p class="question">Utiliser cette promotion ?</p>
-  <div class="action">
-    <%= link_to "Annuler", shop_path(@event.shop_id) %>
-    <%= link_to "Confirmer", dashboard_path %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="container text-center", style="margin-top:30px">
+        <h3>Boutique: <%= @event.shop.name.capitalize %></h3>
+      </div>
+
+      <div class="form-login">
+        <% if @event.end_date <= Time.now || @event.beg_date >= Time.now %>
+          <p>Offre flashée: <%=@event.title.capitalize %></p>
+        <% else %>
+          <p>Cette offre a expiré</p>
+        <% end %>
+        <p class="question">Utiliser cette promotion ?</p>
+        <div class="container text-center", style="margin-top:30px">
+          <%= link_to "Confirmer", dashboard_path, class: 'all-screen-button', id: 'qr-code-validation' %>
+        </div>
+        <div class="container text-center", style="margin-top:30px">
+          <%= link_to "Annuler", shop_path(@event.shop_id), class: 'return-button' %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
