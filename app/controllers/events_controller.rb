@@ -20,7 +20,7 @@ class EventsController < ApplicationController
     @event.shop_id = @shop.id
     authorize @event
     if @event.save
-      @event.qr_code = event_path(:id)
+      @event.qr_code = "www.hop-hop-hop.com/events/#{@event.id}"
       @event.save
       redirect_to shop_path(@shop)
     else
@@ -50,7 +50,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:shop_id, :description, :title, :beg_date, :end_date, :offer, :category, :active, photos: [])
+    params.require(:event).permit(:shop_id, :description, :title, :beg_date, :end_date, :offer, :category, :active, :qr_code, photos: [])
   end
 
   def set_event
