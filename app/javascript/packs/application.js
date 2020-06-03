@@ -57,7 +57,7 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   multipleFormShop();
   multipleFormEvent();
-  scrollAnime();
+  // scrollAnime();
   initSelect2();
 
   // dropdownForm();
