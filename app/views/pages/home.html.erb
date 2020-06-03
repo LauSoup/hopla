@@ -14,8 +14,8 @@
         <div class="container">
           <div class=" no-margin home-form" id= "search-form-home">
             <%= simple_form_for :search, url:root_path, html: { data: { action: "ajax:success->ajax-form#onPostSuccess" } } , remote: true, method: :get do |f| %>
-              <%= f.input :query, label: false, id: "search_query", placeholder: "Trouver une boutique!", input_html: { class: 'blue-rounded-input-shape' } %>
-              <%= f.input :categories, label:false , id: "search_filter", input_html: { class: 'select2', multiple: "multiple" }, collection: Category.all %>
+              <%= f.input :query, label: false, id: "search_query", placeholder: "Trouvez une boutique.", input_html: { class: 'blue-rounded-input-shape' } %>
+              <%= f.input :categories, label:false , id: "search_filter", input_html: { class: 'blue-rounded-input-shape select2 ', multiple: "multiple" }, collection: Category.all %>
               <%= f.submit "Hopla!", :class => 'button-submit-home' %>
             <% end %>
           </div>
