@@ -20,7 +20,9 @@ class ShopsController < ApplicationController
       @shop.user = current_user
       authorize @shop
       if @shop.save
+        flash[:alert] = "Votre nouveau magasin a été enregistré."
         redirect_to shop_path(@shop)
+
       else
         render 'new'
       end
@@ -49,6 +51,7 @@ class ShopsController < ApplicationController
       # Creation of updated categories
       create_tags
       if @shop.update(shop_params)
+        flash[:alert] = "Vos changements ont été enregistrés."
         redirect_to shop_path(@shop)
       else
         render 'edit'
