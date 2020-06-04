@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    flash[:alert] = "<strong>Oops!</strong>: You are not authorized to perform this action."
+    flash[:alert] = "Vous n'êtes pas autorisé à effectuer cette tâche."
     redirect_to(root_path)
   end
 
