@@ -2,16 +2,21 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <div class="container text-center", style="margin-top:30px">
-        <h3>Boutique: <%= @event.shop.name.capitalize %></h3>
+        <h3>Offre flashée </h3>
+        <h6><%= @event.shop.name.capitalize %></h6>
+
       </div>
 
       <div class="form-login">
-        <% if @event.end_date <= Time.now || @event.beg_date >= Time.now %>
-          <p>Offre flashée: <%=@event.title.capitalize %></p>
+        <% if  @event.end_date <= Time.now || @event.beg_date >= Time.now %>
+          <p>Cette offre n'est pas valide</p>
         <% else %>
-          <p>Cette offre a expiré</p>
+          <div class="text-center">
+            <br>
+            <p><%=@event.title.capitalize %></p>
+          </div>
         <% end %>
-        <p class="question">Utiliser cette promotion ?</p>
+        <hr>
         <div class="container text-center", style="margin-top:30px">
           <%= link_to "Confirmer", update_buyers_path(id: @event.id), method: :patch, class: 'all-screen-button', id: 'qr-code-validation' %>
         </div>
