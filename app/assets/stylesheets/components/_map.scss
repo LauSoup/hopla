@@ -29,6 +29,140 @@
   text-align: center;
 }
 
+
+.offers-in-progress p {
+  margin-bottom: 0px;
+}
+
+.adress-pop-up p {
+  margin-bottom: 3px;
+}
+
+.offers-in-progress {
+    color: $bluemedium;
+    font-weight: bold;
+    font-size: 12px;
+    position: absolute !important;
+    bottom: 5px;
+    right: 5px;
+    z-index: 1;
+    height: 70px;
+    width: 30%;
+    background-image: url('offers.png');
+    background-size: cover;
+  }
+
+.shop-detail {
+  background-color: $orange;
+  width: 70%;
+  border-radius: 0px 0px 6px 6px;
+}
+
+.grey-filter {
+  filter: grayscale(100%);
+}
+
+.without-filter {
+  opacity: 1;
+}
+
+#shop-card2 img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px 5px 0px 0px;
+  position: relative;
+}
+
+#shop-card2 .shop-detail h3 {
+  color: white;
+  font-style: bold;
+  text-align: left;
+  padding-left: 8px;
+  padding-top: 8px;
+  margin-bottom: 0px;
+  font-size: 24px;
+}
+
+#shop-card2 .shop-detail p {
+  color: white;
+  text-align: left;
+  padding-left: 8px;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+#shop-card2 .block-category {
+  display: flex;
+  align-items: center;
+}
+
+#shop-card2 .block-category .category {
+  border-radius: 8px;
+  background-color: $bluemedium;
+  width: auto;
+  padding-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+#shop-card2 .block-category-window-pop-up {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+}
+
+#shop-card2 .block-category-window-pop-up .category {
+  border-radius: 8px;
+  background-color: $orange;
+  width: auto;
+  padding-right: 10px;
+  margin-left: 7px;
+}
+
+#shop-card2 {
+  margin-right: 5px 5px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+  margin-top:20px;
+}
+
+#shop-card2 .shop-detail .fa-lock {
+  position: absolute;
+  bottom: 70px;
+  right: 10px;
+  color: white;
+}
+
+.no-result p {
+  color: grey;
+}
+
+.no-result {
+  justify-content: center;
+  margin-top: 50%;
+}
+
+.no-result p {
+  color: grey;
+}
+
+.no-result {
+  justify-content: center;
+  margin-top: 50%;
+}
+
+#shop-card2 a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
 #promos {
   color: white;
 }
@@ -44,17 +178,24 @@
 .offers-in-progress {
     color: $bluemedium;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 12px;
     position: absolute !important;
-    top: 5px;
+    bottom: 5px;
     right: 5px;
-    background-color: white;
-    border-radius: 50%;
-    border: 1px solid $bluemedium;
     z-index: 1;
-    height: 45px;
-    width: 45px;
-    align-items: center;
+    height: 100%;
+    width: 30%;
+    background-image: url('offers.png');
     display: flex;
+    align-items: center;
     justify-content: center;
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
   }
+
+.bottom-shop-card {
+  width: 100%;
+  background-color: $orange;
+  position: relative;
+}

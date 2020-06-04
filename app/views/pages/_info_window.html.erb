@@ -1,14 +1,4 @@
-<div id="shop-card">
-  <div class="offers-in-progress">
-    <% total = shop.events.where(active: true).count %>
-    <% if total == 1 %>
-      <%= total %> offre
-    <% elsif total > 0 %>
-      <%= total %> offres
-    <% else %>
-      <p>0 offre </p>
-  <% end %>
-  </div>
+<div id="shop-card2">
   <% if shop.photos.count == 0 %>
     <img src="https://source.unsplash.com/featured/?shop" alt="commerce de quartier">
   <% else %>
@@ -35,15 +25,30 @@
       </a>
     </div>
   <% end %>
-  <%= link_to shop_path(shop) do %>
-    <div class="shop-detail">
-      <h3><%= shop.name %></h3>
-      <p><%= shop.address %></p>
-      <div class="block-category">
-        <% shop.tags.each do |t| %>
-          <p class="category"><%= t.category.name %></p>
-        <% end %>
-      </div>
+  <div class="block-category-window-pop-up">
+    <% shop.tags.each do |t| %>
+      <p class="category"><%= t.category.name %></p>
+    <% end %>
+  </div>
+  <div class="bottom-shop-card">
+    <div class="offers-in-progress">
+      <% total = shop.events.where(active: true).count %>
+      <% if total == 1 %>
+        <%= total %>
+        offre
+      <% elsif total > 0 %>
+        <%= total %>
+        <p>offres</p>
+      <% else %>
+        <p>0 offre </p>
+      <% end %>
     </div>
-  <% end %>
+    <%= link_to shop_path(shop) do %>
+      <div class="shop-detail">
+        <h3><%= shop.name %></h3>
+        <p><%= shop.address %></p>
+
+      </div>
+    <% end %>
+  </div>
 </div>
