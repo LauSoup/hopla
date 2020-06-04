@@ -72,7 +72,15 @@
             </div>
             <div class="block-button">
               <button type="button" data-toggle="modal" data-target="#qrcode-<%= number %>">
-                QR Code
+                <% if current_user == event.shop.user %>
+                  <% if event.buyers.nil? %>
+                    <i class='fas fa-qrcode'></i> 0
+                  <% else %>
+                    <i class='fas fa-qrcode'></i> <%= event.buyers %>
+                  <% end %>
+                <% else %>
+                  QR Code
+                <% end %>
               </button>
               <% @page_marker == "show" ? path = "qrcode" : path = "shops/qrcode" %>
               <%= render "#{path}", qr: event.generate_qr_code, number: number, event: event %>
@@ -87,7 +95,15 @@
             </div>
             <div class="block-button">
               <button type="button" disabled id="disabled" data-toggle="modal" data-target="#qrcode">
-                QR Code
+                <% if current_user == event.shop.user %>
+                  <% if event.buyers.nil? %>
+                    <i class='fas fa-qrcode'></i> 0
+                  <% else %>
+                    <i class='fas fa-qrcode'></i> <%= event.buyers %>
+                  <% end %>
+                <% else %>
+                  QR Code
+                <% end %>
               </button>
             </div>
           <% end %>
