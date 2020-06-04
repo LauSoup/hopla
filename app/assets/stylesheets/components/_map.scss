@@ -52,7 +52,7 @@
     background-size: cover;
   }
 
-.shop-detail {
+.shop-detail2 {
   background-color: $orange;
   width: 70%;
   border-radius: 0px 0px 6px 6px;
@@ -74,7 +74,7 @@
   position: relative;
 }
 
-#shop-card2 .shop-detail h3 {
+#shop-card2 .shop-detail2 h3 {
   color: white;
   font-style: bold;
   text-align: left;
@@ -84,7 +84,7 @@
   font-size: 24px;
 }
 
-#shop-card2 .shop-detail p {
+#shop-card2 .shop-detail2 p {
   color: white;
   text-align: left;
   padding-left: 8px;
@@ -92,12 +92,12 @@
   margin-bottom: 3px;
 }
 
-#shop-card2 .block-category {
+#shop-card2 .block-category-window-pop-up {
   display: flex;
   align-items: center;
 }
 
-#shop-card2 .block-category .category {
+#shop-card2 .block-category-window-pop-up .category2 {
   border-radius: 8px;
   background-color: $bluemedium;
   width: auto;
@@ -114,12 +114,15 @@
   left: 5px;
 }
 
-#shop-card2 .block-category-window-pop-up .category {
+#shop-card2 .block-category-window-pop-up .category2 {
   border-radius: 8px;
   background-color: $orange;
   width: auto;
   padding-right: 10px;
+  padding-left: 10px;
   margin-left: 7px;
+  color: white;
+  font-weight: bold;
 }
 
 #shop-card2 {
@@ -130,7 +133,7 @@
   margin-top:20px;
 }
 
-#shop-card2 .shop-detail .fa-lock {
+#shop-card2 .shop-detail2 .fa-lock {
   position: absolute;
   bottom: 70px;
   right: 10px;
@@ -177,19 +180,19 @@ a:hover {
 
 .offers-in-progress {
     color: $bluemedium;
-    font-weight: bold;
-    font-size: 12px;
-    position: absolute !important;
-    bottom: 5px;
-    right: 5px;
-    z-index: 1;
+    // font-weight: bold;
+    // font-size: 12px;
+    // position: absolute !important;
+    // bottom: 5px;
+    // right: 5px;
+    // z-index: 1;
     height: 100%;
     width: 30%;
     background-image: url('offers.png');
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: 60px;
+    background-size: 75px;
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -198,4 +201,8 @@ a:hover {
   width: 100%;
   background-color: $orange;
   position: relative;
+}
+
+.bottom-shop-card .offers-in-progress .offers-text {
+  font-size: 10px;
 }
