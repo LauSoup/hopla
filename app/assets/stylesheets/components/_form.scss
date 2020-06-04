@@ -66,13 +66,13 @@
 }
 
 .shop-category {
-  width: 140px;
+  width: 129px;
   text-align: center;
   flex: 0 0 30%;
 }
 
 
-.checkbox-categ {
+.checkbox-categ, #photo-input, #photo-input-event {
   display: none;
 }
 
@@ -124,7 +124,7 @@
     height: 100%;
     overflow-y: auto;
   }
-  .step1-event, .step2-event {
+  .step1-event, .step2-event, .step3-event {
     height: 100%;
     overflow-y: auto;
   }
@@ -132,7 +132,7 @@
     height: calc(100vh - 130px);
     overflow: hidden;
   }
-  .form-step-1-event, .form-step-2-event {
+  .form-step-1-event, .form-step-2-event, .form-step-3-event {
     height: calc(100vh - 130px);
     overflow: hidden;
   }
