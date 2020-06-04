@@ -113,24 +113,4 @@ a:hover {
   color: white;
 }
 
-.offers-in-progress p {
-  margin-bottom: 0px;
-}
 
-.adress-pop-up p {
-  margin-bottom: 3px;
-}
-
-.offers-in-progress {
-    color: $bluemedium;
-    font-weight: bold;
-    font-size: 12px;
-    position: absolute !important;
-    bottom: 5px;
-    right: 5px;
-    z-index: 1;
-    height: 70px;
-    width: 50px;
-    background-image: url('offers.png');
-    background-size: cover;
-  }

@@ -29,32 +29,9 @@
   text-align: center;
 }
 
-
-.offers-in-progress p {
-  margin-bottom: 0px;
-}
-
-.adress-pop-up p {
-  margin-bottom: 3px;
-}
-
-.offers-in-progress {
-    color: $bluemedium;
-    font-weight: bold;
-    font-size: 12px;
-    position: absolute !important;
-    bottom: 5px;
-    right: 5px;
-    z-index: 1;
-    height: 70px;
-    width: 30%;
-    background-image: url('offers.png');
-    background-size: cover;
-  }
-
 .shop-detail2 {
   background-color: $orange;
-  width: 70%;
+  width: 100%;
   border-radius: 0px 0px 6px 6px;
 }
 
@@ -180,29 +157,18 @@ a:hover {
 
 .offers-in-progress {
     color: $bluemedium;
-    // font-weight: bold;
-    // font-size: 12px;
-    // position: absolute !important;
-    // bottom: 5px;
-    // right: 5px;
-    // z-index: 1;
-    height: 100%;
-    width: 30%;
-    background-image: url('offers.png');
+    font-weight: bold;
+    position: absolute !important;
+    top: 10px;
+    right: 5px;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: 100px;
-    background-repeat: no-repeat;
-    background-position: center;
+    border-radius: 8px;
+    background-color: white;
+    width: auto;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 10px;
   }
-
-.bottom-shop-card {
-  width: 100%;
-  background-color: $orange;
-  position: relative;
-}
-
-.bottom-shop-card .offers-in-progress .offers-text {
-  font-size: 10px;
-}
