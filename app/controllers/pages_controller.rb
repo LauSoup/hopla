@@ -3,22 +3,23 @@ class PagesController < ApplicationController
 
   def home
     if params[:search].present?
-      if params[:search][:query] != "" && params[:search][:categories] == ""
+      if params[:search][:query] != "" && params[:search][:categories] == [""]
         shops = Shop.search_by_name_and_address(params[:search][:query]).where(active: true)
         @shops = shops.geocoded
-      elsif params[:search][:query] == "" && params[:search][:categories] != ""
+      elsif params[:search][:query] == "" && params[:search][:categories] != [""]
         shops = Shop.search_by_category(params[:search][:categories]).where(active: true)
         @shops = shops.geocoded
-      elsif params[:search][:query] != "" && params[:search][:categories] != ""
+      elsif params[:search][:query] != "" && params[:search][:categories] != [""]
         shops_categ = Shop.search_by_category(params[:search][:categories]).where(active: true)
         shops = shops_categ.search_by_name_and_address(params[:search][:query])
         @shops = shops.geocoded
-      elsif params[:search][:categories] == "" && params[:search][:query] == ""
+      elsif params[:search][:query] == "" && params[:search][:categories] == [""] 
         @shops = Shop.all.where(active: true).geocoded
       end
     else
       @shops = Shop.all.where(active: true).geocoded
     end
+    
     @markers = @shops.map do |shop|
       if shop.events.where(active: true).count == 0
       {
