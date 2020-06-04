@@ -45,6 +45,17 @@ class EventsController < ApplicationController
     end
   end
 
+  def updatebuyers
+    @event = Event.find(params[:id])
+    authorize @event
+    @user = current_user
+    @event.buyers += 1
+    @event.save
+    flash[:alert] = "Félicitations! #{@event.buyers} clients ont utilisé votre offre!"
+    redirect_to dashboard_path(tab: "offers")
+
+  end
+
 
   private
 

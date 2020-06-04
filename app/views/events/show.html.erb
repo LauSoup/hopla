@@ -13,7 +13,7 @@
         <% end %>
         <p class="question">Utiliser cette promotion ?</p>
         <div class="container text-center", style="margin-top:30px">
-          <%= link_to "Confirmer", dashboard_path, class: 'all-screen-button', id: 'qr-code-validation' %>
+          <%= link_to "Confirmer", update_buyers_path(id: @event.id), method: :patch, class: 'all-screen-button', id: 'qr-code-validation' %>
         </div>
         <div class="container text-center", style="margin-top:30px">
           <%= link_to "Annuler", shop_path(@event.shop_id), class: 'return-button' %>

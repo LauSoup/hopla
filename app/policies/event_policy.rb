@@ -23,4 +23,9 @@ class EventPolicy < ApplicationPolicy
     # return true
     record.shop.user == user
   end
+
+  def updatebuyers?
+    record.shop.user == user
+  end
+
 end

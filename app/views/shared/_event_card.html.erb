@@ -73,7 +73,7 @@
                 QR Code
               </button>
               <% @page_marker == "show" ? path = "qrcode" : path = "shops/qrcode" %>
-              <%= render "#{path}", qr: event.generate_qr_code, number: number %>
+              <%= render "#{path}", qr: event.generate_qr_code, number: number, event: event %>
             </div>
           <% else %>
             <div class="block-icon">

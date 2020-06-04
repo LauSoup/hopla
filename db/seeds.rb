@@ -158,6 +158,7 @@ puts "✨✨ Categories created !! ✨✨"
       category = ["Evènement", "Promotion"].sample
       offer = ["10%", "2 achetés 1 offert", "Un thé offert"].sample
       active = [true, false].sample
+      buyers = (50..100).to_a.sample
       event = Event.new(
         title: title,
         description: description,
@@ -165,9 +166,14 @@ puts "✨✨ Categories created !! ✨✨"
         beg_date: beg_date,
         end_date: end_date,
         category: category,
-        active: active
+        active: active,
+        buyers: buyers,
+        qr_code: nil
       )
       event.shop_id = shop.id
+      event.save!
+      qr_code = "www.hop-hop-hop.com/events/#{event.id}"
+      event.qr_code = qr_code
       event.save!
     end
 
