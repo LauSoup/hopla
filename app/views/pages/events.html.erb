@@ -5,7 +5,7 @@
         <h1>Bonjour <%= @user.first_name %> <%= @user.last_name %></h1>
         <%= simple_form_for (@shops[0]) do |f| %>
           <%= f.input :name, label: "Merci de nous préciser votre commerce proposant l'offre", input_html: { class: 'select2' }, collection: @shops %>
-          <%= f.submit "Valider", class: 'all-screen-button' %>
+          <%= f.submit 'Valider' %>
         <% end %>
       </div>
     </div>

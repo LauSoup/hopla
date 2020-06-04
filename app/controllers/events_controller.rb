@@ -37,7 +37,6 @@ class EventsController < ApplicationController
   def update
     authorize @event
     @user = current_user
-
     @shop = Shop.find(params[:shop_id])
     if @event.update(event_params)
       redirect_to shop_path(@shop)
