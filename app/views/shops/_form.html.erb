@@ -18,10 +18,10 @@
         <div class="container-white" id="container-step2-shop">
           <input type="hidden" name="shop[category_ids][]" value="">
           <div class="category-choices category-choices-shops" id="categories-container">
-            <% Category.all.each do |category| %> 
+            <% Category.all.each do |category| %>
               <div class="category-choice <%= "active" if shop.categories.include?(category) %> shop-category ">
-                <input class="checkbox-categ" type="checkbox" 
-                  value="<%= category.id %>" 
+                <input class="checkbox-categ" type="checkbox"
+                  value="<%= category.id %>"
                   name="shop[category_ids][]" id="shop_category_ids_<%= category.id %>"
                   <%= "checked=checked" if shop.categories.include?(category) %>
                 >
@@ -35,9 +35,9 @@
           <p id='step2-button' class= 'all-screen-button text-center'>Continuer</p>
           <div class="container text-center">
             <p class= 'return-button' id= 'button-return-step2'>Retour</p>
-          </div>      
-        </div> 
-      </div> 
+          </div>
+        </div>
+      </div>
     </div>
     <div class="form-step-3">
       <div class="step3">
@@ -49,7 +49,8 @@
           <div class="container text-center">
             <p class= 'return-button' id= 'button-return-step3'>Retour</p>
           </div>
-      <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+      <div id="photo-preview"></div>
+      <%#=image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
        </div>
     </div>
   </div>
