@@ -3,9 +3,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <% if event.shop.user == current_user %>
-          <% if event.buyers != nil || event.buyers > 0 %>
-            <% event.buyers > 1 ? clients = "clients ont" : clients = "client a" %>
-            <h5 class="modal-title" id="qrcodeModalLabel"><%= event.buyers %> <%= clients %> déjà profité de votre offre!</h5>
+          <% if event.buyers != nil %>
+            <% if event.buyers > 0 %>
+              <% event.buyers > 1 ? clients = "clients ont" : clients = "client a" %>
+              <h5 class="modal-title" id="qrcodeModalLabel"><%= event.buyers %> <%= clients %> déjà profité de votre offre!</h5>
+            <% else %>
+              <h5 class="modal-title" id="qrcodeModalLabel">Cette offre n'a toujours pas été utilisé!</h5>
+            <% end %>
           <% else %>
             <h5 class="modal-title" id="qrcodeModalLabel">Cette offre n'a toujours pas été utilisé!</h5>
           <% end %>
