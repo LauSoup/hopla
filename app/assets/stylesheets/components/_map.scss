@@ -80,13 +80,13 @@
 }
 
 #shop-card2 .block-category-window-pop-up .category2 {
-  border-radius: 8px;
   background-color: $bluemedium;
   padding-right: 10px;
   padding-left: 10px;
   color: white;
   font-weight: bold;
   width: max-content;
+  margin-bottom: 5px;
 }
 
 #shop-card2 {
@@ -152,7 +152,6 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
     background-color: white;
     width: auto;
     padding-right: 10px;
