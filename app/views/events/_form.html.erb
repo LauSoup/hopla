@@ -12,7 +12,7 @@
             <%= link_to  "Retour", shop_path(shop), class: 'return-button' %>
           </div>
         </div>
-      </div>      
+      </div>
     </div>
     <div class="form-step-2-event">
       <div class="step2-event">
@@ -46,10 +46,10 @@
           </div>
         </div>
       </div>
-    </div>   
+    </div>
     <div class="form-step-3-event">
       <div class="step3-event">
-        <div class="container-white" id="container-step3-event">   
+        <div class="container-white" id="container-step3-event">
           <%= f.input :photos, as: :file, input_html: { multiple: true, id: "photo-input-event" }, label_html: { class: 'upload-photo'}, label: '📷 Ajoutez une ou plusieurs image(s)' %>
           <%= f.submit "Valider", class: 'all-screen-button' %>
           <div class="container text-center">
