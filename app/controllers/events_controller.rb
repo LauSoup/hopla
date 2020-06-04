@@ -51,7 +51,7 @@ class EventsController < ApplicationController
     @user = current_user
     @event.buyers.nil? ? @event.buyers == 1 : @event.buyers +=1
     @event.save
-    event.buyers > 1 ? clients = "clients ont" : clients = "client a"
+    @event.buyers > 1 ? clients = "clients ont" : clients = "client a"
     flash[:alert] = "Félicitations! #{@event.buyers} #{clients} utilisé votre offre!"
     redirect_to dashboard_path(tab: "his-events")
   end
