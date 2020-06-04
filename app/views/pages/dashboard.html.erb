@@ -7,22 +7,22 @@
 
   <ul class="nav nav-pills justify-content-around my-3">
     <li class="nav-item">
-      <a class="nav-link <%= "active" if params[:tab] != "offers" %>" href="#his-shops" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_shop %></a>
+      <a class="nav-link active" href="#his-shops" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_shop %></a>
     </li>
     <% if @shops.empty? == false %>
       <li class="nav-item">
-        <a class="nav-link <%= "active" if params[:tab] == "offers" %>" href="#his-events" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_event %></a>
+        <a class="nav-link" href="#his-events" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_event %></a>
       </li>
     <% end %>
     <li class="nav-item">
-      <a class="nav-link <%= "active" if params[:tab] != "offers" %>" href="#his-favorites" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_fav %></a>
+      <a class="nav-link" href="#his-favorites" data-toggle="tab" style="text-decoration: none;" id="title-black"><%= tab_fav %></a>
     </li>
   </ul>
 
   <div class="tab-content">
 
     <!-- SHOPS TAB -->
-    <div class="tab-pane <%= "active" if params[:tab] != "offers" %>" id="his-shops">
+    <div class="tab-pane active" id="his-shops">
       <% if @shops != "" || @events.count > 0 %>
         <%= render 'shared/shop_card', shops: @shops %>
       <% else %>
@@ -37,7 +37,7 @@
 
     <!-- EVENTS TAB -->
 
-      <div class="tab-pane <%= "active" if params[:tab] == "offers" %>" id="his-events">
+      <div class="tab-pane" id="his-events">
       <% if @shops != "" && @events.count > 0 %>
         <%= render 'shared/event_card', events: @events %>
       <% else %>
@@ -51,7 +51,7 @@
     </div>
 
     <!-- FAVS tab -->
-    <div class="tab-pane <%= "active" if params[:tab] != "offers" %>" id="his-favorites">
+    <div class="tab-pane" id="his-favorites">
       <% if @favorite_events.length > 0 %>
         <% @favevents = [] %>
         <% @favorite_events.each do |favevent| %>
