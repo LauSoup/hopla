@@ -1,43 +1,55 @@
 <%= simple_form_for [shop, event] do |f| %>
   <div class="form-shop-event">
-    <div class="step1-event">
-      <div class="container-white" id="container-step1-event">
-        <%= f.input :title, label: "Titre" %>
-        <%= f.input :description, label: "Description" %>
-        <%= f.input :beg_date, as: :string, label: "Début de l'offre", input_html: {class: "datepicker"} %>
-        <%= f.input :end_date, as: :string,  label: "Fin de l'offre", input_html: {class: "datepicker"} %>
-        <p id='step1-event-button' class= 'all-screen-button text-center'>Continuer</p>
-        <div class="container text-center">
-          <%= link_to  "Retour", shop_path(shop), class: 'return-button' %>
+      <div class="form-step-1-event">
+        <div class="step1-event">
+          <div class="container-white" id="container-step1-event">
+            <%= f.input :title, label: "Titre" %>
+            <%= f.input :description, label: "Description" %>
+            <%= f.input :beg_date, as: :string, label: "Début de l'offre", input_html: {class: "datepicker"} %>
+            <%= f.input :end_date, as: :string,  label: "Fin de l'offre", input_html: {class: "datepicker"} %>
+            <p id='step1-event-button' class= 'all-screen-button text-center'>Continuer</p>
+            <div class="container text-center">
+              <%= link_to  "Retour", shop_path(shop), class: 'return-button' %>
+            </div>
         </div>
-      </div>
+      </div>      
     </div>
-    <div class="step2-event">
-      <div class="container-white" id="container-step2-event">
-        <div class="category-choices event_category">
-          <legend class="col-form-label pt-0">Catégorie
-            <abbr title="required">*</abbr>
-          </legend>
-          <input type="hidden" name="event[category]" value="">
-          <div class="category-choice <%= "active" if event.category == "Promotion" %> ">
-            <input class="checkbox-categ" type="checkbox" value="Promotion"
-              name="event[category]" id="event_category_promotion"
-              <%= "checked=checked" if event.category == "Promotion" %>
-            >
-            <label  for="event_category_promotion">Promotion
-              <i class="fa fa-check"></i>
-            </label>
+    <div class="form-step-2-event">
+      <div class="step2-event">
+        <div class="container-white" id="container-step2-event">
+          <div class="category-choices event_category">
+            <legend class="col-form-label pt-0">Catégorie
+              <abbr title="required">*</abbr>
+            </legend>
+            <input type="hidden" name="event[category]" value="">
+            <div class="category-choice <%= "active" if event.category == "Promotion" %> ">
+              <input class="checkbox-categ" type="checkbox" value="Promotion"
+                name="event[category]" id="event_category_promotion"
+                <%= "checked=checked" if event.category == "Promotion" %>
+              >
+              <label  for="event_category_promotion">Promotion
+                <i class="fa fa-check"></i>
+              </label>
+            </div>
+            <div class="category-choice <%= "active" if event.category == "Evènement" %> ">
+              <input class="checkbox-categ" type="checkbox" value="Evènement"
+                name="event[category]" id="event_category_evènement"
+                <%= "checked=checked" if event.category == "Evènement" %>
+              >
+              <label for="event_category_evènement">Evènement
+                <i class="fa fa-check"></i>
+              </label>
+            </div>
           </div>
-          <div class="category-choice <%= "active" if event.category == "Evènement" %> ">
-            <input class="checkbox-categ" type="checkbox" value="Evènement"
-              name="event[category]" id="event_category_evènement"
-              <%= "checked=checked" if event.category == "Evènement" %>
-            >
-            <label for="event_category_evènement">Evènement
-              <i class="fa fa-check"></i>
-            </label>
-          </div>
+          <%= f.input :offer, label: "Offre", placeholder: "ex: 2 achétés 1 offert, 20%" %>
+          <%= f.input :active, wrapper: :custom_boolean_switch, label: "Mettre en ligne ?" %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter image' %>
+          <%= f.submit "Valider", class: 'all-screen-button' %>
+        <% end %>
+        <div class="container text-center">
+          <p class= 'return-button' id= 'button-return-event-step2'>Retour</p>
         </div>
+      </div>      
         <%= f.input :offer, label: "Offre", placeholder: "ex: 2 achétés 1 offert, 20%" %>
         <%= f.input :active, wrapper: :custom_boolean_switch, label: "Mettre en ligne ?" %>
         <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter image' %>
