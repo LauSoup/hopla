@@ -43,6 +43,7 @@ import { scrollAnime } from "../effects/scrolled_appear";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initSelect2 } from '../plugins/select2';
+import { previewImageOnFileSelect } from '../components/photo_preview';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -59,6 +60,7 @@ document.addEventListener('turbolinks:load', () => {
   multipleFormEvent();
   // scrollAnime();
   initSelect2();
+  previewImageOnFileSelect();
 
   // dropdownForm();
 });
