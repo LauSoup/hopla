@@ -24,7 +24,16 @@
     <!-- SHOPS TAB -->
     <div class="tab-pane <%= "active" if params[:tab] != "his-events" %>" id="his-shops">
       <% if @shops != "" || @events.count > 0 %>
-        <%= render 'shared/shop_card', shops: @shops %>
+        <% active_shops = [] %>
+        <% @shops.each { |shop| active_shops << shop if shop.active == true } %>
+        <% inactive_shops = [] %>
+        <% @shops.each { |shop| inactive_shops << shop if shop.active == false } %>
+        <% if active_shops.count > 0 %>
+          <%= render 'shared/shop_card', shops: active_shops %>
+        <% end %>
+        <% if inactive_shops.count > 0 %>
+          <%= render 'shared/shop_card', shops: inactive_shops %>
+        <% end %>
       <% else %>
         <div class="no-result">
           <p>Aucune offre pour le moment</p>
@@ -38,7 +47,16 @@
     <!-- EVENTS TAB -->
       <div class="tab-pane <%= "active" if params[:tab] == "his-events" %>" id="his-events">
       <% if @shops != "" && @events.count > 0 %>
-        <%= render 'shared/event_card', events: @events %>
+        <% active_events = [] %>
+        <% @events.each { |event| active_events << event if event.active == true } %>
+        <% inactive_events = [] %>
+        <% @events.each { |event| inactive_events << event if event.active == false } %>
+        <% if active_events.count > 0 %>
+          <%= render 'shared/event_card', qr: @qr, events: active_events  %>
+        <% end %>
+        <% if inactive_events.count > 0 %>
+          <%= render 'shared/event_card', qr: @qr, events: inactive_events  %>
+        <% end %>
       <% else %>
         <div class="no-result">
           <p>Aucune offre pour le moment, cliquez sur le "+" pour créer votre première offre!</p>
