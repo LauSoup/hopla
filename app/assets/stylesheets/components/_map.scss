@@ -29,6 +29,107 @@
   text-align: center;
 }
 
+.shop-detail2 {
+  background-color: $orange;
+  width: 100%;
+  border-radius: 0px 0px 6px 6px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+}
+
+.grey-filter {
+  filter: grayscale(100%);
+}
+
+.without-filter {
+  opacity: 1;
+}
+
+#shop-card2 img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px 5px 0px 0px;
+  position: relative;
+}
+
+#shop-card2 .shop-detail2 h3 {
+  color: white;
+  font-style: bold;
+  text-align: left;
+  padding-left: 8px;
+  padding-top: 8px;
+  margin-bottom: 0px;
+  font-size: 24px;
+}
+
+#shop-card2 .shop-detail2 p {
+  color: white;
+  text-align: left;
+  padding-left: 8px;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+#shop-card2 .block-category-window-pop-up {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+}
+
+#shop-card2 .block-category-window-pop-up .category2 {
+  border-radius: 8px;
+  background-color: $bluemedium;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: white;
+  font-weight: bold;
+  width: max-content;
+}
+
+#shop-card2 {
+  margin-right: 5px 5px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+  margin-top:20px;
+}
+
+#shop-card2 .shop-detail2 .fa-lock {
+  position: absolute;
+  bottom: 70px;
+  right: 10px;
+  color: white;
+}
+
+.no-result p {
+  color: grey;
+}
+
+.no-result {
+  justify-content: center;
+  margin-top: 50%;
+}
+
+.no-result p {
+  color: grey;
+}
+
+.no-result {
+  justify-content: center;
+  margin-top: 50%;
+}
+
+#shop-card2 a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
 #promos {
   color: white;
 }
@@ -44,17 +145,17 @@
 .offers-in-progress {
     color: $bluemedium;
     font-weight: bold;
-    font-size: 10px;
     position: absolute !important;
-    top: 5px;
+    top: 10px;
     right: 5px;
-    background-color: white;
-    border-radius: 50%;
-    border: 1px solid $bluemedium;
     z-index: 1;
-    height: 45px;
-    width: 45px;
-    align-items: center;
     display: flex;
+    align-items: center;
     justify-content: center;
+    border-radius: 8px;
+    background-color: white;
+    width: auto;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 10px;
   }

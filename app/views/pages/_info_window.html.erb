@@ -1,21 +1,11 @@
-<div id="shop-card">
-  <div class="offers-in-progress">
-    <% total = shop.events.where(active: true).count %>
-    <% if total == 1 %>
-      <%= total %> offre
-    <% elsif total > 0 %>
-      <%= total %> offres
-    <% else %>
-      <p>0 offre </p>
-  <% end %>
-  </div>
+<div id="shop-card2">
   <% if shop.photos.count == 0 %>
-    <img src="https://source.unsplash.com/featured/?shop" alt="commerce de quartier">
+    <img src="https://torrentcorp.com/wp-content/uploads/Generic-profile-pic.gif" alt="aucune photo">
   <% else %>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carousel<%= shop.id %>" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <% shop.photos.each_with_index do |photo, index| %>
-          <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" class=<%= index == 0 ? "active" : "" %> ></li>
+          <li data-target="#carousel<%= shop.id %>" data-slide-to="<%= index %>" class="<%= index == 0 ? "active" : "" %>" ></li>
         <% end %>
       </ol>
       <div class="carousel-inner">
@@ -25,25 +15,38 @@
           </div>
         <% end %>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <a class="carousel-control-prev" href="#carousel<%= shop.id %>" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Précédent</span>
       </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <a class="carousel-control-next" href="#carousel<%= shop.id %>" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Suivant</span>
       </a>
     </div>
   <% end %>
   <%= link_to shop_path(shop) do %>
-    <div class="shop-detail">
+    <div class="shop-detail2">
+      <% if shop.active == false %>
+        <i class="fas fa-lock"></i>
+      <% end %>
       <h3><%= shop.name %></h3>
       <p><%= shop.address %></p>
-      <div class="block-category">
+      <div class="block-category-window-pop-up">
         <% shop.tags.each do |t| %>
-          <p class="category"><%= t.category.name %></p>
+          <p class="category2"><%= t.category.name %></p>
         <% end %>
       </div>
     </div>
   <% end %>
+  <div class="offers-in-progress">
+    <% total = shop.events.where(active: true).count %>
+    <% if total == 1 %>
+      <p class="offers-text"><%= total %> offre</p>
+    <% elsif total > 0 %>
+      <p class="offers-text"><%= total %> offres</p>
+    <% else %>
+      <p class="offers-text">0 offre </p>
+    <% end %>
+  </div>
 </div>
