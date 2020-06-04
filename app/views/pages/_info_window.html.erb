@@ -25,6 +25,11 @@
       </a>
     </div>
   <% end %>
+  <div class="block-category-window-pop-up">
+    <% shop.tags.each do |t| %>
+      <p class="category2"><%= t.category.name %></p>
+    <% end %>
+  </div>
   <%= link_to shop_path(shop) do %>
     <div class="shop-detail2">
       <% if shop.active == false %>
@@ -32,11 +37,6 @@
       <% end %>
       <h3><%= shop.name %></h3>
       <p><%= shop.address %></p>
-      <div class="block-category-window-pop-up">
-        <% shop.tags.each do |t| %>
-          <p class="category2"><%= t.category.name %></p>
-        <% end %>
-      </div>
     </div>
   <% end %>
   <div class="offers-in-progress">
