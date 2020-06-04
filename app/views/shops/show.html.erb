@@ -45,7 +45,7 @@
         <% end %>
       </div>
       <p id="shop-address"><i class="fas fa-map-marker-alt"></i> <%= @shop.address %></p>
-      <p><i class="fas fa-book"></i> <%= @shop.description %></p>
+      <p id="shop-description"><%= @shop.description %></p>
       <% if policy(@shop).update? %>
         <%= link_to edit_shop_path(@shop), :class => "button-dashboard-bis pen-padding" do %><i class="fas fa-pen"></i><% end %>
       <% end %>
