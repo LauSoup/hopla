@@ -28,7 +28,15 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.category-choices-shops {
   margin: 20px;
+}
+
+.category-choices-events {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .category-choice {
@@ -37,10 +45,7 @@
   padding: 8px;
   border-radius: 5px;
   opacity: .6;
-  flex: 0 0 30%;
-  text-align: center;
   height: 60px;
-  width: 140px;
   color: white;
   &.active {
     background: $bluemedium;
@@ -53,7 +58,21 @@
   }
 }
 
-.checkbox-categ {
+.event-category {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shop-category {
+  width: 129px;
+  text-align: center;
+  flex: 0 0 30%;
+}
+
+
+.checkbox-categ, #photo-input, #photo-input-event {
   display: none;
 }
 
@@ -105,7 +124,7 @@
     height: 100%;
     overflow-y: auto;
   }
-  .step1-event, .step2-event {
+  .step1-event, .step2-event, .step3-event {
     height: 100%;
     overflow-y: auto;
   }
@@ -113,7 +132,7 @@
     height: calc(100vh - 130px);
     overflow: hidden;
   }
-  .form-step-1-event, .form-step-2-event {
+  .form-step-1-event, .form-step-2-event, .form-step-3-event {
     height: calc(100vh - 130px);
     overflow: hidden;
   }
@@ -135,16 +154,6 @@
     border-radius: 3px;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   }
-  // #container-step1-shop {
-  //   height: 400px;
-  // }
-  // #container-step2-shop {
-  //   height: 600px;
-  // }
-  // #container-step3-shop {
-  //   margin-top: 10px;
-  //   height: 350px;
-  // }
   #container-step1-event {
     margin-top: 10px;
     height: 500px;
