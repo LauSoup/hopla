@@ -23,13 +23,11 @@ class ApplicationController < ActionController::Base
   # end
 
   def after_sign_in_path_for(resource)
-    flash[:alert] = "Vous êtes bien connecté."
     root_path #your path
 
   end
 
   def after_sign_out_path_for(resource)
-    flash[:alert] = "Vous êtes bien déconnecté."
     root_path #your path
 
   end
