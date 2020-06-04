@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       @user = authorize User.find(params[:id])
-    end 
+    end
   end
 
   def edit
@@ -20,7 +20,8 @@ class UsersController < ApplicationController
     @shops = Shop.all.select {|shop| shop.user_id == @user.id}
     authorize @user
     if @user.update(user_params)
-        redirect_to user_path(@user)
+      flash[:alert] = "Vos changements de paramètres ont été enregistrés."
+      redirect_to user_path(@user)
     else
       render 'edit'
     end
