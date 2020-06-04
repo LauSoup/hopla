@@ -33,6 +33,8 @@
   background-color: $orange;
   width: 100%;
   border-radius: 0px 0px 6px 6px;
+  padding-bottom: 5px;
+  padding-right: 5px;
 }
 
 .grey-filter {
@@ -71,21 +73,7 @@
 
 #shop-card2 .block-category-window-pop-up {
   display: flex;
-  align-items: center;
-}
-
-#shop-card2 .block-category-window-pop-up .category2 {
-  border-radius: 8px;
-  background-color: $bluemedium;
-  width: auto;
-  padding-right: 10px;
-  margin-left: 10px;
-  margin-bottom: 5px;
-}
-
-#shop-card2 .block-category-window-pop-up {
-  display: flex;
-  align-items: center;
+  flex-direction: column;
   position: absolute;
   top: 10px;
   left: 5px;
@@ -94,12 +82,11 @@
 #shop-card2 .block-category-window-pop-up .category2 {
   border-radius: 8px;
   background-color: $bluemedium;
-  width: auto;
   padding-right: 10px;
   padding-left: 10px;
-  margin-left: 7px;
   color: white;
   font-weight: bold;
+  width: max-content;
 }
 
 #shop-card2 {
