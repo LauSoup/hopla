@@ -17,9 +17,9 @@
       <div class="step2">
         <div class="container-white" id="container-step2-shop">
           <input type="hidden" name="shop[category_ids][]" value="">
-          <div class="category-choices" id="categories-container">
+          <div class="category-choices category-choices-shops" id="categories-container">
             <% Category.all.each do |category| %> 
-              <div class="category-choice <%= "active" if shop.categories.include?(category) %> ">
+              <div class="category-choice <%= "active" if shop.categories.include?(category) %> shop-category ">
                 <input class="checkbox-categ" type="checkbox" 
                   value="<%= category.id %>" 
                   name="shop[category_ids][]" id="shop_category_ids_<%= category.id %>"

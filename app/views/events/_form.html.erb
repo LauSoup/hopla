@@ -3,10 +3,10 @@
       <div class="form-step-1-event">
         <div class="step1-event">
           <div class="container-white" id="container-step1-event">
-            <%= f.input :title, label: "Titre" %>
-            <%= f.input :description, label: "Description" %>
-            <%= f.input :beg_date, as: :string, label: "Début de l'offre", input_html: {class: "datepicker"} %>
-            <%= f.input :end_date, as: :string,  label: "Fin de l'offre", input_html: {class: "datepicker"} %>
+            <%= f.input :title, label: "Quel est le nom de votre offre?", placeholder: "Ex: Exposition, Destockage.." %>
+            <%= f.input :description, label: "Description de votre offre:", placeholder: "Ex: Exposition de tel créateur, Destockage de tel produit... " %>
+            <%= f.input :beg_date, as: :string, label: "Quand commence votre offre?", input_html: {class: "datepicker"} %>
+            <%= f.input :end_date, as: :string,  label: "Quand finit-elle?", input_html: {class: "datepicker"} %>
             <p id='step1-event-button' class= 'all-screen-button text-center'>Continuer</p>
             <div class="container text-center">
               <%= link_to  "Retour", shop_path(shop), class: 'return-button' %>
@@ -17,44 +17,31 @@
     <div class="form-step-2-event">
       <div class="step2-event">
         <div class="container-white" id="container-step2-event">
-          <div class="category-choices event_category">
-            <legend class="col-form-label pt-0">Catégorie
-              <abbr title="required">*</abbr>
-            </legend>
+          <legend class="col-form-label pt-0">S'agit-il d'une promotion ou d'un évènement?
+            <abbr title="required">*</abbr>
+          </legend>
+          <div class="category-choices category-choices-events">
             <input type="hidden" name="event[category]" value="">
-            <div class="category-choice <%= "active" if event.category == "Promotion" %> ">
+            <div class="category-choice <%= "active" if event.category == "Promotion" %> event-category">
               <input class="checkbox-categ" type="checkbox" value="Promotion"
                 name="event[category]" id="event_category_promotion"
                 <%= "checked=checked" if event.category == "Promotion" %>
               >
-              <label  for="event_category_promotion">Promotion
-                <i class="fa fa-check"></i>
-              </label>
+              <label  for="event_category_promotion"> <i class="fas fa-percent"></i> Promotion </label>
             </div>
-            <div class="category-choice <%= "active" if event.category == "Evènement" %> ">
+            <div class="category-choice <%= "active" if event.category == "Evènement" %> event-category">
               <input class="checkbox-categ" type="checkbox" value="Evènement"
                 name="event[category]" id="event_category_evènement"
                 <%= "checked=checked" if event.category == "Evènement" %>
               >
-              <label for="event_category_evènement">Evènement
-                <i class="fa fa-check"></i>
-              </label>
+              <label for="event_category_evènement"> <i class="far fa-calendar-alt"></i> Evènement </label>
             </div>
           </div>
-          <%= f.input :offer, label: "Offre", placeholder: "ex: 2 achétés 1 offert, 20%" %>
-          <%= f.input :active, wrapper: :custom_boolean_switch, label: "Mettre en ligne ?" %>
-          <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter image' %>
+          <%= f.input :offer, label: "Précisez ici l'offre exacte:", placeholder: "ex: 2 achétés 1 offert, 20%" %>
+          <%= f.input :active, wrapper: :custom_boolean_switch, label: "Voulez-vous la mettre en ligne ?" %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter une ou plusieurs image(s)' %>
           <%= f.submit "Valider", class: 'all-screen-button' %>
         <% end %>
-        <div class="container text-center">
-          <p class= 'return-button' id= 'button-return-event-step2'>Retour</p>
-        </div>
-      </div>      
-        <%= f.input :offer, label: "Offre", placeholder: "ex: 2 achétés 1 offert, 20%" %>
-        <%= f.input :active, wrapper: :custom_boolean_switch, label: "Mettre en ligne ?" %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter image' %>
-        <%= f.submit "Valider", class: 'all-screen-button' %>
-      <% end %>
       <div class="container text-center">
         <p class= 'return-button' id= 'button-return-event-step2'>Retour</p>
       </div>
