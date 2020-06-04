@@ -50,11 +50,12 @@
     <div class="form-step-3-event">
       <div class="step3-event">
         <div class="container-white" id="container-step3-event">
-          <%= f.input :photos, as: :file, input_html: { multiple: true, id: "photo-input-event" }, label_html: { class: 'upload-photo'}, label: '📷 Ajoutez une ou plusieurs image(s)' %>
+          <%= f.input :photos, as: :file, input_html: { class: 'hidden', id: "photo-input", multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Ajoutez une ou plusieurs image(s)' %>
           <%= f.submit "Valider", class: 'all-screen-button' %>
           <div class="container text-center">
             <p class= 'return-button' id= 'button-return-event-step3'>Retour</p>
           </div>
+          <div id="photo-preview"></div>
         </div>
       </div>
     </div>

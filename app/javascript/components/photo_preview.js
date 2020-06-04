@@ -11,13 +11,19 @@ const previewImageOnFileSelect = () => {
 }
 
 const displayPreview = (input) => {
+  const photosContainer = document.getElementById('photo-preview');
   if (input.files && input.files[0]) {
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      document.getElementById('photo-preview').src = event.currentTarget.result;
-    }
-    reader.readAsDataURL(input.files[0])
-    document.getElementById('photo-preview').classList.remove('hidden');
+    photosContainer.innerHTML = "";
+    Array.from(input.files).forEach((file) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = document.createElement("img");
+        img.src = event.currentTarget.result;
+        img.style.width = "300px";
+        photosContainer.appendChild(img);
+      }
+      reader.readAsDataURL(file);
+    })
   }
 }
 
