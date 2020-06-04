@@ -52,7 +52,7 @@ class EventsController < ApplicationController
     @event.buyers += 1
     @event.save
     flash[:alert] = "Félicitations! #{@event.buyers} clients ont utilisé votre offre!"
-    redirect_to dashboard_path(tab: "offers")
+    redirect_to dashboard_path
 
   end
 
