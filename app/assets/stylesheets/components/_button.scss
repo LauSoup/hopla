@@ -33,7 +33,7 @@
   text-transform: uppercase;
   cursor: pointer;
   background-color: $orange;
-  color: $bluemedium;
+  color: white;
   box-shadow: 0 0 4px #999;
   outline: none;
 }
@@ -49,7 +49,7 @@
 }
 
 .button-dashboard-tres:hover {
-  color:$bluemedium;
+  color:white;
 }
 
 
@@ -68,7 +68,7 @@
   color:$bluemedium;
   border:none;
   padding: 5px 20px;
-  border-radius: 17px;
+  border-radius: 3px;
   font-size:bold;
   margin-bottom: 15px;
   font-weight:bold;

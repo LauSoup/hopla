@@ -36,7 +36,6 @@
     </div>
 
     <!-- EVENTS TAB -->
-
       <div class="tab-pane <%= "active" if params[:tab] == "his-events" %>" id="his-events">
       <% if @shops != "" && @events.count > 0 %>
         <%= render 'shared/event_card', events: @events %>
