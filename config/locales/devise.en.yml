@@ -48,7 +48,7 @@ en:
     sessions:
       signed_in: "Vous êtes connecté."
       signed_out: "Vous êtes déconnecté."
-      already_signed_out: "Vous êtes déconnecté."
+      already_signed_out: "Vous êtes déjà déconnecté."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
