@@ -3,10 +3,10 @@
     <div class="form-step-1-event">
       <div class="step1-event">
         <div class="container-white" id="container-step1-event">
-          <%= f.input :title, label: "Quel est le nom de votre offre?", placeholder: "Ex: Exposition, Destockage.." %>
-          <%= f.input :description, label: "Description de votre offre:", placeholder: "Ex: Exposition de tel créateur, Destockage de tel produit... " %>
-          <%= f.input :beg_date, as: :string, label: "Quand commence votre offre?", input_html: {class: "datepicker"} %>
-          <%= f.input :end_date, as: :string,  label: "Quand finit-elle?", input_html: {class: "datepicker"} %>
+          <%= f.input :title, label: "Quel est le nom de votre offre ?", placeholder: "Ex: Destockage, exposition..." %>
+          <%= f.input :description, label: "Description de votre offre :", placeholder: "Ex: Exposition de tel créateur, Destockage de tel produit... " %>
+          <%= f.input :beg_date, as: :string, label: "Quand commence votre offre ?", input_html: {class: "datepicker"} %>
+          <%= f.input :end_date, as: :string,  label: "Quand finit-elle ?", input_html: {class: "datepicker"} %>
           <p id='step1-event-button' class= 'all-screen-button text-center'>Continuer</p>
           <div class="container text-center">
             <%= link_to  "Retour", shop_path(shop), class: 'return-button' %>
@@ -17,7 +17,7 @@
     <div class="form-step-2-event">
       <div class="step2-event">
         <div class="container-white" id="container-step2-event">
-          <legend class="col-form-label pt-0">S'agit-il d'une promotion ou d'un évènement?
+          <legend class="col-form-label pt-0">S'agit-il d'une promotion ou d'un évènement ?
             <abbr title="required">*</abbr>
           </legend>
           <div class="category-choices category-choices-events">
@@ -37,7 +37,7 @@
               <label for="event_category_evènement"> <i class="far fa-calendar-alt"></i> Evènement </label>
             </div>
           </div>
-          <%= f.input :offer, label: "Précisez ici l'offre exacte à mettre en avant:", placeholder: "ex: 2 achétés 1 offert, 20%" %>
+          <%= f.input :offer, label: "Précisez ici l'offre exacte à mettre en avant :", placeholder: "ex: 2 achétés 1 offert, 20%" %>
           <br>
           <%= f.input :active, wrapper: :custom_boolean_switch, label: "Souhaitez-vous la mettre en ligne ?" %>
           <p id='step2-event-button' class= 'all-screen-button text-center'>Continuer</p>
