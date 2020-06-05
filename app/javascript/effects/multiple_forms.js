@@ -26,7 +26,7 @@ const multipleFormShop = () => {
     returnButtonStep2.addEventListener("click", (event) => {
       step1.style.transform = "translateY(0)";
       step2.style.transform = "translateY(0)";
-      title.innerHTML = "Quelle boutique voulez-vous créer?";
+      title.innerHTML = "Quelle boutique voulez-vous créer ?";
     });
     returnButtonStep3.addEventListener("click", (event) => {
       step2.style.transform = "translateY(-100%)";
