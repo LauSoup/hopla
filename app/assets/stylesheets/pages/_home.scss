@@ -21,11 +21,11 @@
 // adaptability for desktop screen
 
 @media (min-width: 562px) {
-  .home-container {
+  .center-home {
     display: flex;
     justify-content: center;
   }
-  .typed-container, .filter-section, .map-home {
+  .typed-container, .filter-section{
     width: 82vh;
   }
 }

@@ -1,6 +1,6 @@
 <div class="home">
-  <div class="home-container">
-    <!-- 1/3 vh container for typed js -->
+  <!-- 1/3 vh container for typed js -->
+  <div class="center-home">
     <div class="typed-container">
       <p class="lead">
         Trouvez <span class='typed-element'></span>
@@ -12,7 +12,7 @@
   <!-- 1/3 vh container for research -->
   <div class="research-container">
     <div data-controller= "ajax-form" class="ajax-form-search" >
-      <div class="home-container">
+      <div class="center-home">
         <div class="filter-section" id="search">
           <div class="container">
             <div class=" no-margin home-form" id= "search-form-home">
@@ -25,11 +25,7 @@
           </div>
         </div>
       </div>
-      <div class="home-container">
-        <div class="map-home">
-          <%= render "shops/map", markers: @markers %>
-        </div>
-      </div>
+      <%= render "shops/map", markers: @markers %>
     </div>
   </div>
 </div>
