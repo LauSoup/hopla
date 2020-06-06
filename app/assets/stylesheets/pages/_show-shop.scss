@@ -44,3 +44,10 @@
   text-align:left;
   margin-bottom:40px;
 }
+
+
+@media (min-width: 562px) {
+  .show-page-margin {
+    width: 82vh;
+  }
+}

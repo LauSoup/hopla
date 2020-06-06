@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container text-center container-dashboard">
 
   <% @shops.size > 1 ? tab_shop = "Enseignes" : tab_shop = "Enseigne" %>
   <% @events.size > 1 ? tab_event = "Offres" : tab_event = "Offre" %>
@@ -85,9 +85,10 @@
         <% @favevents.sort {|a,b| b.end_date <=> a.end_date} %>
         <%= render 'shared/event_card', events: @favevents %>
       <% else %>
-        <p>Aucun favori enregistré pour le moment! </p>
+        <div class="no-result">
+          <p>Aucun favori enregistré pour le moment! </p>
+        </div>
       <% end %>
     </div>
   </div>
-
 </div>
