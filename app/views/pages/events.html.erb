@@ -1,10 +1,12 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+  <div class="container text-center", style="margin-top:30px">
+    <h3>Pour quelle boutique voulez-vous créer une offre ?</h3>
+  </div>
+    <div class="row-forms">
+      <div class="column-forms">
         <div class="form-login">
-        <h1>Bonjour <%= @user.first_name %> <%= @user.last_name %></h1>
         <%= simple_form_for (@shops[0]) do |f| %>
-          <%= f.input :name, label: "Merci de nous préciser votre commerce proposant l'offre", input_html: { class: 'select2' }, collection: @shops %>
+          <%= f.input :name, label: "Selectionnez votre boutique:", input_html: { class: 'select2' }, collection: @shops %>
           <%= f.submit 'Valider' %>
         <% end %>
       </div>
