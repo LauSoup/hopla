@@ -16,3 +16,15 @@
 #refine-button {
   padding-bottom: 30px;
 }
+
+// adaptability for desktop screen
+
+@media (min-width: 562px) {
+  .home-container {
+    display: flex;
+    justify-content: center;
+  }
+  .typed-container, .filter-section, .map-home {
+    width: 82vh;
+  }
+}
