@@ -12,7 +12,20 @@
 
 #search-button {
   padding-top: 60px;
-}
+} 
+
 #refine-button {
   padding-bottom: 30px;
+}
+
+// adaptability for desktop screen
+
+@media (min-width: 562px) {
+  .center-home {
+    display: flex;
+    justify-content: center;
+  }
+  .typed-container, .filter-section{
+    width: 82vh;
+  }
 }

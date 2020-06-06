@@ -5,3 +5,18 @@
 #his-favorites {
   padding-bottom: 20px;
 }
+
+.no-result p {
+  color: grey;
+}
+
+.no-result {
+  text-align: center;
+  margin-top: 150px;
+}
+
+@media (min-width: 562px) {
+  .container-dashboard {
+    width: 82vh;
+  }
+}

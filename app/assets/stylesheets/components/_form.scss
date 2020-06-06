@@ -21,6 +21,24 @@
   }
 }
 
+.row-forms {
+  display: flex;
+  justify-content: center;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+@media (max-width: 2000px) {
+  .column-forms {
+    width: 540px;
+  }
+}
+@media (max-width: 900px) {
+  .column-forms {
+    width: 75%;
+  }
+}
+
 
 
 // Checkboxes design
@@ -177,4 +195,11 @@
   a {
     color: $bluemedium;
   }
+}
+
+
+// form for shop selection in dahsboard to create a new offer
+
+.select2-selection__placeholder {
+  display: none;
 }
