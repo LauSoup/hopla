@@ -6,6 +6,10 @@
       <div class="event-image">
         <% if event.photos.count == 0 %>
           <img src="https://torrentcorp.com/wp-content/uploads/Generic-profile-pic.gif" alt="">
+        <% elsif event.photos.count == 1 %>
+          <% event.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
+          <% end %>
         <% else %>
           <div id="carousel<%= event.id %>" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
