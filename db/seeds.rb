@@ -8,10 +8,9 @@
 
 require 'faker'
 require 'json'
-require 'open-uri'
 
 
-# Destroy current data before creating new ones
+# # Destroy current data before creating new ones
 
 puts "💣Erasing all current data...💣"
 FavoriteEvent.destroy_all
@@ -225,3 +224,44 @@ puts "Putting 20 events as favorites for random users..."
 end
 
 puts "Finishing creation of 20 events as favorites 🎆"
+
+
+# Creating user who has every shops
+puts "⏲ Creating Admin... ⏲"
+
+first_name ="User"
+last_name ="Boss"
+
+email = "admin@hoplette.com"
+password = "hoplette"
+user1 = User.new(
+  first_name: first_name,
+  last_name: last_name,
+  email: email,
+  password: password
+)
+user1.save!
+
+puts "✨✨ Admin created !! ✨✨"
+
+
+puts "Creating real shops"
+
+
+
+file = 'db/shops.json'
+
+shops = JSON.parse(File.read(file))
+shops["shops"].each do |shop|
+  shop = Shop.new(
+    active: true,
+    name:  shop["name"],
+    address: shop["address"]
+  )
+  puts "#{shop[:name]} created based on #{shop[:address]}"
+  shop.user_id = user1.id
+  shop.save! if shop.valid?
+end
+
+puts "Ending creating real shops"
+
