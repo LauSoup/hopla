@@ -5,6 +5,10 @@
         <div id="shop-card">
           <% if shop.photos.count == 0 %>
             <img src="https://torrentcorp.com/wp-content/uploads/Generic-profile-pic.gif" alt="aucune photo">
+          <% elsif shop.photos.count == 1 %>
+            <% shop.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
+            <% end %>
           <% else %>
             <div id="carousel<%= shop.id %>" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">

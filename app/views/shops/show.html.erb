@@ -19,8 +19,10 @@
     <div class="tab-pane <%= "active" if params[:tab] != "offers" %>" id="info">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <% @shop.photos.each_with_index do |photo, index| %>
-            <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" class="<%= index == 0 ? "active" : "" %>" ></li>
+          <% if @shop.photos.count > 1 %>
+            <% @shop.photos.each_with_index do |photo, index| %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" class="<%= index == 0 ? "active" : "" %>" ></li>
+            <% end %>
           <% end %>
         </ol>
         <div class="carousel-inner">
