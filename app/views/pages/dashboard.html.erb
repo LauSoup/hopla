@@ -23,72 +23,78 @@
 
     <!-- SHOPS TAB -->
     <div class="tab-pane <%= "active" if params[:tab] != "his-events" %>" id="his-shops">
-      <% if @shops != [] || @events.count > 0 %>
-        <% active_shops = [] %>
-        <% @shops.each { |shop| active_shops << shop if shop.active == true } %>
-        <% inactive_shops = [] %>
-        <% @shops.each { |shop| inactive_shops << shop if shop.active == false } %>
-        <% if active_shops.count > 0 %>
-          <%= render 'shared/shop_card', shops: active_shops %>
+      <div class="cards">
+        <% if @shops != [] || @events.count > 0 %>
+          <% active_shops = [] %>
+          <% @shops.each { |shop| active_shops << shop if shop.active == true } %>
+          <% inactive_shops = [] %>
+          <% @shops.each { |shop| inactive_shops << shop if shop.active == false } %>
+          <% if active_shops.count > 0 %>
+            <%= render 'shared/shop_card', shops: active_shops %>
+          <% end %>
+          <% if inactive_shops.count > 0 %>
+            <%= render 'shared/shop_card', shops: inactive_shops %>
+          <% end %>
+        <% else %>
+          <div class="no-result">
+            <p>Aucun résultat 😔</p>
+            <p>Ajoutez votre commerce dès maintenant 😃👇</p>
+          </div>
         <% end %>
-        <% if inactive_shops.count > 0 %>
-          <%= render 'shared/shop_card', shops: inactive_shops %>
-        <% end %>
-      <% else %>
-        <div class="no-result">
-          <p>Aucun résultat 😔</p>
-          <p>Ajoutez votre commerce dès maintenant 😃👇</p>
-        </div>
-      <% end %>
-        <%= link_to new_shop_path, :class => "button-dashboard-bis add-button-dashboard plus-padding" do %>
-          <i class="fas fa-plus"></i>
-        <% end %>
-    </div>
-
-    <!-- EVENTS TAB -->
-      <div class="tab-pane <%= "active" if params[:tab] == "his-events" %>" id="his-events">
-      <% if @shops != "" && @events.count > 0 %>
-        <% active_events = [] %>
-        <% @events.each { |event| active_events << event if event.active == true } %>
-        <% inactive_events = [] %>
-        <% @events.each { |event| inactive_events << event if event.active == false } %>
-        <% if active_events.count > 0 %>
-          <%= render 'shared/event_card', qr: @qr, events: active_events  %>
-        <% end %>
-        <% if inactive_events.count > 0 %>
-          <%= render 'shared/event_card', qr: @qr, events: inactive_events  %>
-        <% end %>
-      <% else %>
-        <div class="no-result">
-          <p>Aucune offre pour le moment, cliquez sur le "+" pour créer votre première offre!</p>
-        </div>
-      <% end %>
-      <%= link_to dashboard_events_path, :class => "button-dashboard-tres plus-padding add-button-dashboard " do %>
+      </div>
+      <%= link_to new_shop_path, :class => "button-dashboard-bis add-button-dashboard plus-padding" do %>
         <i class="fas fa-plus"></i>
       <% end %>
     </div>
 
+    <!-- EVENTS TAB -->
+      <div class="tab-pane <%= "active" if params[:tab] == "his-events" %>" id="his-events">
+        <div class="cards">
+        <% if @shops != "" && @events.count > 0 %>
+          <% active_events = [] %>
+          <% @events.each { |event| active_events << event if event.active == true } %>
+          <% inactive_events = [] %>
+          <% @events.each { |event| inactive_events << event if event.active == false } %>
+          <% if active_events.count > 0 %>
+            <%= render 'shared/event_card', qr: @qr, events: active_events  %>
+          <% end %>
+          <% if inactive_events.count > 0 %>
+            <%= render 'shared/event_card', qr: @qr, events: inactive_events  %>
+          <% end %>
+        <% else %>
+          <div class="no-result">
+            <p>Aucune offre pour le moment, cliquez sur le "+" pour créer votre première offre!</p>
+          </div>
+        <% end %>
+        <%= link_to dashboard_events_path, :class => "button-dashboard-tres plus-padding add-button-dashboard " do %>
+          <i class="fas fa-plus"></i>
+        <% end %>
+      </div>
+    </div>
+
     <!-- FAVS tab -->
     <div class="tab-pane" id="his-favorites">
-      <% if @favorite_events.length > 0 %>
-        <% @favevents = [] %>
-        <% @favorite_events.each do |favevent| %>
-          <% @favevents << favevent.event if favevent.event.active == true %>
-        <% end %>
-        <% @favevents.sort {|a,b| b.end_date <=> a.end_date} %>
-        <%= render 'shared/event_card', events: @favevents %>
+      <div class="cards">
+        <% if @favorite_events.length > 0 %>
+          <% @favevents = [] %>
+          <% @favorite_events.each do |favevent| %>
+            <% @favevents << favevent.event if favevent.event.active == true %>
+          <% end %>
+          <% @favevents.sort {|a,b| b.end_date <=> a.end_date} %>
+          <%= render 'shared/event_card', events: @favevents %>
 
-        <% @favevents = [] %>
-        <% @favorite_events.each do |favevent| %>
-          <% @favevents << favevent.event if favevent.event.active == false %>
+          <% @favevents = [] %>
+          <% @favorite_events.each do |favevent| %>
+            <% @favevents << favevent.event if favevent.event.active == false %>
+          <% end %>
+          <% @favevents.sort {|a,b| b.end_date <=> a.end_date} %>
+          <%= render 'shared/event_card', events: @favevents %>
+        <% else %>
+          <div class="no-result">
+            <p>Aucun favori enregistré pour le moment! </p>
+          </div>
         <% end %>
-        <% @favevents.sort {|a,b| b.end_date <=> a.end_date} %>
-        <%= render 'shared/event_card', events: @favevents %>
-      <% else %>
-        <div class="no-result">
-          <p>Aucun favori enregistré pour le moment! </p>
-        </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

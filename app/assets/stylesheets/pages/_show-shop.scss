@@ -45,9 +45,20 @@
   margin-bottom:40px;
 }
 
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
 
-@media (min-width: 562px) {
-  .show-page-margin {
-    width: 82vh;
+@media(max-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
   }
 }
