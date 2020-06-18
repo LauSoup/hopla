@@ -90,11 +90,11 @@
           <% @favevents.sort {|a,b| b.end_date <=> a.end_date} %>
           <%= render 'shared/event_card', events: @favevents %>
         <% else %>
+      </div>
           <div class="no-result">
             <p>Aucun favori enregistré pour le moment! </p>
           </div>
         <% end %>
-      </div>
     </div>
   </div>
 </div>
