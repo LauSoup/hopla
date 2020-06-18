@@ -57,27 +57,34 @@
     <!-- End of INFO TAB & Beginning of Events Tab -->
 
     <div class="tab-pane <%= "active" if params[:tab] == "offers" %>" id="offers">
-      <div class="cards">
-        <% if policy(@shop).update? %>
-        <%= link_to new_shop_event_path(@shop), :class => "button-dashboard-tres plus-padding add-button-dashboard " do %><i class="fas fa-plus"></i><% end %>
-        <% end %>
-        <% active_events = [] %>
-        <% @events.each { |event| active_events << event if event.active == true } %>
-        <% inactive_events = [] %>
-        <% @events.each { |event| inactive_events << event if event.active == false } %>
-        <% if @events.count > 0 %>
+      <% if policy(@shop).update? %>
+      <%= link_to new_shop_event_path(@shop), :class => "button-dashboard-tres plus-padding add-button-dashboard " do %><i class="fas fa-plus"></i><% end %>
+      <% end %>
+      <% active_events = [] %>
+      <% @events.each { |event| active_events << event if event.active == true } %>
+      <% inactive_events = [] %>
+      <% @events.each { |event| inactive_events << event if event.active == false } %>
+      <% if @events.count > 0 %>
+        <div class="cards">
           <% if active_events.count > 0 %>
             <%= render 'shared/event_card', qr: @qr, events: active_events  %>
           <% end %>
           <% if inactive_events.count > 0 %>
             <%= render 'shared/event_card', qr: @qr, events: inactive_events  %>
           <% end %>
-        <% else %>
+        </div>
+      <% else %>
+        <% if current_user.id == @shop.user_id %>
           <div class="no-result">
             <p>Aucune offre pour le moment, cliquez sur le "+" pour créer votre première offre!</p>
           </div>
+        <% else %>
+          <div class="no-result">
+            <p>Patience... Votre commerçant n'a pas encore proposé d'offre!</p>
+            <p>Cliquez sur le pouce si vous souhaitez que nous lui annoncions que vous attendez une offre de son commerce</p>
+          </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
