@@ -23,8 +23,8 @@
 
     <!-- SHOPS TAB -->
     <div class="tab-pane <%= "active" if params[:tab] != "his-events" %>" id="his-shops">
-      <div class="cards">
-        <% if @shops != [] || @events.count > 0 %>
+      <% if @shops != [] || @events.count > 0 %>
+        <div class="cards">
           <% active_shops = [] %>
           <% @shops.each { |shop| active_shops << shop if shop.active == true } %>
           <% inactive_shops = [] %>
@@ -35,13 +35,13 @@
           <% if inactive_shops.count > 0 %>
             <%= render 'shared/shop_card', shops: inactive_shops %>
           <% end %>
-        <% else %>
-          <div class="no-result">
-            <p>Aucun résultat 😔</p>
-            <p>Ajoutez votre commerce dès maintenant 😃👇</p>
-          </div>
-        <% end %>
-      </div>
+        </div>
+      <% else %>
+        <div class="no-result">
+          <p>Aucun résultat 😔</p>
+          <p>Ajoutez votre commerce dès maintenant 😃👇</p>
+        </div>
+      <% end %>
       <%= link_to new_shop_path, :class => "button-dashboard-bis add-button-dashboard plus-padding" do %>
         <i class="fas fa-plus"></i>
       <% end %>
