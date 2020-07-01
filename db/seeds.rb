@@ -54,7 +54,14 @@ categories = [
   caviste = { name: "Caviste", icon: "fas fa-wine-bottle" },
   maroquinerie = { name: "Maroquinerie", icon: "fas fa-briefcase" },
   quincaillerie = { name: "Quincaillerie", icon: "fas fa-tools" },
-  epicerie = { name: "Epicerie", icon: "fas fa-mortar-pestle" },
+  alimentation = { name: "Alimentation", icon: "fas fa-mortar-pestle" },
+  esthetique = { name: "Esthétique", icon: "fas fa-eye" },
+  animalerie = { name: "Animalerie", icon: "fas fa-dog" },
+  opticien = { name: "Opticien", icon: "fas fa-glasses" },
+  jardinerie = { name: "Jardinerie", icon: "fas fa-tree" },
+  librairie = { name: "Librairie", icon: "fas fa-book" },
+  artisanat = { name: "Artisanat", icon: "fas fa-chair" },
+  funeraire = { name: "Funéraire", icon: "fas fa-cross" }
   ]
 categories.each do |category|
   Category.create(name: category[:name], icon: category[:icon])
@@ -248,16 +255,61 @@ puts "Creating real shops"
 
 file = 'db/shops.json'
 
+accepted_categories = [ "Pharmacie", "Fournitures", "Restauration", 
+"Occasions", "Cuisine", "Discount", "Animalerie", "Loisirs", "Opticiens", 
+"Confiserie", "Boisson", "Jardinerie", "Garagiste", "Fleuriste", "Salles", 
+"Livres", "Boulangerie", "Esthétique", 
+"Coiffeurs", "Peintre", "Culture", "Presse", "Menuiserie", 
+"Événementiel", "Pompes", "cavistes"]
+
+mapping_categories = {
+  "Pharmacie" => Category.find_by(name: "Santé").id,
+  "Fournitures" => Category.find_by(name: "Quincaillerie").id, 
+  "Restauration" => Category.find_by(name: "Alimentation").id, 
+  "Occasions" => Category.find_by(name: "Quincaillerie").id, 
+  "Cuisine" => Category.find_by(name: "Alimentation").id, 
+  "Discount" => Category.find_by(name: "Quincaillerie").id, 
+  "Animalerie" => Category.find_by(name: "Animalerie").id, 
+  "Loisirs" => Category.find_by(name: "Divertissement").id, 
+  "Opticiens" => Category.find_by(name: "Opticien").id, 
+  "Confiserie" => Category.find_by(name: "Alimentation").id, 
+  "Boisson" => Category.find_by(name: "Alimentation").id, 
+  "Jardinerie" => Category.find_by(name: "Jardinerie").id, 
+  "Garagiste" => Category.find_by(name: "Garage").id, 
+  "Fleuriste" => Category.find_by(name: "Fleuriste").id, 
+  "fleuristes" => Category.find_by(name: "Fleuriste").id, 
+  "Salles" => Category.find_by(name: "Divertissement").id, 
+  "Livres" => Category.find_by(name: "Librairie").id, 
+  "Boulangerie" => Category.find_by(name: "Alimentation").id, 
+  "Esthétique" => Category.find_by(name: "Esthétique").id, 
+  "Coiffeurs" => Category.find_by(name: "Esthétique").id, 
+  "Peintre" => Category.find_by(name: "Artisanat").id, 
+  "Culture" => Category.find_by(name: "Esthétique").id, 
+  "Presse" => Category.find_by(name: "Librairie").id, 
+  "Menuiserie" => Category.find_by(name: "Artisanat").id, 
+  "Événementiel" => Category.find_by(name: "Divertissement").id, 
+  "Pompes" => Category.find_by(name: "Funéraire").id,
+  "cavistes" => Category.find_by(name: "Caviste").id
+}
+
 shops = JSON.parse(File.read(file))
 shops["shops"].each do |shop|
-  shop = Shop.new(
-    active: true,
-    name:  shop["name"],
-    address: shop["address"],
-    description: shop["description"]
-  )
-  puts "#{shop[:name]} created based on #{shop[:address]}"
-  shop.user_id = user1.id
-  shop.save! if shop.valid?
+  if accepted_categories.include?(shop["category"])
+    new_shop = Shop.new(
+      active: true,
+      name:  shop["name"],
+      address: shop["address"],
+      description: shop["description"]
+    )
+    puts "#{new_shop[:name]} created based on #{new_shop[:address]}"
+    new_shop.user_id = user1.id
+    new_shop.save! if new_shop.valid?
+
+    tag = Tag.new
+      p mapping_categories[shop["category"]]
+      tag.category_id = mapping_categories[shop["category"]]
+      tag.shop_id = new_shop.id
+      tag.save!
+  end
 end
   puts "Ending creating real shops"
